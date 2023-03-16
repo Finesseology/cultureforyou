@@ -1,0 +1,19 @@
+.myDiv {
+    border: 5px outset palevioletred;
+    margin: 75px;
+}
+.h1 {
+    color: rgb(94, 90, 90); 
+    font-family: Arial;
+}
+
+.h2 {
+    color: rgb(94, 90, 90); 
+    font-family: Arial;
+    margin: 50px;
+}
+
+.p{
+    font-size: 18px;
+    margin: 50px;
+}
