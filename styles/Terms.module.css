@@ -1,0 +1,14 @@
+.center{
+    text-align: center;
+}
+
+.line {
+    height: 1px;
+    border: none;
+    background-color: lightgrey;
+}
+
+
+.p{
+    margin: 20px;
+}

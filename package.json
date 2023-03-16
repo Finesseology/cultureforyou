@@ -13,7 +13,23 @@
     "eslint-config-next": "13.2.4",
     "mysql2": "^3.2.0",
     "next": "^13.2.4",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
-  }
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "description": "First, run the development server:",
+  "main": "next.config.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Finesseology/cultureforyou.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Finesseology/cultureforyou/issues"
+  },
+  "homepage": "https://github.com/Finesseology/cultureforyou#readme"
 }
