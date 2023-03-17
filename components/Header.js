@@ -3,7 +3,6 @@ import styles from '../styles/HeaderStyles.module.css'
 import Link from 'next/link'
 import Head from 'next/head'
 import Image from 'next/image'
-import Logo from '../images/cultureforyoulogo.png'
 
 const Header = () =>
 {
@@ -11,7 +10,7 @@ const Header = () =>
         <div className={styles.Header_Center}>
             <Image
                 className={styles.Header_Logo}
-                src={Logo}
+                src={"/index/cultureforyoulogo.png"}
                 alt="CultureForYou Logo"
                 width={180}
                 height={130}
