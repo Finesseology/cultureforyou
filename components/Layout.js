@@ -10,7 +10,7 @@
 import Header from "./Header"
 import NavBar from "./NavBar"
 import Footer from "./Footer"
-import styles from '../styles/LayoutStyles.module.css'
+//import styles from '../styles/LayoutStyles.module.css'
 
 const Layout =({children}) => {
     return (
