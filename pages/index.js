@@ -99,7 +99,7 @@ export default function Home() {
               <figure className={styles.snip1533}>
                 <figcaption>
                   <blockquote>
-                    <p>The only skills I have the patience to learn are those that have no real application in life. </p>
+                    <p>The onlyy skills I have the patience to learn are those that have no real application in life. </p>
                   </blockquote>
                   <h3>Ingredia </h3>
                   <h4>Cake Topper</h4>
