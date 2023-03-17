@@ -3,7 +3,7 @@ import styles from '../styles/HeaderStyles.module.css'
 import Link from 'next/link'
 import Head from 'next/head'
 import Image from 'next/image'
-import Logo from 'pages/images/cultureforyoulogo.png'
+import Logo from '../images/cultureforyoulogo.png'
 
 const Header = () =>
 {
