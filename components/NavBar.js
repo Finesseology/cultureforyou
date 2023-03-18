@@ -11,7 +11,7 @@ const NavBar = () =>
                 <Link className={styles.Nav_li} href ='/'><li>HOME</li></Link>
                 <Link className={styles.Nav_li} href ='http://localhost:3000/shopLayout'><li>SHOP</li></Link>
                 <Link className={styles.Nav_li} href ='/'><li>APPOINTMENTS</li></Link>
-                <Link className={styles.Nav_li} href ='/'><li>CONTACT US</li></Link>
+                <Link className={styles.Nav_li} href ='http://localhost:3000/contactus'><li>CONTACT US</li></Link>
  
             </ul>
 

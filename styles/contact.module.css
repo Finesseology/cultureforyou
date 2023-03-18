@@ -1,0 +1,94 @@
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 2rem 0;
+  }
+.bodyContactUs{
+  background-color: rgb(255, 249, 227);
+}
+
+.buttonContactUs{
+    grid-column: 1 / -1;
+    justify-self: center;
+  }
+  
+
+.navbar {
+    background-color: #fb7a7a;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    padding: 2em;
+    text-align: center;
+    position: relative;
+    top: 0px; /* adjust as needed to position the section below the logo */
+    margin: 0 auto;
+    width: 100%;
+    height: 50px; /* adjust as needed */
+    color: rgb(255, 249, 227);
+  }
+  
+  
+  .grid3 {
+    display: grid;
+    text-align: center;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    width: var(--max-width);
+    max-width: 100%;
+    padding: 0;
+    gap: 1em;
+    margin: 0 auto;
+  }
+  
+  .formContactUs {
+    background-color: #fb7a7a;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: auto;
+    margin: 0 auto;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    min-height: 300px;
+    height: auto;
+    width: auto;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+ .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.socialMediaLinkContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  padding: 50px;
+}
+
+.socialMediaLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f09433;
+  color: #fff;
+  font-size: 18px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  margin: 1%;
+
+}
+
+.socialMediaLink:hover {
+  background-color: #ff9c5b;
+  cursor: pointer;
+}
