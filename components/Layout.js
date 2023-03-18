@@ -14,14 +14,14 @@ import Footer from "./Footer"
 
 const Layout =({children}) => {
     return (
-        <div className={styles.Layout_Main}>
+    
         <div className="content">
             <Header/>
             <NavBar/>
             {children}
             <Footer/>
         </div>
-        </div>
+   
     );
 }
 
