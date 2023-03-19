@@ -9,9 +9,9 @@ const NavBar = () =>
         <nav className={styles.Nav_Main}>
             <ul className={styles.Nav_ul}>
                 <Link className={styles.Nav_li} href ='/'><li>HOME</li></Link>
-                <Link className={styles.Nav_li} href ='http://localhost:3000/shopLayout'><li>SHOP</li></Link>
+                <Link className={styles.Nav_li} href ='../shop-layout'><li>SHOP</li></Link>
                 <Link className={styles.Nav_li} href ='/'><li>APPOINTMENTS</li></Link>
-                <Link className={styles.Nav_li} href ='http://localhost:3000/contactus'><li>CONTACT US</li></Link>
+                <Link className={styles.Nav_li} href ='../contact-us'><li>CONTACT US</li></Link>
  
             </ul>
 
