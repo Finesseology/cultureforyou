@@ -29,7 +29,7 @@ export default function Home() {
 
 							<div className={styles.grid2}>
 								<b>Engraving</b>
-								<Link href='http://localhost:3000/henna-design'><b> Henna</b></Link> 
+								<Link href='./henna-design'><b> Henna</b></Link> 
 								<b>Wedding Sign</b>
 								<b>Toppers</b>
 								<b>Makeup</b>
