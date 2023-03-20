@@ -1,0 +1,23 @@
+.hennaGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: minmax(300px, auto);
+    gap: 20px;
+}
+  
+.hennaPic {
+    background-color: #f0f0f0;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hennaPic h2 {
+  margin-top: 0;
+}
+
+.henna-style p:last-child {
+  margin-bottom: 0;
+}

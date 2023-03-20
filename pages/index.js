@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
+import Link from 'next/link';
 import { Inter } from "next/font/google";
 import styles from "@/styles/Homepage.module.css";
 
@@ -28,7 +29,7 @@ export default function Home() {
 
 							<div className={styles.grid2}>
 								<b>Engraving</b>
-								<b>Henna</b>
+								<Link href='./henna-design'><b> Henna</b></Link> 
 								<b>Wedding Sign</b>
 								<b>Toppers</b>
 								<b>Makeup</b>
