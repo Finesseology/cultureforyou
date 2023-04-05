@@ -85,11 +85,20 @@ const designs = [
     description: 'impressive henna',
     image: '/hennaPics/henna.png'
   },
+
   {
     id: 12,
     name: 'henna sample 12',
+    description: 'Wow henna',
+    image: '/hennaPics/henna6.png'
+  },
+
+  {
+    id: 13,
+    name: 'henna sample 13',
     description: 'charming henna',
     image: '/hennaPics/henna3.png'
+
   }
 
 ]
