@@ -1,22 +1,65 @@
 import Head from 'next/head'
 import Link from "next/link"
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import styles from '../styles/contact.module.css'
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 
-
-function contact_us() {
+function ContactUs() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
+    const [notification, setNotification] = useState('');
+
+    const { executeRecaptcha } = useGoogleReCaptcha();
+    
+    const handleSubmit = useCallback(
+      (e) => {
+        e.preventDefault();
+        
+        if (!executeRecaptcha) {
+          console.log("Execute recaptcha not yet available");
+          return;
+        }
+        executeRecaptcha("enquiryFormSubmit").then((gReCaptchaToken) => {
+          console.log(gReCaptchaToken, "response Google reCaptcha server");
+          submitEnquiryForm(gReCaptchaToken);
+          
+        });
+      },
+      [executeRecaptcha, name, email, message]
+    );
 
     
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        console.log('Form submitted!');
-        console.log(name, email, message);
-        // Add any additional logic here for handling the form data
-      };
-      
+    const submitEnquiryForm = (gReCaptchaToken) => {
+      fetch("/api/enquiry", {
+        method: "POST",
+        headers: {
+          Accept: "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: name,
+          email: email,
+          message: message,
+          gRecaptchaToken: gReCaptchaToken,
+        }),
+      })
+        .then((res) => res.json())
+        .then((res) => {
+          console.log(res, "response from backend");
+          if (res?.status === "success") {
+            setNotification(res?.message);
+            console.log(name, email, message);
+           
+            
+          } else {
+            setNotification(res?.message);
+          }
+        });
+    };
+
+
     
 
       return (
@@ -57,6 +100,7 @@ function contact_us() {
                 Submit
               </button>
             </form>
+            {notification && <p>{notification}</p>}
             <div className={styles.socialMediaLinkContainer}>
               <a
                 href="https://www.instagram.com/cultureforyou_/"
@@ -76,4 +120,21 @@ function contact_us() {
       );
       
   }
-export default contact_us
+  export default function contact_us(pageProps) {
+    return (
+      <GoogleReCaptchaProvider
+        reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY}
+        scriptProps={{
+          async: false,
+          defer: false,
+          appendTo: 'head',
+          nonce: undefined,
+        }}
+      >
+        <ContactUs {...pageProps} />
+      </GoogleReCaptchaProvider>
+      
+    );
+    
+  }
+  
