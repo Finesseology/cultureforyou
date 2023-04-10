@@ -14,6 +14,7 @@ export const authOptions =
     GoogleProvider({
         clientId: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET
+        
       }),
     
     // ...add more providers here
@@ -31,7 +32,20 @@ export const authOptions =
       session.accessToken = token.accessToken
       return session
     }
-  }
+  }, 
 
-}
+  google: {
+    reCaptcha: {
+      siteKey: process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY,
+      secretKey: process.env.RECAPTCHA_SECRETKEY,
+      version: "v3",
+      threshold: 0.5,
+      // Add reCaptchaResponse to the callbackUrl query parameters
+      callback: (req, res, options) => {
+        options.callbackUrl = `${options.callbackUrl}?reCaptchaResponse=${req.query.reCaptchaResponse}`;
+      }
+    }
+  }
+};
+
 export default NextAuth(authOptions)
