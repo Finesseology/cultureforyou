@@ -1,0 +1,15 @@
+.pageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .calendarContainer {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .textContainer {
+    margin: 20px 0;
+  }
