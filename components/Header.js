@@ -15,7 +15,7 @@ const Header = () =>
                 width={180}
                 height={130}
                 priority />
-                
+          
             </div>
     )
 }
