@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import styles from '../styles/appointment.module.css'
 import Calendar from "react-calendar";
 import 'react-calendar/dist/Calendar.css'
+import { query } from "../lib/db";
 
 export default function Appointment() {
   const [selectedDate, setSelectedDate] = useState(new Date()); // to handle selected dates on the calendar
@@ -24,14 +25,20 @@ export default function Appointment() {
     setShowConfirmation(true);
   }
 
-  const fetchAvailableTimeSlots = async (selectedDate) => {
+  const fetchAvailableTimeSlots = async (selectedDate, res) => {
     // make API call to fetch available time slots for the selected date
 
-      const apiUrlEndpoint = './api/get-data';
-      const response = await fetch(apiUrlEndpoint);
-      const res = await response.json();
-      console.log(res.appointments);
-      setAvailableTimeSlots(res.appointments);
+    try {
+      const querySql = "SELECT DATE_FORMAT(timeSlots, '%h:%i %p') as time FROM appointments";
+      const valueParams = [];
+      const data = await query({ query: querySql, values: [valueParams] });
+      setAvailableTimeSlots(data.appointments);
+
+      res.status(200).json({ appointments: data });
+    } catch (error) {
+    // unhide to check error
+      res.status(500).json({ error: error.message });
+    }      
   };
 
   return (

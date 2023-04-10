@@ -4,7 +4,6 @@
     grid-template-rows: minmax(300px, auto);
     gap: 20px;
 }
-  
 .hennaPic {
     background-color: #f0f0f0;
     padding: 20px;
@@ -13,11 +12,9 @@
     flex-direction: column;
     justify-content: space-between;
 }
-
 .hennaPic h2 {
   margin-top: 0;
 }
-
 .henna-style p:last-child {
   margin-bottom: 0;
 }
