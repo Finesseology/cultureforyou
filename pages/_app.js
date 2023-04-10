@@ -6,12 +6,36 @@
 
 import Layout from '../components/Layout'
 import GoogleAnalytics from "@bradgarropy/next-google-analytics"
-export default function App({ Component, pageProps }) {
+import { SessionProvider } from "next-auth/react" 
+
+
+export default function App({ Component, pageProps: { session, ...pageProps }  }) {
   const measurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
   return <>
     <Layout>
     <GoogleAnalytics measurementId={measurementId}/>
-    <Component {...pageProps}/>
+    <SessionProvider session={session}>
+      {Component.auth ? (
+        <Auth>
+          <Component {...pageProps} />
+        </Auth>
+      ) : (
+        <Component {...pageProps} />
+      )}
+    </SessionProvider>
+
     </Layout>
   </>
+}
+
+
+function Auth({ children }) {
+  // if `{ required: true }` is supplied, `status` can only be "loading" or "authenticated"
+  const { status } = useSession({ required: true })
+
+  if (status === "loading") {
+    return <div>Loading...</div>
+  }
+
+  return children
 }
