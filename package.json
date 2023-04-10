@@ -18,6 +18,7 @@
     "next": "^13.3.0",
     "next-auth": "^4.22.0",
     "react": "^18.2.0",
+    "react-calendar": "^4.2.1",
     "react-dom": "^18.2.0"
   },
   "description": "First, run the development server:",
