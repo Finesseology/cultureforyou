@@ -6,6 +6,7 @@ export default async function handler(req, res) {
     const querySql = "SELECT DATE_FORMAT(timeSlots, '%h:%i %p') as time FROM appointments Where available = true";
     const valueParams = [];
     const data = await query({ query: querySql, values: [valueParams] });
+    
     res.status(200).json({ appointments: data });
   } catch (error) {
   // unhide to check error
