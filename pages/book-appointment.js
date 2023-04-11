@@ -5,24 +5,19 @@ import styles from "@/styles/AppointmentBooking.module.css";
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import { useState } from "react";
-//import sgMail from '@sendgrid/mail';
-
-//sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 function BookingForm() { 
   const [selectedDate, setSelectedDate] = React.useState(null);
   const router = useRouter();
-  const [email, setEmail] = useState(); //to store our email//
+  const [email, setEmail] = useState(); 
     const { status } = useSession({
       required: true,
       onUnauthenticated() {
-        // The user is not authenticated, handle it here.
-        router.push('/signInPage'); //DIRECTS TO SIGNIN PAGE
+        router.push('/signInPage'); 
         return <p>Redirecting you to the login page...</p>
       },
     })
 
-    //SHOWS LOADING THEN THE DATEPICKER
     if (status === "loading") {
         return <p>Loading...</p>
     }
