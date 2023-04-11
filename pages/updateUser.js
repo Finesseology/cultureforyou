@@ -1,7 +1,8 @@
+import { signIn } from "next-auth/react"
+import { useSession } from "next-auth/react"
 import { useState } from "react";
 import { query } from "../lib/db";
 import styles from "../styles/UpdateUser.module.css";
-
 
 export default function UpdateUser(userId) {
   const [firstName, setFirstName] = useState("");
@@ -12,6 +13,18 @@ export default function UpdateUser(userId) {
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [error, setError] = useState("");
+
+  // Get the session object
+  const { data: session, status } = useSession();
+
+  // If the user is not authenticated, redirect them to the login page
+  if (status === "loading") {
+    return <p>Loading...</p>;
+  }
+  if (!session) {
+    signIn();
+    return null;
+  }
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -32,7 +45,6 @@ export default function UpdateUser(userId) {
     
     setMessage("User updated successfully");
   };
-
   return (
     <div className={styles.center}>
        <div className={styles.formWrapper}>
