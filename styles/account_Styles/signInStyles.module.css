@@ -1,0 +1,109 @@
+.mainContainer{
+  
+    display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 55vh;
+  
+}
+
+.signInLabelContainer{
+
+	position: relative;	
+	height: 390px;
+	width: 300px;	
+	box-shadow: 0px 0px 3px #fb7a7a;
+    
+  
+}
+.signIn_Title{
+    font-size:20px;
+    font-weight:600;
+    text-align: center;
+    padding:20px;
+
+}
+.signInLabelContainer input{
+    border: none;
+    margin-left:20px;
+	border-bottom: 2px solid #fb7a7a;
+	background: none;
+	padding: 10px;
+	padding-left: 5px;
+	font-weight: 700;
+	
+	transition: .2s;
+    text-align: left;
+    
+}
+.userInputStyles{
+    width:75%;
+}
+
+
+.remembeMeContainer{
+    display:inline-block;
+    margin-top:10px;
+    width:100%;
+    font-size:13px;
+    font-weight:600;
+    margin-bottom:30px;
+    cursor:pointer;
+
+}
+.remembeMeContainer Label{
+    cursor:pointer;
+}
+
+
+.signInLabelContainer input:focus,.signInLabelContainer input:active,.signInLabelContainer input:hover{
+    outline: none;
+	border-bottom-color: #000000;
+}
+
+.signInBtn_Center{
+    display: flex;
+	align-items: center;
+	justify-content: center;    
+}
+
+
+.signInBtn_Container button{
+    background: #fff;
+	font-size: 12px;
+	margin-top: 10px;
+	padding: 10px 80px;
+    width:100%;
+	border: 1px solid #fb7a7a;
+	font-weight: 300;
+	display: flex;
+	align-items: center;
+	color: #000000;
+    text-align: center;
+	cursor: pointer;
+	transition: .2s;
+    
+}
+
+.signInBtn_Container:focus,.signInBtn_Container:active,.signInBtn_Container:hover{
+    border-color: #fb7a7a;
+	outline: none;
+}
+
+.ForgotCreateContainer
+{
+    margin-top:20px;
+}
+
+.ForgotCreateContainer a{
+    font-size:13px;
+    font-weight:600;
+    margin:10px 20px;
+    cursor:pointer;
+    text-decoration: none;
+    color:#000000;
+}
+
+.ForgotCreateContainer a:hover{
+    color:#fb7a7a;
+}

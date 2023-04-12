@@ -6,7 +6,7 @@
  * <NavBar/> is the navigation bar for the website
  * {children} is the pages it is on
  */
-
+import SignInSignOutBar from "./SignInSignOutBar"
 import Header from "./Header"
 import NavBar from "./NavBar"
 import Footer from "./Footer"
@@ -16,6 +16,7 @@ const Layout =({children}) => {
     return (
     
         <div className="content">
+            <SignInSignOutBar/>
             <Header/>
             <NavBar/>
             {children}

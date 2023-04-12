@@ -1,0 +1,32 @@
+.Nav_Main {
+    background-color: #fb7a7a;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+    height: 20px;
+  }
+
+  .Nav_ul
+  {
+    list-style-type: none;
+    text-align: center; 
+    padding: 0;
+    margin: 0;
+  }
+
+  .Nav_li
+  {
+    text-decoration: none;
+    display: inline-block;
+    padding: 0px 20px;
+    color:#000000;
+    font-size: 20px;
+    font-weight:600;
+    cursor:pointer;
+  }
+
+  .Nav_li:hover{
+    color:#0000c0; 
+  }

@@ -12,19 +12,22 @@ import { SessionProvider } from "next-auth/react"
 export default function App({ Component, pageProps: { session, ...pageProps }  }) {
   const measurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
   return <>
-    <Layout>
+    
     <GoogleAnalytics measurementId={measurementId}/>
     <SessionProvider session={session}>
       {Component.auth ? (
         <Auth>
+          <Layout>
           <Component {...pageProps} />
+          </Layout>
         </Auth>
       ) : (
+        <Layout>
         <Component {...pageProps} />
+        </Layout>
       )}
     </SessionProvider>
 
-    </Layout>
   </>
 }
 

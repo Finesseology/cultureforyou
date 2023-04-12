@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../styles/HeaderStyles.module.css'
+import styles from '../styles/components_Styles/HeaderStyles.module.css'
 import Link from 'next/link'
 import Head from 'next/head'
 import Image from 'next/image'
