@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import styles from '../styles/appointment.module.css'
+import styles from '../styles/Appointment.module.css'
 import Calendar from "react-calendar";
 import 'react-calendar/dist/Calendar.css'
 
