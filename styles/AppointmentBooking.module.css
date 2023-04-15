@@ -7,36 +7,6 @@
    .formGroup {
     margin-bottom: 20px;
   }
-   .datepicker {
-    border: none;
-    border-bottom: 2px solid #413c58;
-    padding: 10px;
-    font-size: 1.2rem;
-    background: transparent;
-    color: #413c58;
-    transition: all 0.2s ease-in-out;
-  }
-   .datepicker:focus {
-    outline: none;
-    box-shadow: 0 0 2px #413c58;
-    border-bottom-color: #e2c8a1;
-  }
-   .react-datepicker-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-   .react-datepicker__input-container {
-    display: block;
-  } 
-  .react-datepicker__time-list {
-    max-height: 100px;
-    overflow-y: scroll;
-  }
-   .react-datepicker__time-list-item {
-    padding: 5px 10px;
-  }
    .submitButton {
     background-color: #413c58;
     color: #e2c8a1;
