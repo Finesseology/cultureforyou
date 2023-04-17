@@ -1,0 +1,25 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 20px;
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	line-height: 1.5em;
+}
+
+.button {
+	background-color: lightgray;
+	color: black;
+	font-size: 16px;
+	padding: 10px 20px;
+	border: 1px solid black;
+	border-radius: 5px;
+	cursor: pointer;
+}
