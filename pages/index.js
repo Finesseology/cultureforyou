@@ -28,7 +28,7 @@ export default function Home() {
 							<div className={styles.sectionMargin}></div>
 
 							<div className={styles.grid2}>
-								<b>Engraving</b>
+								<Link eref='./engraving-design'><b>Engraving</b> </Link>
 								<Link href='./henna-design'><b> Henna</b></Link> 
 								<b>Wedding Sign</b>
 								<b>Toppers</b>
