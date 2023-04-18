@@ -1,15 +1,17 @@
 .Container_Main
 {
     text-decoration: none;
-    width:100%;
     background-color: pink;
 }
   .SignInSignOut_ul
   {
     list-style-type: none;
     float:right;
-    padding: 0;
+    padding: 25px;
     margin: 0;
+    padding-right: 10px;
+    
+    
   }
 
   .SignInSignOut_li
@@ -45,3 +47,4 @@
   .SignInSignOut_ul button:hover{
     color:#fb7a7a; 
   }
+  
