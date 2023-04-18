@@ -7,14 +7,13 @@ import Image from 'next/image'
 const Header = () =>
 {
     return(
-        <div className={styles.Header_Center}>
-            <Image
-                className={styles.Header_Logo}
-                src={"/index/cultureforyoulogo.png"}
-                alt="CultureForYou Logo"
-                width={180}
-                height={130}
-                priority />
+        
+        <div className={styles.Header_Left}>
+            <div className={styles.Header_line}></div>
+            <div className={styles.Header_Text}>
+            <b>Culture For You</b>
+                
+            </div>
                 
             </div>
     )
