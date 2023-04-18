@@ -1,0 +1,47 @@
+.Container_Main
+{
+    text-decoration: none;
+    width:100%;
+    background-color: pink;
+}
+  .SignInSignOut_ul
+  {
+    list-style-type: none;
+    float:right;
+    padding: 0;
+    margin: 0;
+  }
+
+  .SignInSignOut_li
+  {
+    
+    text-decoration: none;
+    display: inline-block;
+    padding: 0px 20px;
+    color:#000000;
+    font-size: 15px;
+    font-weight:600;
+    cursor:pointer;
+
+  }
+
+  .SignInSignOut_li:hover{
+    color:#fb7a7a; 
+  }
+
+
+  .SignInSignOut_ul button{
+    text-decoration: none;
+    display: inline-block;
+    padding: 0px 20px;
+    color:#000000;
+    font-size: 15px;
+    font-weight:600;
+    cursor:pointer;
+    background-color: white;
+    border:none
+  }
+
+  .SignInSignOut_ul button:hover{
+    color:#fb7a7a; 
+  }
