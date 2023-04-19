@@ -10,109 +10,46 @@ export default function Home() {
 	return (
 		
 				<main className={styles.main}>
-					<div>
+					
+        <div>
 						
-
-						<section className={styles.center}>
-							<h1 className={styles.textColor}>Culture For You Homepage</h1>
-						</section>
-
-
-						<div className={styles.sectionMargin}></div>
-
-            
-						<div className={styles.colorBlock}>
-							<h1>Preview</h1>
-							<p>Product previews of the website</p>
-
-							<div className={styles.sectionMargin}></div>
-
-							<div className={styles.grid2}>
-								<b>Engraving</b>
-								<Link href='./henna-design'><b> Henna</b></Link> 
-								<b>Wedding Sign</b>
-								<b>Toppers</b>
-								<b>Makeup</b>
-							</div>
-              <div className={styles.sectionMargin}></div>
-
-							<div className={styles.grid}>
-								<Image src={"/index/engraving.png"} alt="Engraving" width={190} height={180} priority />
-
-								<Image src={"/index/hennaTest.png"} alt="Henna" width={190} height={180} priority />
-
-								<Image src={"/index/weddingSign.png"} alt="WeddingSign" width={190} height={180} priority />
-
-								<Image src={"/index/toppers.png"} alt="Toppers" width={190} height={180} priority />
-
-								<Image src={"/index/makeup.png"} alt="Makeup" width={190} height={180} priority />
-							</div>
-						</div>
-
-						<div className={styles.sectionMargin}></div>
-
-						<div className={styles.colorBlock}>
-							<h2>Testimonials</h2>
-							<p>Testimonials will be aligned here possibly</p>
-              <p>Reviews from customers on Makeup, Henna, and Custom items</p>
-
-              <div className = {styles.grid}> 
-              <figure className={styles.snip1533}>
-                  <figcaption>
-                    <blockquote>
-                      <p>If you do the job badly enough, sometimes you don't get asked to do it again.</p>
-                    </blockquote>
-                    <h3>Wisteria Ravenclaw</h3>
-                    <h4>Wedding Sign</h4>
-                  </figcaption>
-              </figure>
-
-              <figure className={styles.snip1533}>
-                <figcaption>
-                  <blockquote>
-                    <p>I'm killing time while I wait for life to shower me with meaning and happiness.</p>
-                  </blockquote>
-                  <h3>Ursula </h3>
-                  <h4>Henna</h4>
-                </figcaption>
-              </figure>
-
-              <figure className={styles.snip1533}>
-                <figcaption>
-                  <blockquote>
-                    <p>The only skills I have the patience to learn are those that have no real application in life. </p>
-                  </blockquote>
-                  <h3>Ingredia </h3>
-                  <h4>Custom Engraving</h4>
-                </figcaption>
-              </figure>
-
-              <figure className={styles.snip1533}>
-                <figcaption>
-                  <blockquote>
-                    <p>The only skills I have the patience to learn are those that have no real application in life. </p>
-                  </blockquote>
-                  <h3>Ingredia </h3>
-                  <h4>Makeup</h4>
-                </figcaption>
-              </figure>
-
-              <figure className={styles.snip1533}>
-                <figcaption>
-                  <blockquote>
-                    <p>The onlyy skills I have the patience to learn are those that have no real application in life. </p>
-                  </blockquote>
-                  <h3>Ingredia </h3>
-                  <h4>Cake Topper</h4>
-                </figcaption>
-              </figure>
+          <section className={styles.center}>
+              <Image src={"/hennaPics/henna11.png"} alt="Henna 10" width={1600} height={380} priority />
               
-              </div>
-              
-              
-              
-						</div>
-					</div>
+              </section>
+
+              <div className={styles.colorBlock}>
+                <h1 className={styles.textColor}>Shop Our Best Sellers</h1>
+                </div>
+
+
+                  <section className={styles.grid}>
+                  <Image src={"/index/toppers.png"} alt="Toppers" width={447} height={477} priority />
+                  <Image src={"/index/engraving.png"} alt="Engraving" width={351} height={529} priority />
+                  <Image src={"/index/weddingSign.png"} alt="WeddingSign" width={428} height={483} priority />
+                  <section className={styles.gridColor}> 
+                        <Link href='./topper'><h1 className={styles.gridText}>Toppers</h1></Link>
+                        
+                    </section>
+                    <section className={styles.gridColor3}> 
+                        <Link href='./engraving-Showcase'><h1 className={styles.gridText}>Engraving</h1></Link>
+                        
+                    </section>
+
+                    <section className={styles.gridColor2}> 
+                        <Link href='./wedding-sign'><h1 className={styles.gridText}>Wedding Sign</h1></Link>
+                        
+                    </section>
+                  </section>
+                  
+
+                  
+                
+
+						
+                </div>
+
+				
 				</main>
 	
 	);

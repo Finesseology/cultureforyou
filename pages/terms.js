@@ -5,9 +5,9 @@ import Head from "next/head";
 export default function Terms() {
 return (
 
-<Head>  
+<>  
 
-    <h1 className={styles.p}>Terms of Service</h1>
+    <h1 className={styles.p2}>Terms of Service</h1>
   
             
 <h3 className={styles.p}>General Terms</h3>
@@ -55,7 +55,7 @@ If you do not agree to the new terms, please stop using the Service. </p>
 
 
 
-</Head> 
+</> 
 
 )
 }

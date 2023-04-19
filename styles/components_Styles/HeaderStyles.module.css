@@ -1,0 +1,45 @@
+.Header_Left {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  position: relative;
+  padding: 20px;
+  background-color: #ffffff;
+
+
+  
+}
+
+
+.Header_Text{
+  position: absolute;
+  width: 147px;
+  height: 33px;
+  left: 20px;
+  top: 85px;
+
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 46px;
+}
+
+.Header_line{
+  position: absolute;
+  width: 100%;
+  height: 0px;
+  left: 0px;
+  top: 34px;
+
+  border: 1px solid #D5CDCD;
+  transform: rotate(0.12deg);
+}
+.sectionMargin {
+  margin-top: 20px;
+  }
+
+.Header_Logo{
+  width:auto;
+  height:120px; 
+}
