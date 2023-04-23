@@ -66,52 +66,26 @@ function ContactUs() {
         <>
           <h1 className={styles.center}>Contact Us</h1>
           <div className={styles.container}>
-            <form className={styles.formContactUs} onSubmit={handleSubmit}>
-              <label htmlFor="name">Name:</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                required
-              />
-      
-              <label htmlFor="email">Email:</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-      
-              <label htmlFor="message">Message:</label>
-              <textarea
-                id="message"
-                name="message"
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                required
-              ></textarea>
-      
-              <button className={styles.buttonContactUs} type="submit">
-                Submit
-              </button>
-            </form>
+
             {notification && <p>{notification}</p>}
-            <div className={styles.socialMediaLinkContainer}>
+            
+            <div style={{ textAlign: "center" }}>
               <a
                 href="https://www.instagram.com/cultureforyou_/"
                 target="_blank"
-                className={styles.socialMediaLink}
+
               >
-                Contact us on Instagram
                 <img
                   src="/index/instagram-logo.png"
-                  style={{ width: "5%", height: "4%" }}
-                  alt="Contact us on Instagram"
+                  style={{ width: "15%", height: "15%", marginRight:"50px" }}
+                />
+              </a>
+              <a
+                href="mailto:cultureforu1@gmail.com"
+              >
+                <img
+                  src="/index/Gmail_Logo.png"
+                  style={{ width: "19%", height: "20%" }}
                 />
               </a>
             </div>
