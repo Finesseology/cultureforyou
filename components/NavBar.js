@@ -12,8 +12,6 @@ const NavBar = () =>
                 <Link className={styles.Nav_li} href ='../shop-layout'><li>Shop</li></Link>
                 <Link className={styles.Nav_li} href ='../app-booking'><li>Appointments</li></Link>
                 <Link className={styles.Nav_li} href ='../contact-us'><li>Contact Us</li></Link>
-                
- 
             </ul>
 
 
