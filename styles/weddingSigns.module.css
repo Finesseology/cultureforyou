@@ -4,6 +4,12 @@
     grid-template-rows: minmax(300px, auto);
     gap: 20px;
 }
+@media (max-width: 700px) {
+  .grid 
+  {
+    grid-template-columns: repeat(2, 50%);
+  }
+}
 .signPic {
     background-color: #f0f0f0;
     padding: 20px;
@@ -49,4 +55,8 @@
   }
   .order-button:hover {
     background-color: #4c51af;
+  }
+  .h1{
+    margin-top: 100x;
+    width: 100%;
   }
