@@ -1,3 +1,6 @@
+import Image from 'next/image';
+import styles from '../styles/hennashow.module.css';
+
 function EngravingGallery({designs}){
     return (
   <div className={styles.grid}>
