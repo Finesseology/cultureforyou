@@ -67,27 +67,7 @@
   align-items: center;
 }
 
-.socialMediaLinkContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 20px;
-  padding: 50px;
-}
 
-.socialMediaLink {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #f09433;
-  color: #fff;
-  font-size: 18px;
-  padding: 10px 20px;
-  border-radius: 5px;
-  text-decoration: none;
-  margin: 1%;
-
-}
 
 .socialMediaLink:hover {
   background-color: #ff9c5b;
