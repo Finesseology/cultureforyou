@@ -14,12 +14,14 @@ export default function Home() {
         <div>
 						
           <section className={styles.center}>
-              <Image src={"/hennaPics/henna11.png"} alt="Henna 10" width={1600} height={380} priority />
+              <Link href='./henna-design'><Image src={"/hennaPics/henna11.png"} fill sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw, (max-height: 410px) 100vw, (max-height: 600px) 50vw, 33vw" alt="" priority /></Link>
               
               </section>
 
               <div className={styles.colorBlock}>
-                <h1 className={styles.textColor}>Shop Our Best Sellers</h1>
+                <h1 className={styles.textColor}>Shop Our Popular Henna Designs</h1>
                 </div>
 
 
