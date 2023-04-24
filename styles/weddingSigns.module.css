@@ -1,6 +1,6 @@
 .signGrid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: minmax(300px, auto);
     gap: 20px;
 }

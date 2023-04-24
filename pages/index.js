@@ -14,7 +14,7 @@ export default function Home() {
         <div>
 						
           <section className={styles.center}>
-              <Link href='./henna-design'><Image src={"/hennaPics/henna11.png"} fill sizes="(max-width: 768px) 100vw,
+              <Link href='./henna-showcase'><Image src={"/hennaPics/henna11.png"} fill sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
               33vw, (max-height: 410px) 100vw, (max-height: 600px) 50vw, 33vw" alt="" priority /></Link>
               
