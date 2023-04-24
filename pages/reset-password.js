@@ -1,5 +1,5 @@
 
-import styles from "@/styles/account_Styles/resetPasswordStyles.module.css";
+import styles from "@/styles/account_Styles/reset-password-styles.module.css";
 
 
 
@@ -13,7 +13,7 @@ export default function resetPassword() {
 
 			<div className={styles.resetPassword_Title}>Email Verified!</div>
             <div className={styles.resetPassword_Desc}>Please reset your password below for example@email.com</div>
-			<div className={styles.resetPassword_Desc}> <a href="./forgotPasswordPage" className={styles.resentBtn}>Click here</a> if this is not your email</div>
+			<div className={styles.resetPassword_Desc}> <a href="./forgot-password-page" className={styles.resentBtn}>Click here</a> if this is not your email</div>
             
             <div className={styles.spaceStyles}></div>
             
@@ -30,13 +30,13 @@ export default function resetPassword() {
                 <div className={styles.resetPassword_BTNContainer}>
 
 				
-                    <a href="./signInPage"><button>Reset Password</button></a>
+                    <a href="./sign-in-page"><button>Reset Password</button></a>
 
                 </div>
 			</div>
 
 			<div className={styles.SignInContainer}>
-				<a href="./signInPage" >Back to Sign in</a>
+				<a href="./sign-in-page" >Back to Sign in</a>
 		
 			</div>
 		</div>

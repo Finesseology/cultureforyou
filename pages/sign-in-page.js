@@ -1,6 +1,6 @@
 import { signIn } from "next-auth/react"
 
-import styles from "@/styles/account_Styles/signInStyles.module.css";
+import styles from "@/styles/account_Styles/sign-in-styles.module.css";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 
@@ -58,8 +58,8 @@ import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 			</div>
 
 			<div className={styles.ForgotCreateContainer}>
-				<a href="./forgotPasswordPage">Forgot Password</a>
-				<a href="./createAccountPage">Create Account</a>
+				<a href="./forgot-password-page">Forgot Password</a>
+				<a href="./create-account-page">Create Account</a>
 			</div>
 		</div>
 		

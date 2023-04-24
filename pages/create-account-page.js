@@ -1,5 +1,5 @@
 
-import styles from "@/styles/account_Styles/CreateAccountStyles.module.css";
+import styles from "@/styles/account_Styles/create-account-styles.module.css";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 
@@ -28,13 +28,13 @@ function Create_AccountPage() {
                 <div className={styles.spaceStyles}></div>
 		<div className={styles.createAccount_BtnCenter}>
 			<div className={styles.createAccount_Container}>
-				<a href="./createAccountVerifyPage"><button >Create Account</button></a>
+				<a href="./create-account-verify-page"><button >Create Account</button></a>
 
 			</div>
 			</div>
 
 			<div className={styles.SignInContainer}>
-				<a href="./signInPage" >Have an Account?  Sign in here!</a>
+				<a href="./sign-in-page" >Have an Account?  Sign in here!</a>
 		
 			</div>
 		</div>

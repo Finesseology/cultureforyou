@@ -6,10 +6,10 @@
  * <NavBar/> is the navigation bar for the website
  * {children} is the pages it is on
  */
-import SignInSignOutBar from "./SignInSignOutBar"
-import Header from "./Header"
-import NavBar from "./NavBar"
-import Footer from "./Footer"
+import SignInSignOutBar from "./sign-in-sign-out-bar"
+import Header from "./header"
+import NavBar from "./nav-bar"
+import Footer from "./footer"
 //import styles from '../styles/LayoutStyles.module.css'
 
 const Layout =({children}) => {

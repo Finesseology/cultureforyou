@@ -1,6 +1,6 @@
 // Henna Showcase page
 import Image from 'next/image';
-import styles from '../styles/HennaStyles.module.css';
+import styles from '../styles/henna-styles.module.css';
 
 function HennaGallery({designs}){
       return (

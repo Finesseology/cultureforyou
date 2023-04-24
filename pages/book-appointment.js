@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from "@/styles/AppointmentBooking.module.css";
+import styles from "@/styles/appointment-booking.module.css";
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import { useState } from "react";
@@ -24,7 +24,7 @@ const  BookingForm = ()  =>{
   const { status } = useSession({
     required: true,
     onUnauthenticated() {
-        router.push('/signInPage');
+        router.push('/sign-in-page');
         return <p>Redirecting you to the login page...</p>
     },
   })

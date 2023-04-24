@@ -4,7 +4,7 @@
  * coding one for every single page.
  */
 
-import Layout from '../components/Layout'
+import Layout from '../components/layout'
 import GoogleAnalytics from "@bradgarropy/next-google-analytics"
 import { SessionProvider } from "next-auth/react" 
 

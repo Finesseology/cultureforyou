@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import styles from '../styles/weddingSigns.module.css';
+import styles from '../styles/wedding-signs.module.css';
 import Link from 'next/link'
 
 function SignsGallery({ signs }) {

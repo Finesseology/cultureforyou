@@ -1,5 +1,5 @@
 
-import styles from '@/styles/Terms.module.css'
+import styles from '@/styles/terms.module.css'
 
 import Head from "next/head";
 export default function Terms() {
