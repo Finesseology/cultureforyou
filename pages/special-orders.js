@@ -3,7 +3,9 @@ import styles from "../styles/special-orders.module.css";
 
 export default function SendEmail() {
 	const [clientName, setClientName] = useState("");
+	const [returnEmail, setReturnEmail] = useState("");
 	const [subject, setSubject] = useState("");
+	const [productType, setProductType] = useState("");
 	const [text, setText] = useState("");
 	const [message, setMessage] = useState("");
 
@@ -17,8 +19,8 @@ export default function SendEmail() {
 				},
 				body: JSON.stringify({
 					to: "cultureforyou1@gmail.com",
-					subject: `Special Order request from: ${clientName}. Ordering: ${subject}`,
-					text,
+					subject: `Special Order Request. From: ${clientName}. Ordering: ${productType}`,
+					text: `From: ${clientName} \nEmail: ${returnEmail} \n\nOrdering: ${productType} \n\n${text}`,
 				}),
 			});
 			if (response.ok) {
@@ -49,15 +51,33 @@ export default function SendEmail() {
 				/>
 				<br />
 
-				<label htmlFor="subject">Product name(s): </label>
+				<label htmlFor="returnEmail">Your email: </label>
 				<input
-					type="text"
-					id="subject"
-					value={subject}
-					onChange={(e) => setSubject(e.target.value)}
+					type="email"
+					id="returnEmail"
+					value={returnEmail}
+					onChange={(e) => setReturnEmail(e.target.value)}
 					style={{ resize: "none", height: "20px", width: "120%" }}
 					required
 				/>
+				<br />
+
+				<label htmlFor="productType">Product Type: </label>
+				<select
+					id="productType"
+					value={productType}
+					onChange={(e) => setProductType(e.target.value)}
+					style={{ height: "32px", width: "124%", textAlign: "center" }}
+					required>
+					<option value="">Select a product type</option>
+					<option value="Toppers">Toppers</option>
+					<option value="Engraving">Engraving</option>
+					<option value="Wedding Signs">Wedding Signs</option>
+					<option value="Engraving and Toppers">Engraving and Toppers</option>
+					<option value="Wedding Signs and Toppers">Wedding Signs and Toppers</option>
+					<option value="TWedding Signs and Engraving">Wedding Signs and Engraving</option>
+					<option value="Wedding Signs, Engraving, and Toppers">Wedding Signs, Engraving, and Toppers</option>
+				</select>
 				<br />
 
 				<label htmlFor="text">Description of desired order(s): </label>
@@ -74,7 +94,7 @@ export default function SendEmail() {
 					Send Order
 				</button>
 			</form>
-			{message && <p>{message}</p>}
+			{message && <p className={styles.smessage}>{message}</p>}
 		</div>
 	);
 }
