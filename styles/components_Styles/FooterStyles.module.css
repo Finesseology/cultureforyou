@@ -1,13 +1,15 @@
 .Footer_Main {
+ 
+
   background-color: #000000;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  padding: 20px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.75);
+ 
   text-align: center;
+  justify-content: center;
   margin: 0 auto;
-  width: 97%;
-  height: 100px;
-  margin-top:50px;
-  top: 40px;
+  width: 100%;
+  height: clamp(60px, 5vw, 100px);
+ 
 }
 
 
