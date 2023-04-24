@@ -1,8 +1,10 @@
 
 import styles from "@/styles/account_Styles/CreateAccountStyles.module.css";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 
 
-export default function createAccountPage() {
+function Create_AccountPage() {
 	return (
 		<main className={styles.mainContainer} >
 
@@ -39,6 +41,24 @@ export default function createAccountPage() {
 		
 		</div>
 		</main>
+	);
+}
+
+
+export default function createAccountPage(pageProps){
+	return (
+		<GoogleReCaptchaProvider
+        reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY}
+        scriptProps={{
+          async: false,
+          defer: false,
+          appendTo: 'head',
+          nonce: undefined,
+        }}
+      >
+        <Create_AccountPage {...pageProps} />
+      </GoogleReCaptchaProvider>
+
 	);
 }
 
