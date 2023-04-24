@@ -1,6 +1,6 @@
 import { signIn } from "next-auth/react"
-import { signOut } from "next-auth/react"
-import styles from "@/styles/ShopPageStyles.module.css";
+
+import styles from "@/styles/account_Styles/signInStyles.module.css";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 
@@ -30,10 +30,40 @@ import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 
 	return (
 		
-		<main className={styles.main} >
-			<div>Sign In PAge</div>
-            <button onClick={handleClick}>Sign in with Google</button>
-            <button onClick={() => signOut()}>Sign out</button>
+		<main className={styles.mainContainer} >
+
+	<div className={styles.signInLabelContainer}>
+		<div className={styles.signInLabelContainer}>
+
+
+			<div className={styles.signIn_Title}>Sign In</div>
+
+		
+				<input className={styles.userInputStyles} type="email" id="email" name="email" placeholder="Enter Email"/>
+
+				<input className={styles.userInputStyles} type="password" id="pwd" name="pwd" placeholder="Enter Password"/>
+
+				<div className={styles.remembeMeContainer}>
+					<input className={styles.checkBoxStyles}  type="checkbox" value="lsRememberMe" id="rememberMe"/> <label for="rememberMe">Remember me</label>
+				</div>
+
+
+
+
+		<div className={styles.signInBtn_Center}>
+			<div className={styles.signInBtn_Container}>
+				<button >Sign in with Email</button>
+				<button onClick={handleClick}>Sign in with Google</button>
+			</div>
+			</div>
+
+			<div className={styles.ForgotCreateContainer}>
+				<a href="./forgotPasswordPage">Forgot Password</a>
+				<a href="./createAccountPage">Create Account</a>
+			</div>
+		</div>
+		
+		</div>
 		</main>
 		
 	);
@@ -56,3 +86,4 @@ export default function SignInPage(pageProps) {
     </GoogleReCaptchaProvider>
 	);
 }
+

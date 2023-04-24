@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 export default function PrivacyPolicy() {
     return (
         <>
-            <Head>  
+            <>
                 <br></br>
                 <br></br>
                 <h1 className={styles.h1}><center>Culture For You: Privacy Policy Page</center></h1>
@@ -44,7 +44,7 @@ export default function PrivacyPolicy() {
                 <h2 className={styles.h2}>Where we send your data</h2>
                 <p className={styles.p}> Visitor comments may be checked through an automated spam detection service.</p>
                 </div>
-            </Head> 
+            </> 
             </>
        ) 
 } 

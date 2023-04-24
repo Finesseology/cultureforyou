@@ -82,7 +82,7 @@ This project was built using Next.js.
 
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
+This is an example of how to set up your project locally.
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
@@ -96,7 +96,7 @@ This is an example of how to list things you need to use the software and how to
 
 ### Installation
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
+Below is an example of how you can install and set up your project. This project uses SendGrid, Google analytics, Google Captcha, mysql2 and Next-Auth.
 
 1. Clone the repo
     ```sh
@@ -112,7 +112,7 @@ _Below is an example of how you can instruct your audience on installing and set
 
     OR
 
-    If you wish to install the latest versions of the packages:
+    If you wish to install the versions of the packages used in the project:
 
     ```sh
     npm ci
@@ -209,7 +209,7 @@ Unfortunately, as this is a school project we cannot accept outside contribution
 
 -   Project Link: [https://github.com/Finesseology/cultureforyou](https://github.com/Finesseology/cultureforyou)
 
-### Project Contrubutors
+### Project Contributors
 
 -   Chris Lemke
     -   [Github Profile][github-url-chris]
@@ -293,7 +293,7 @@ These sites and projects were very helpful in the development of this project. W
 <!-- Linked In -->
 
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url-chris]: https://www.linkedin.com/in/christopher-lemke-b57924140/
+[linkedin-url-chris]: https://www.linkedin.com/in/christopher-lemke-fin/
 [linkedin-url-anna]: https://www.linkedin.com/in/anna-sarkisyan/
 [linkedin-url-ally]: https://www.linkedin.com/in/ally-mahbobi/
 [linkedin-url-abdullah]: https://www.linkedin.com/in/abdullah-hamdan-0013361aa/

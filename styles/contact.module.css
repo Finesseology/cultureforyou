@@ -4,6 +4,8 @@
     align-items: center;
     position: relative;
     padding: 2rem 0;
+    margin-top: 50px;
+
   }
 .bodyContactUs{
   background-color: rgb(255, 249, 227);
@@ -64,29 +66,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 50px;
 }
 
-.socialMediaLinkContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 20px;
-  padding: 50px;
-}
 
-.socialMediaLink {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #f09433;
-  color: #fff;
-  font-size: 18px;
-  padding: 10px 20px;
-  border-radius: 5px;
-  text-decoration: none;
-  margin: 1%;
-
-}
 
 .socialMediaLink:hover {
   background-color: #ff9c5b;

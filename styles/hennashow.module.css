@@ -1,0 +1,46 @@
+.myDiv {
+  padding: 5px;
+  border: 5px outset rgb(223, 218, 209);
+  margin: 60px;
+  
+}
+.p{
+  font-size: 18px;
+  margin: 10px;
+}
+
+.hennaPic {
+    background-color: #f0f0f0;
+    padding: 10px;
+    text-align: center;
+    display: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+  width: var(--max-width);
+  max-width: 100%;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
