@@ -1,5 +1,5 @@
 
-import styles from "@/styles/account_Styles/ForgotPasswordStyles.module.css";
+import styles from "@/styles/account_Styles/forgot-password-styles.module.css";
 
 
 
@@ -27,13 +27,13 @@ export default function forgotPassword() {
                 <div className={styles.forgotPassword_BTNContainer}>
 
 				
-				<a href="./accountValidatePage"><button>Reset Password</button></a>
+				<a href="./account-validate-page"><button>Reset Password</button></a>
 
                 </div>
 			</div>
 
 			<div className={styles.SignInContainer}>
-				<a href="./signInPage" >Back to Sign in</a>
+				<a href="./sign-in-page" >Back to Sign in</a>
 		
 			</div>
 		</div>

@@ -1,7 +1,7 @@
 // Henna Showcase page
 // Clickable images lead to special-orders page
 import Image from 'next/image';
-import styles from '../styles/hennashow.module.css';
+import styles from '../styles/henna-show.module.css';
 
 function HennaGallery({designs}){
       return (

@@ -2,7 +2,7 @@ import { signIn } from "next-auth/react"
 import { useSession } from "next-auth/react"
 import { useState } from "react";
 import { query } from "../lib/db";
-import styles from "../styles/UpdateUser.module.css";
+import styles from "../styles/update-user.module.css";
 
 export default function UpdateUser(userId) {
   const [firstName, setFirstName] = useState("");

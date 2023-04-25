@@ -38,7 +38,7 @@ function AppointmentsCalendar() {
     }
 
     if (status === "unauthenticated") {
-        router.push('/signInPage');
+        router.push('/sign-in-page');
         return null;
     }
 

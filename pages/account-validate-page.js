@@ -1,5 +1,5 @@
 
-import styles from "@/styles/account_Styles/AccountValidateStyles.module.css";
+import styles from "@/styles/account_Styles/account-validate-styles.module.css";
 
 
 
@@ -32,13 +32,13 @@ export default function accountValidationPage() {
                 <div className={styles.accountValidate_BTNContainer}>
 
 				
-				<a href="./resetPassword"><button>Verify Email</button></a>
+				<a href="./reset-password"><button>Verify Email</button></a>
 
                 </div>
 			</div>
 
 			<div className={styles.SignInContainer}>
-				<a href="./signInPage" >Back to Sign in</a>
+				<a href="./sign-in-page" >Back to Sign in</a>
 		
 			</div>
 		</div>

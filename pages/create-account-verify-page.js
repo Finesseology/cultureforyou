@@ -1,5 +1,5 @@
 
-import styles from "@/styles/account_Styles/CreateAccountVerfiyStyles.module.css";
+import styles from "@/styles/account_Styles/create-account-verfiy-styles.module.css";
 
 
 export default function createAccountPage() {
@@ -17,7 +17,7 @@ export default function createAccountPage() {
 
 
 			<div className={styles.SignInContainer}>
-				<a href="./signInPage" >Click here to sign in here!</a>
+				<a href="./sign-in-page" >Click here to sign in here!</a>
 		
 			</div>
 		</div>

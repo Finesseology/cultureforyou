@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../styles/components_Styles/FooterStyles.module.css'
+import styles from '../styles/components_Styles/footer-styles.module.css'
 import Link from 'next/link'
 
 
