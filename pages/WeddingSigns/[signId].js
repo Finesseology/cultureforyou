@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useRouter } from 'next/router';
 import Image from 'next/image'
-import styles from '@/styles/wedding-signs.module.css';
+import styles from '@/styles/weddingSigns.module.css';
 
 const signs = [
   {

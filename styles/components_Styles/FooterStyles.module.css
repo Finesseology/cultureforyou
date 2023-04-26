@@ -1,0 +1,183 @@
+.Footer_Main {
+  width: 100%;
+  margin-top:10px;
+  font-family: "Verdana", "Courier New", Sans-serif;
+ 
+}
+
+.mainContainer
+{
+  height:100px;
+  margin-bottom:200px;
+}
+
+/* Create four equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 25%;
+  height: 220px; /* Should be removed. Only for demonstration */
+  display: block;
+  
+  background-color:#e7dfd8 ;
+
+}
+
+.columnContainer{
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  overflow: "hidden"
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+  
+}
+
+.columnTitle{
+  margin-top:30px;
+  font-size:15px;
+  font-weight:600;
+  padding:5px 20px;
+  cursor:pointer;
+  
+}
+.columnDesc{
+  font-size:12px;
+  text-align: left;
+  padding:10px 20px;
+  line-height: 1.5;
+  text-decoration: none;
+  color:#000000;
+  cursor:pointer;
+}
+
+
+.columnDesc li{
+  font-size:15px;
+  text-align: left;
+  padding:0px 20px;
+  line-height: 1;
+  text-decoration: none;
+  color:#000000;
+  cursor:pointer;
+  list-style-type: none;
+}
+
+.columnDesc a{
+  font-size:12px;
+  text-align: left;
+  padding:5px 3px;
+  line-height: 1;
+  text-decoration: none;
+  color:#000000;
+  cursor:pointer;
+}
+
+
+.columnDesc:hover a, .columnDesc:hover, .columnDesc:hover li, .columnTitle:hover ,.lowerFooterPTOS:hover{
+  color:#fb7a7a;
+}
+
+.lowerFooterContainer{
+  padding:20px;
+  width:100%;
+  background-color:#e7dfd8 ;
+  text-align: center;
+}
+.lowerFooterCopyRight{
+  font-size: 13px;
+  text-align: center;
+}
+.lowerFooterPTOS{
+  font-size:13px;
+  text-decoration: none;
+  display:inline-block;
+  list-style-type: none;
+  margin-left:50px;
+  color:#000000
+}
+.lowerFooterContainerHR{
+  width:50%;
+}
+
+  /* Mobile */
+  /* so when detect max width 700px which is for cellphone, the grid will change */
+  @media (max-width: 300px) {
+  
+    .column {
+      width: 100%;    
+    }
+    .mainContainer{
+      width:100%;
+      margin:0;
+    }
+
+    
+
+}
+/* Tablet and Smaller Desktop */
+@media (min-width: 701px) and (max-width: 1120px) 
+{
+  .column {
+    width: 50%;
+  }
+}
+
+
+/* Mobile */
+@media (max-width: 700px) 
+{
+  .column {
+    height:auto;
+    width: 100%  
+  }
+  
+
+
+  .columnDesc a, .columnDesc, .columnDesc li, .columnTitle{
+    text-align: center;
+  }
+  .columnTitle{
+    margin-top:30px;
+    font-size:15px;
+    font-weight:600;
+    padding:5px 0px;
+    cursor:pointer;
+    
+  }
+  .columnDesc li{
+    font-size:15px;
+    padding:0px 0px;
+    line-height: 0.5;
+    text-decoration: none;
+    color:#000000;
+    cursor:pointer;
+  }
+
+  .lowerFooterPTOS{
+    font-size:13px;
+    text-decoration: none;
+    display:block;
+    list-style-type: none;
+    margin-left:0px;
+    margin-top:10px;
+    color:#000000
+  }
+
+  .lowerFooterContainer{
+    padding:20px 0px;
+    width:100%;
+    background-color:#e7dfd8 ;
+    text-align: center;
+  }
+
+  
+}
+
+
+
+

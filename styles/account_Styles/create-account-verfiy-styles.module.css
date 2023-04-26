@@ -1,5 +1,5 @@
 .mainContainer{
-  
+    font-family: "Verdana", "Courier New", Sans-serif;
     display: flex;
 	align-items: center;
 	justify-content: center;
@@ -43,7 +43,7 @@
 
 .SignInContainer a{
     font-size:15px;
-    font-weight:600;
+    font-weight:300;
     margin:10px 20px;
     cursor:pointer;
     text-decoration: none;

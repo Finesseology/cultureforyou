@@ -1,4 +1,4 @@
-import styles from '../styles/appointment.module.css'
+import styles from '../styles/Appointment.module.css'
 import Calendar from "react-calendar";
 import 'react-calendar/dist/Calendar.css';
 import { useState } from 'react';
@@ -20,7 +20,7 @@ export default function Appointment() {
  }
 
  const handleConfirmAppointment = async () => {
-  const response = await fetch('/api/date-time', {
+  const response = await fetch('/api/dateTime', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

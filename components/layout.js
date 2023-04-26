@@ -6,10 +6,11 @@
  * <NavBar/> is the navigation bar for the website
  * {children} is the pages it is on
  */
-import SignInSignOutBar from "./sign-in-sign-out-bar"
-import Header from "./header"
-import NavBar from "./nav-bar"
-import Footer from "./footer"
+import SignInSignOutBar from "./navbar-header"
+
+
+
+import Footer from "./Footer"
 //import styles from '../styles/LayoutStyles.module.css'
 
 const Layout =({children}) => {
@@ -17,8 +18,6 @@ const Layout =({children}) => {
     
         <div className="content">
             <SignInSignOutBar/>
-            <Header/>
-            <NavBar/>
             {children}
             <Footer/>
         </div>

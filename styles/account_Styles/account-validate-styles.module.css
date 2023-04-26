@@ -1,5 +1,5 @@
 .mainContainer{
-  
+	font-family: "Verdana", "Courier New", Sans-serif;
     display: flex;
 	align-items: center;
 	justify-content: center;
@@ -17,7 +17,7 @@
   
 }
 .accountValidate_Title{
-    font-size:20px;
+    font-size:16px;
     font-weight:600;
     text-align: center;
     padding:20px 20px 5px 20px;
@@ -91,7 +91,8 @@
 	color: #000000;
     text-align: center;
 	cursor: pointer;
-	transition: .2s;    
+	transition: .2s;
+	border-radius:10px;    
 }
 
 .accountValidate_BTNContainer a{
@@ -113,7 +114,7 @@
 
 .SignInContainer a{
     font-size:13px;
-    font-weight:600;
+    font-weight:300;
     margin:10px 20px;
     cursor:pointer;
     text-decoration: none;

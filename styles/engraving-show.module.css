@@ -1,0 +1,198 @@
+.myDiv {
+    /*  border: 1px outset #fb7a7a;*/
+      margin: 20px;
+      padding:60px;
+      font-family: "Verdana", "Courier New", Sans-serif;
+      
+    }
+    
+    .shopNavBarContainer{
+      height:20px;
+      padding:30px;
+      background-color:none;
+      width:100%;
+    }
+    .shopNavBar{
+      font-size:15px;
+      padding:5px 10px;
+      margin:5px 30px;
+      cursor:pointer;
+      text-decoration: none;
+      color:#000000;
+    }
+    .shopNavBarLine{
+    color:#e7dfd8;
+    font-weight:600;
+    margin:0px 20px;
+    }
+    .shopNavBar:hover{
+      color:#fb7a7a;
+    }
+    
+    .active
+    {
+        color:#fb7a7a;
+        font-size:20px;
+        padding:5px 10px;
+        margin:5px 20px;
+        cursor:pointer;
+        border-bottom: 1px solid #fb7a7a;
+        text-decoration: none;
+    }
+    
+    
+    
+    .titleH1{
+      padding-top:20px;
+      font-size:30px;
+      font-weight:300;
+    }
+    .titleH2{
+      font-size:20px;
+      font-weight:400;
+      padding:0px;
+      margin-top:10px;
+      color:#000000;
+    }
+    .descP{
+      font-size:15px;
+      padding:5px 30px;
+      line-height: 1.5;
+      color:#000000;
+    }
+    
+    .titleH2:hover , .descP:hover{
+      color:#fb7a7a;
+    }
+    
+    .imgStyles{
+     border:1px solid #fb7a7a;
+     border-radius:5px;
+    }
+    
+    .textA{
+      text-decoration: none;
+    }
+    .engravingPic {
+        background-color: #e7dfd8;
+        padding: 10px;
+        text-align: center;
+        display: center;
+        flex-direction: column;
+        justify-content: center;
+        border-radius:10px;
+        margin:5px;
+        
+    }
+    
+    .engravingPic:hover , .imgStyles:hover{
+      box-shadow: 0 2px 4px 0 #fb7a7a;
+    }
+    
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 10px;
+      width: var(--max-width);
+      max-width: 100%;
+      flex-wrap: wrap;
+     
+      padding:10px 50px;
+      border-radius:10px;
+    }
+    
+    @media screen and (max-width: 1200px) {
+      .grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      
+    }
+    
+    @media screen and (max-width: 1100px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .shopNavBar{
+        font-size:15px;
+        padding:5px 10px;
+        margin:5px 10px;
+        cursor:pointer;
+        text-decoration: none;
+        color:#000000;
+      }
+      .shopNavBarLine{
+     display:none;
+      }
+      .shopNavBar:hover{
+        color:#fb7a7a;
+      }
+      
+      .active
+      {
+          color:#fb7a7a;
+          font-size:20px;
+          padding:5px 10px;
+          margin:5px 20px;
+          cursor:pointer;
+          border-bottom: 1px solid #fb7a7a;
+          text-decoration: none;
+      }
+    }
+    
+    @media screen and (max-width: 780px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+      .shopNavBar{
+        font-size:13px;
+        padding:5px 5px;
+        margin:5px 1px;
+        cursor:pointer;
+        text-decoration: none;
+        color:#000000;
+      }
+      .shopNavBarLine{
+     display:none;
+      }
+      .shopNavBar:hover{
+        color:#fb7a7a;
+      }
+      
+      .active
+      {
+          color:#fb7a7a;
+          font-size:15px;
+          padding:5px 1px;
+          margin:5px 1px;
+          cursor:pointer;
+          border-bottom: 1px solid #fb7a7a;
+          text-decoration: none;
+      }
+      .myDiv {
+        /*  border: 1px outset #fb7a7a;*/
+          margin: 0px;
+          padding:0px;
+          font-family: "Verdana", "Courier New", Sans-serif;
+          
+        }
+        .engravingPic {
+          background-color: #e7dfd8;
+          padding: 10px;
+          text-align: center;
+          display: center;
+          flex-direction: column;
+          justify-content: center;
+          border-radius:10px;
+          margin:5px 0px;
+          
+      }
+      
+    }
+    
+    
+    
+    
+    
+    
+    
+    

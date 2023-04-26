@@ -1,0 +1,124 @@
+.mainContainer
+{
+  background-color:#e7dfd8 ;
+  width:100%;
+  font-family: "Verdana", "Courier New", Sans-serif;
+  height:60px;
+  border-radius:10px;
+}
+.webTitle_li{
+  color:#000000;
+  text-decoration: none;
+}
+.webTitle{
+  float:left;
+  padding:5px;
+  text-decoration: none;
+   /*font CSS*/
+   color: #000000;
+   font-size:35px;
+   font-weight:400;
+   cursor:pointer;
+   margin-left:50px;
+  
+}
+
+.webTitle_li:hover{
+  color:#fb7a7a;
+}
+
+ .SignInSignOut_ul
+ {
+   /*Gets rid of the bullit points*/
+   list-style-type: none;
+   text-align:right;
+   margin-right:10px;  
+     
+ }
+
+  .SignInSignOut_li{
+    /*Get rids of the underline for links or <a>*/
+    text-decoration: none;
+    background-color: none;
+    /*font CSS*/
+    color: #000000;
+    font-size:16px;
+    font-weight:300;
+    display:inline-block;
+    text-align: right;
+    margin-top:10px;
+    margin-left:10px;
+    margin-right:10px;
+    padding:10px;
+
+  }
+
+
+  .SignInSignOut_li:hover{
+    color:#fb7a7a;
+  }
+
+
+    /* Mobile */
+  /* so when detect max width 700px which is for cellphone, the grid will change */
+  @media (max-width: 400px) {
+  
+
+
+
+}
+/* Tablet and Smaller Desktop */
+@media (min-width: 701px) and (max-width: 1120px) 
+{
+  .mainContainer
+  {
+    background-color:#e7dfd8 ;
+    width:100%;
+    font-family: "Verdana", "Courier New", Sans-serif;
+    height:100px;
+  }
+
+  .webTitle{
+    width:100%; 
+  }
+
+  .SignInSignOut_li{
+    /*Get rids of the underline for links or <a>*/
+    text-decoration: none;
+    background-color: none;
+    /*font CSS*/
+    color: #000000;
+    font-size:14px;
+    font-weight:300;
+    display:inline-block;
+    text-align: right;
+    margin-top:10px;
+    margin-left:0px;
+    margin-right:10px;
+    padding:10px;
+
+  }
+
+
+}
+
+
+/* Mobile */
+@media (max-width: 700px) 
+{
+  .webTitle{
+    text-align: center;
+    width:100%;
+    margin:0;    
+  }
+  .mainContainer
+  {
+    background-color:#e7dfd8 ;
+    width:100%;
+    font-family: "Verdana", "Courier New", Sans-serif;
+    height:auto;
+  }
+ 
+
+}
+  

@@ -1,3 +1,11 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 50px;
+  font-family: "Verdana", "Courier New", Sans-serif;
+  height:300px;
+}
 .center {
     display: flex;
     justify-content: center;
@@ -5,73 +13,38 @@
     position: relative;
     padding: 2rem 0;
     margin-top: 50px;
+    font-family: "Verdana", "Courier New", Sans-serif;
+    font-size:28px;
 
+  }
+
+  .subCenter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    font-family: "Verdana", "Courier New", Sans-serif;
+    font-size:20px;
+    font-weight:300;
+    margin-bottom:80px;
   }
 .bodyContactUs{
   background-color: rgb(255, 249, 227);
+  
 }
+
 
 .buttonContactUs{
     grid-column: 1 / -1;
     justify-self: center;
   }
   
-
-.navbar {
-    background-color: #fb7a7a;
-    box-shadow: 0 0 5px rgba(0,0,0,0.2);
-    padding: 2em;
-    text-align: center;
-    position: relative;
-    top: 0px; /* adjust as needed to position the section below the logo */
-    margin: 0 auto;
-    width: 100%;
-    height: 50px; /* adjust as needed */
-    color: rgb(255, 249, 227);
-  }
   
-  
-  .grid3 {
-    display: grid;
-    text-align: center;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    width: var(--max-width);
-    max-width: 100%;
-    padding: 0;
-    gap: 1em;
-    margin: 0 auto;
-  }
-  
-  .formContactUs {
-    background-color: #fb7a7a;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    padding: 20px;
-    border-radius: 10px;
-    max-width: auto;
-    margin: 0 auto;
-    text-align: center;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-    min-height: 300px;
-    height: auto;
-    width: auto;
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
- .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-bottom: 50px;
+.pName {
+  text-decoration: none;
+  font-size:14px;
+  color:#000000;
 }
-
-
-
-.socialMediaLink:hover {
-  background-color: #ff9c5b;
-  cursor: pointer;
+.pName:hover{
+  color:#fb7a7a;
 }

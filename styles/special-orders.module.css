@@ -4,6 +4,40 @@
 	justify-content: center;
 	align-items: center;
 	padding: 20px;
+	font-family: "Verdana", "Courier New", Sans-serif;
+	
+}
+
+.formContainer{
+	background-color: #e7dfd8;
+	padding:50px;
+	border:1px solid #fb7a7a;
+	border-radius:10px;
+}
+.titleH1{
+	padding-top:20px;
+    font-size:30px;
+    font-weight:300;
+}
+
+.descP{
+	font-size:15px;
+    padding:5px 30px;
+    line-height: 1.5;
+    color:#000000;
+}
+.formContainer input{
+	border-radius:10px;
+	border:1px solid #fb7a7a;
+}
+
+.formContainer select{
+	border-radius:10px;
+	border:1px solid #fb7a7a;
+}
+.formContainer textarea{
+	border-radius:10px;
+	border:1px solid #fb7a7a;
 }
 
 .form {
@@ -12,16 +46,21 @@
 	justify-content: center;
 	align-items: center;
 	line-height: 1.5em;
+	
 }
 
 .button {
-	background-color: lightgray;
+	background-color: #ffffff;
 	color: black;
 	font-size: 16px;
 	padding: 10px 20px;
-	border: 1px solid black;
+	border: 1px solid #fb7a7a;
 	border-radius: 5px;
 	cursor: pointer;
+}
+.button:hover{
+	color: #fb7a7a;
+	border:1px border #fb7a7a;
 }
 
 p.smessage {
