@@ -65,19 +65,21 @@ function ContactUs() {
       return (
         <>
         <h1 className={styles.center}>Contact Us</h1>
+        <h1 className={styles.subCenter}>We'd Love to Hear From You</h1>
         <div className={styles.container}>
           {notification && <p>{notification}</p>}
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
             <div style={{ textAlign: "center", marginLeft: "19.5%" }}>
-              <p>Instagram</p>
-              <a href="https://www.instagram.com/cultureforyou_/" target="_blank">
+             
+              <a className={styles.pName} href="https://www.instagram.com/cultureforyou_/" target="_blank">
                 <img src="/index/instagram-logo.png" style={{ width: "60%", height: "15%" }} />
+                <p >Instagram</p>
               </a>
             </div>
             <div style={{ textAlign: "center" }}>
-              <p>Email</p>
-              <a href="mailto:cultureforu1@gmail.com">
-                <img src="/index/Gmail_Logo.png" style={{ width: "20%", height: "20%" }} />
+              <a  className={styles.pName} href="mailto:cultureforu1@gmail.com">
+                <img class src="/index/Gmail_Logo.png" style={{ width: "20%", height: "20%" }} />
+                <p>Email</p>
               </a>
             </div>
           </div>

@@ -54,7 +54,8 @@
 .createAccount_BtnCenter{
     display: flex;
 	align-items: center;
-	justify-content: center;    
+	justify-content: center;  
+	  
 }
 
 
@@ -72,6 +73,8 @@
     text-align: center;
 	cursor: pointer;
 	transition: .2s;
+	border-radius:10px;
+	
     
 }
 
@@ -83,11 +86,12 @@
 .SignInContainer
 {
     margin-top:20px;
+	
 }
 
 .SignInContainer a{
     font-size:13px;
-    font-weight:600;
+    font-weight:300;
     margin:10px 20px;
     cursor:pointer;
     text-decoration: none;

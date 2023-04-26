@@ -1,21 +1,28 @@
 .myDiv {
-    border: 5px outset palevioletred;
-    margin: 75px;
+    border: 1px outset palevioletred;
+    margin: 20px;
+    padding:60px;
+    width:50%;
     
 }
 .h1 {
-    color: rgb(94, 90, 90); 
-    font-family: Arial;
-    
+    color:#000000; 
+    font-family: "Verdana", "Courier New", Sans-serif;
+    font-size:30px;
 }
 
 .h2 {
-    color: rgb(94, 90, 90); 
-    font-family: Arial;
-    margin: 50px;
+    color:#000000;
+    margin:15px;
+    text-align: left;
+    font-family: "Verdana", "Courier New", Sans-serif;
+    font-weight:600;
+    font-size:18px;
 }
 
 .p{
-    font-size: 18px;
-    margin: 50px;
+    font-size: 15px;
+    margin: 20px;
+    text-align: justify;
+    font-family: "Verdana", "Courier New", Sans-serif;
 }

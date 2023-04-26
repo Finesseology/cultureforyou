@@ -11,7 +11,10 @@ export default function PrivacyPolicy() {
             <>
                 <br></br>
                 <br></br>
-                <h1 className={styles.h1}><center>Culture For You: Privacy Policy Page</center></h1>
+                <h1 className={styles.h1}><center>Privacy Policy</center></h1>
+
+
+                <center>
                 <div className={styles.myDiv}>
                 <h2 className={styles.h2}>Who we are</h2>
                 <p className={styles.p}>Our website address is: https://cultureforu.com</p>
@@ -44,6 +47,9 @@ export default function PrivacyPolicy() {
                 <h2 className={styles.h2}>Where we send your data</h2>
                 <p className={styles.p}> Visitor comments may be checked through an automated spam detection service.</p>
                 </div>
+                </center>
+
+                
             </> 
             </>
        ) 

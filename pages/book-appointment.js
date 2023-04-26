@@ -24,7 +24,7 @@ const  BookingForm = ()  =>{
   const { status } = useSession({
     required: true,
     onUnauthenticated() {
-        router.push('/sign-in-page');
+        router.push('/signInPage');
         return <p>Redirecting you to the login page...</p>
     },
   })

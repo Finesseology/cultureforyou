@@ -4,7 +4,7 @@
  * coding one for every single page.
  */
 
-import Layout from '../components/layout'
+import Layout from '../components/Layout'
 import GoogleAnalytics from "@bradgarropy/next-google-analytics"
 import { SessionProvider } from "next-auth/react" 
 
@@ -17,9 +17,11 @@ export default function App({ Component, pageProps: { session, ...pageProps }  }
     <SessionProvider session={session}>
       {Component.auth ? (
         <Auth>
+
           <Layout>
           <Component {...pageProps} />
           </Layout>
+    
         </Auth>
       ) : (
         <Layout>

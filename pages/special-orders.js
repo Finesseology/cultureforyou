@@ -36,38 +36,41 @@ export default function SendEmail() {
 
 	return (
 		<div className={styles.container}>
-			<h1>Send Order</h1>
-			<p> Please fill out the form below to send your order request.</p>
+			<h1 className={styles.titleH1}>Send Order</h1>
+			<p className={styles.descP}> Please fill out the form below to send your order request.</p>
+
+			<div className={styles.formContainer}>
 			<form onSubmit={handleSubmit} className={styles.form}>
-				<label htmlFor="clientName">Your Name: </label>
+				<label htmlFor="clientName">Name </label>
 
 				<input
+					
 					type="text"
 					id="clientName"
 					value={clientName}
 					onChange={(e) => setClientName(e.target.value)}
-					style={{ resize: "none", height: "20px", width: "120%" }}
+					style={{ resize: "none", height: "25px", width: "100%"}}
 					required
 				/>
 				<br />
 
-				<label htmlFor="returnEmail">Your email: </label>
+				<label htmlFor="returnEmail">Email </label>
 				<input
 					type="email"
 					id="returnEmail"
 					value={returnEmail}
 					onChange={(e) => setReturnEmail(e.target.value)}
-					style={{ resize: "none", height: "20px", width: "120%" }}
+					style={{ resize: "none", height: "25px", width: "100%" }}
 					required
 				/>
 				<br />
 
-				<label htmlFor="productType">Product Type: </label>
+				<label htmlFor="productType">Product Type </label>
 				<select
 					id="productType"
 					value={productType}
 					onChange={(e) => setProductType(e.target.value)}
-					style={{ height: "32px", width: "124%", textAlign: "center" }}
+					style={{ height: "32px", width: "100%", textAlign: "center" }}
 					required>
 					<option value="">Select a product type</option>
 					<option value="Toppers">Toppers</option>
@@ -86,7 +89,7 @@ export default function SendEmail() {
 					value={text}
 					onChange={(e) => setText(e.target.value)}
 					rows={4}
-					style={{ resize: "none", height: "130px", width: "150%" }}
+					style={{ resize: "none", height: "130px", width: "100%" }}
 					required></textarea>
 				<br />
 
@@ -94,6 +97,7 @@ export default function SendEmail() {
 					Send Order
 				</button>
 			</form>
+			</div>
 			{message && <p className={styles.smessage}>{message}</p>}
 		</div>
 	);

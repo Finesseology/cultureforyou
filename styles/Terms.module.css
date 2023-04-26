@@ -1,19 +1,28 @@
-.center{
-    text-align: center;
+.myDiv {
+    border: 1px outset palevioletred;
+    margin: 20px;
+    padding:60px;
+    width:50%;
+    
+}
+.h1 {
+    color:#000000; 
+    font-family: "Verdana", "Courier New", Sans-serif;
+    font-size:30px;
 }
 
-.line {
-    height: 1px;
-    border: none;
-    background-color: lightgrey;
+.h2 {
+    color:#000000;
+    margin:15px;
+    text-align: left;
+    font-family: "Verdana", "Courier New", Sans-serif;
+    font-weight:600;
+    font-size:18px;
 }
-
 
 .p{
+    font-size: 15px;
     margin: 20px;
-}
-
-.p2{
-    margin: 20px;
-    
+    text-align: justify;
+    font-family: "Verdana", "Courier New", Sans-serif;
 }
