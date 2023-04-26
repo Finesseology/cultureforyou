@@ -2,161 +2,143 @@
 @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
 
 
+.mainContainer{
+  font-family: "Verdana", "Courier New", Sans-serif;
+width:100%;
+}
+
+.introContainer{
+  background-color: none;
+  height:150px;
+  margin-top:10px;
+  
+}
+
+.introTitle{
+  font-size:25px;
+  text-align: center;
+  padding:50px 20px 20px 20px;
+}
+
+.introDesc{
+  font-size:15px;
+  text-align:center;
+  padding:10px;
+}
 
 .center {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
-  padding: 2rem 0;
-  padding-bottom: 1em;
-  top: 50px;
   width: 100%;
-  height: 20vw;
-  
   overflow: "hidden"
+}
+
+.imageContainer{
+  height: 300px;
+	width: 350px;	
+  padding:20px;
+}
+
+.container {
+  padding: 24px;
+  width:66%;
   
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both
+}
+
+.column66 {
+  float: left;
+  width: 60%;
+  padding: 20px;
+  text-align: justify;
+}
+
+.column33 {
+  float: left;
+  width: 30%;
+  padding: 20px;
 
 }
 
-.cover {
-  object-fit: cover;
+.sectionTitle {
+  font-size: 38px;
+  font-weight:400;
 }
 
+.button {
+  border: none;
+  border-radius:15px;
+  color: #000000;
+  padding: 10px 14px;
+  margin:2px;
+  font-size: 14px;
+  cursor: pointer;
+  background-color: #e7dfd8;
+  text-decoration: none;
+  
+}
+.button:hover{
+  color:#fb7a7a;
+}
 
-
-
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0%, auto));
-  width: var(--max-width);
+.imgStyle {
+  display: block;
+  height: auto;
+  margin-top:40px;
   max-width: 100%;
-  padding-top: 3em;
-  justify-items: center;
-  align-items: center;
-  grid-gap: 0px;
-  box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+  border: 1.5px solid #fb7a7a;
+  border-radius:25px;
+}
+.imgStyle:hover{
+  box-shadow: 0 4px 8px 0 #fb7a7a;
 }
 
-.grid img {
-  width: 70%;
-  height: 100%;
-  object-fit: cover;
+@media screen and (max-width: 1300px) {
+  .column66 {
+    float: left;
+    width: 60%;
+    padding: 20px;
+    text-align: justify;
+  }
   
+  .column33 {
+    float: left;
+    width: 30%;
+    padding: 20px;
   
+  }
+  .imgStyle {
+    margin: auto;
+  }
+
+  .sectionTitle {
+    font-size: 38px;
+    font-weight:400;
+  }
 }
 
-  
-  
-  /* Mobile */
-  /* so when detect max width 700px which is for cellphone, the grid will change */
-  @media (max-width: 400px) {
-  
-      .grid 
-    {
-      /* two items across now with 50% each*/
-          grid-template-columns: repeat(3, 50%);
-      }
-  
-  }
-
-  
-
-  .gridColor {
-    background-color:#000000;
-    position: relative;
-    width: 107px;
-    height: 32px;
-    text-align: center;
-    bottom: 100px;
-
-    
-  }
-
-  .gridColor2 {
-    background-color:#000000;
-    position: relative;
-    width: 155px;
-    height: 32px;
-    text-align: center;
-    bottom: 100px;
-
-    
-  }
-  .gridColor3 {
-    background-color:#000000;
-    position: relative;
-    width: 130px;
-    height: 32px;
-    text-align: center;
-    bottom: 100px;
-
-    
-  }
-
-
-  .gridText {
-    font-family: 'Jost';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 29px;
-    color: rgb(255, 248, 248);
-    position: absolute;
-    bottom: -1em;
-    left: 1em;
-  
-  }
-
-
-
-.colorBlock {
-  
-  
-  background-color: #000000;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.75);
-  padding-top: 25px;
-  text-align: center;
-  justify-content: center;
-  margin: 0 auto;
-  width: 100%;
-  height: clamp(60px, 5vw, 100px);
-    
-
-    
+@media screen and (max-width: 1000px) {
+  .column66 {
+    float: left;
+    width: 100%;
+    padding: 20px;
+    text-align: justify;
   }
   
+  .column33 {
+    float: left;
+    width: 100%;
+    padding: 20px;
+  
+  }
+  .imgStyle {
+    margin: auto;
+  }
 
-
-.sectionMargin {
-    margin-top: 20px;
-    }
- 
-
-.textColor {
-  color: rgb(255, 248, 248);
-  position: absolute;
-  width: 450px;
-  height: 35px;
-  left: calc(50% - 222px);
-  text-align: center;
-
-  padding-top: 10px;
-
-  font-family: 'Jost';
-  font-style: normal;
-  font-weight: 400;
-  font-size: clamp(24px, 3vw, 30px);
-  line-height: 35px;
-  /* identical to box height */
-}
-
-.gridText:hover {
-  color:#f89191 
-
-}
-
-.BoxShadow {
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
