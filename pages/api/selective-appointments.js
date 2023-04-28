@@ -9,7 +9,7 @@ export default async function handler(req, res) {
             res.status(401).json({ message: 'Unauthorized' });
             return;
         }
-        const querySql = "SELECT appointment_id,firstName,lastName,email,start_time,end_time,date FROM appointments inner join user on appointments.userID = user.userID ORDER BY date,start_time ";
+        const querySql = "SELECT appointmentID,firstName,lastName,email,startTime,endTime,date FROM appointments inner join user on appointments.userID = user.userID ORDER BY date,startTime ";
         const valueParams = [];
         const data = await query({ query: querySql, values: [valueParams] });
 
