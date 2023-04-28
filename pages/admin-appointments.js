@@ -44,7 +44,7 @@ function AdminAppointmentsPage() {
             <ul>
                 {appointments.map((appointment) => (
                     <li key={appointment.appointment_id}>
-                        {appointment.firstName} {appointment.lastName}: {formatDate(appointment.date)} ({formatTime(appointment.start_time)} - {formatTime(appointment.end_time)})
+                        {appointment.firstName} {appointment.lastName}: {formatDate(appointment.date)} ({formatTime(appointment.startTime)} - {formatTime(appointment.endTime)})
                     </li>
                 ))}
             </ul>
