@@ -9,8 +9,8 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="[public/logo-color.png](https://github.com/Finesseology/cultureforyou)">
-    <img src="public/logo-color.png" alt="Logo" width="110" height="110">
+  <a href="[docs/imgs/logo-color.png](https://github.com/Finesseology/cultureforyou)">
+    <img src="docs/imgs/logo-color.png" alt="Logo" width="110" height="110">
   </a>
 
   <h3 align="center">Culture For You</h3>
@@ -32,6 +32,7 @@
     <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
+        <li><a href="#synopsis">Synopsis</a></li>
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
@@ -53,13 +54,26 @@
 
 <!-- ABOUT THE PROJECT -->
 
-## About The Project
+# About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://cultureforu.com)
+<div>
+  <h1 align="center">Homepage</h1>
+</div>
 
-This project is developed by Computer Science students at California State University, Sacramento.
+[![Product Name Screen Shot][homepage-img]](https://cultureforu.com)
 
-Things to keep in mind:
+## Synopsis
+
+<div>
+  <p>
+    Our client has a small business creating various designs for Engravings, Henna, Makeup, and Wedding Signs. Our client takes special request orders and currently manages everything through Instagram. As the client’s business grows, they will require a space to have all of the products and services organized, as well as a place to utilize their online presence to promote their works to a wider audience. As the business gains more customers, a larger database will be required to track all appointments, clientele, and orders. This online presence will provide a space for clientele to easily set up appointments or contact the business for special orders/additional information. Additionally, we want customers to have the ability to contact the artist directly with any questions or concerns regarding purchases. Included in the solution to our client's problem, we are adding the ability for clientele to pay for orders and ensuring the website has the security to handle unwanted bots. Finally, to facilitate the growth of our client's business, we are integrating web analytics to better understand user patterns on the web pages and forecast the success of future products by Culture For You.
+  </p>
+  </br>
+</div>
+
+<div>
+  <h1 align="center" style="font-size: 20px;">Things to keep in mind</h1>
+  This project is developed by Computer Science students at California State University, Sacramento.
 
 -   This project is still in progress.
 -   It is a collaborative effort between students for a grade.
@@ -68,9 +82,11 @@ Things to keep in mind:
 
 Of course, this project will see continuous development until the end of 2023, however afterwards, development may stop.
 
+</div>
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Built With
+## Built With
 
 This project was built using Next.js.
 
@@ -80,12 +96,12 @@ This project was built using Next.js.
 
 <!-- GETTING STARTED -->
 
-## Getting Started
+# Getting Started
 
 This is an example of how to set up your project locally.
 To get a local copy up and running follow these simple example steps.
 
-### Prerequisites
+## Prerequisites
 
 This is an example of how to list things you need to use the software and how to install them.
 
@@ -94,7 +110,7 @@ This is an example of how to list things you need to use the software and how to
     npm install npm@latest -g
     ```
 
-### Installation
+## Installation
 
 Below is an example of how you can install and set up your project. This project uses SendGrid, Google analytics, Google Captcha, mysql2 and Next-Auth.
 
@@ -151,7 +167,7 @@ Below is an example of how you can install and set up your project. This project
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Usage
+# Usage
 
 To use this project, simply navigate to the installation destination of the project.
 
@@ -173,7 +189,7 @@ Ensure there are no build errors aside from eslint. From there the project is re
 
 <!-- ROADMAP -->
 
-## Roadmap
+# Roadmap
 
 -   [x] Add interactive live website
 -   [x] Add emailing service
@@ -181,15 +197,14 @@ Ensure there are no build errors aside from eslint. From there the project is re
 -   [x] Add user login system
 -   [ ] Add an appointment scheduling feature
 -   [ ] Add a payment system
--   [ ] Multi-view Support
-    -   [ ] Light mode
-    -   [ ] Dark mode
+-   [ ] Add an admin dashboard
+-   [ ] Add a user dashboard
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTRIBUTING -->
 
-## Contributing
+# Contributing
 
 Unfortunately, as this is a school project we cannot accept outside contributions during the core development cycle. If you wish to fork the project and check it out yourself, this project is public and we won't stop you.
 
@@ -197,19 +212,17 @@ Unfortunately, as this is a school project we cannot accept outside contribution
 
 <!-- LICENSE -->
 
-## License
+# License
+
+Distributed under the MIT License. See LICENSE for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTACT -->
 
-## Contact
+# Contact
 
-### Project Repo
-
--   Project Link: [https://github.com/Finesseology/cultureforyou](https://github.com/Finesseology/cultureforyou)
-
-### Project Contributors
+## Project Contributors
 
 -   Chris Lemke
     -   [Github Profile][github-url-chris]
@@ -248,7 +261,7 @@ Unfortunately, as this is a school project we cannot accept outside contribution
 
 <!-- ACKNOWLEDGMENTS -->
 
-## Acknowledgments
+# Acknowledgments
 
 These sites and projects were very helpful in the development of this project. We would like to thank the public work of these projects.
 
@@ -261,7 +274,8 @@ These sites and projects were very helpful in the development of this project. W
 
 <!-- Custom files and links -->
 
-[product-screenshot]: public/logo-color.png
+[logo-img]: docs/imgs/logo-color.png
+[homepage-img]: docs/imgs/culture-homepage.png
 
 <!-- References to Projects -->
 
