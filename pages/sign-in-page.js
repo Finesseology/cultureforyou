@@ -52,7 +52,6 @@ import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 
 		<div className={styles.signInBtn_Center}>
 			<div className={styles.signInBtn_Container}>
-				<button >Sign in with Email</button>
 				<button onClick={handleClick}>Sign in with Google</button>
 			</div>
 			</div>

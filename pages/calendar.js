@@ -55,7 +55,10 @@ function AppointmentsCalendar() {
             ) : (
                 <p>No appointments found for this date</p>
             )}
+
         </div>
+
+
     );
 }
 

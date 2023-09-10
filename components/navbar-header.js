@@ -24,13 +24,16 @@ export default function SignInSignOutBar() {
        
          <ul className={styles.SignInSignOut_ul}>
             
-         <Link className={styles.SignInSignOut_li} href ='/'><li>Home</li></Link>
-         <Link className={styles.SignInSignOut_li} href ='../shop-layout'><li>Shop</li></Link>
-  
-         <Link className={styles.SignInSignOut_li} href ='../app-booking'><li>Appointments</li></Link>
-         <Link className={styles.SignInSignOut_li} href ='../contact-us'><li>Contact Us</li></Link>
-         <div className={styles.SignInSignOut_li}>|</div>
-         <Link className={styles.SignInSignOut_li} href ='../sign-in-page'><li>Sign In</li></Link>
+        
+        <Link className={styles.SignInSignOut_li} href ='/'><li>Home</li></Link> 
+
+        {/*<Link className={styles.SignInSignOut_li} href ='../shop-layout'><li>Shop</li></Link>*/}
+
+        <Link className={styles.SignInSignOut_li} href ='../app-booking'><li>Appointments</li></Link>
+
+        {/*<Link className={styles.SignInSignOut_li} href ='../contact-us'><li>Contact Us</li></Link>*/}
+        <div className={styles.SignInSignOut_li}>|</div>
+        <Link className={styles.SignInSignOut_li} href ='../sign-in-page'><li>Sign In</li></Link>
         <Link className={styles.SignInSignOut_li} href ='../create-account-page'><li>Create Account</li></Link> 
             
             
