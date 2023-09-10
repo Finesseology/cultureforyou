@@ -3,6 +3,7 @@ import Calendar from "react-calendar";
 import 'react-calendar/dist/Calendar.css';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
+import AppointmentForm from './AppointmentsForm';
 
 export default function Appointment() {
  const [selectedDate, setSelectedDate] = useState(new Date()); // to handle selected dates on the calendar
@@ -48,6 +49,8 @@ export default function Appointment() {
 
 
  return (
+  <div>
+    <h1 className={styles.heading}>Appointment Times</h1>
    <div className={styles.pageContainer}>
      <h1> Appointment Times </h1>
      <Calendar onChange={handleSelectDate} value={selectedDate} />
@@ -70,7 +73,12 @@ export default function Appointment() {
            <button onClick={handleConfirmAppointment}>Confirm Appointment</button> 
          </div>
        )}
+
+      <div className={styles.formContainer}>
+      <AppointmentForm />
+      </div>
      </div>
+   </div>
    </div>
  );
 }
