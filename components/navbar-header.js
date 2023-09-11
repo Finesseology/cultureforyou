@@ -12,7 +12,11 @@ export default function SignInSignOutBar() {
         
       },
     })
-  
+
+
+    const { data: session } = useSession()
+    //Setting admin to the cultureforyou email by checking the logged in session
+    const isAdmin = session && session.user && session.user.email === "cultureforyou1@gmail.com";
     if (status === "loading") {
       return <nav>
 
@@ -23,7 +27,8 @@ export default function SignInSignOutBar() {
 
        
          <ul className={styles.SignInSignOut_ul}>
-            
+        
+         
          <Link className={styles.SignInSignOut_li} href ='/'><li>Home</li></Link>
          <Link className={styles.SignInSignOut_li} href ='../shop-layout'><li>Shop</li></Link>
   
@@ -48,9 +53,24 @@ export default function SignInSignOutBar() {
 
   </nav>
     }
+
+
+
   
     return <nav className={styles.mainContainer}>
     <ul className={styles.SignInSignOut_ul}>
+
+        {/*Only isAdmin logged in will show this admin tab*/}
+        {isAdmin && (
+          <Link className={styles.SignInSignOut_li} href="../admin-page"><li>Admin</li></Link>
+        )}
+        <Link className={styles.SignInSignOut_li} href ='/'><li>Home</li></Link>
+         <Link className={styles.SignInSignOut_li} href ='../shop-layout'><li>Shop</li></Link>
+  
+         <Link className={styles.SignInSignOut_li} href ='../app-booking'><li>Appointments</li></Link>
+         <Link className={styles.SignInSignOut_li} href ='../contact-us'><li>Contact Us</li></Link>
+         <div className={styles.SignInSignOut_li}>|</div>
+
 
         <button onClick={() => signOut()}>Sign out</button>
     </ul>
