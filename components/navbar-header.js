@@ -45,24 +45,20 @@ export default function SignInSignOutBar() {
 		<nav className={styles.mainContainer}>
 			<ul className={styles.SignInSignOut_ul}>
 				{/*Only isAdmin logged in will show this admin tab*/}
-				{isAdmin && (
-					<Link className={styles.SignInSignOut_li} href="../admin-page">
-						<li>Admin</li>
-					</Link>
-				)}
 				<Link className={styles.SignInSignOut_li} href="/">
 					<li>Home</li>
-				</Link>
-				<Link className={styles.SignInSignOut_li} href="../shop-layout">
-					<li>Shop</li>
 				</Link>
 
 				<Link className={styles.SignInSignOut_li} href="../app-booking">
 					<li>Appointments</li>
 				</Link>
-				<Link className={styles.SignInSignOut_li} href="../contact-us">
-					<li>Contact Us</li>
-				</Link>
+
+				{isAdmin && (
+					<Link className={styles.SignInSignOut_li} href="../admin-page">
+						<li>Admin Dashboard</li>
+					</Link>
+				)}
+
 				<div className={styles.SignInSignOut_li}>|</div>
 
 				<button onClick={() => signOut()}>Sign out</button>
