@@ -1,0 +1,92 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 40px 0 20px; /* Add equal space above and reduce space below the container */
+	background-color: #f0f0f0; /* Slightly darker grey background */
+	border-radius: 16px; /* Rounded corners */
+	max-width: 1000px; /* Set a maximum width */
+	margin: 40px auto; /* Center the container horizontally and add equal space above */
+}
+
+.title {
+	font-size: 3rem;
+	display: flex; /* Add display flex to center the text */
+	flex-direction: column; /* Display "404" and "Page Not Found!" on separate lines */
+	align-items: center; /* Center items horizontally */
+	text-align: center; /* Center text within the elements */
+	line-height: 1; /* Reset line-height to handle spacing */
+}
+
+.title span {
+	font-weight: bold; /* Make the "404" text bold if desired */
+	margin: 0; /* Remove margin to control spacing with padding */
+}
+
+.title span:first-child {
+	color: #000; /* Black color for "404" */
+}
+
+.title span:last-child {
+	color: #ff85a2; /* Pink color for "Page Not Found!" */
+}
+
+.description {
+	margin-top: 24px;
+	margin-bottom: 24px;
+	font-size: 1rem;
+	text-align: center;
+	color: #333; /* Dark grey text color */
+	max-width: 600px; /* Limit the text width to 100 pixels */
+}
+
+.buttonGroup {
+	margin-bottom: 24px;
+	display: flex;
+	gap: 24px;
+}
+
+.link {
+	font-size: 1rem;
+	margin-bottom: 16px;
+	text-align: center;
+	color: #333; /* Dark grey text color */
+	max-width: 600px; /* Limit the text width to 100 pixels */
+}
+
+.chipContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 16px; /* Increase the gap to add more room */
+	margin-bottom: 32px; /* Add more space between buttons and bottom */
+}
+
+/* Update chip styling to match the buttons */
+.chip {
+	background-color: transparent; /* Remove the background color */
+	color: #ff85a2; /* Pink text color */
+	font-weight: bold;
+	border: 2px solid #ff85a2; /* Add a pink border */
+	transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Add transition for border */
+}
+
+.chip:hover {
+	background-color: #d8a1ab; /* Greyish pink background color on hover */
+	color: #fff; /* White text color on hover */
+}
+
+.buttonGroup Button {
+	color: #ff85a2;
+	border: 2px solid #ff85a2; /* Add a pink border */
+	background-color: transparent; /* Remove the background color */
+	transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Add transition for border-color */
+}
+
+.buttonGroup Button:hover {
+	background-color: #d8a1ab; /* Greyish pink color on hover */
+	color: #fff; /* White text color on hover */
+	border-color: #ff85a2; /* Ensure pink border color on hover */
+}
