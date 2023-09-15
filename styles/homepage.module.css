@@ -1,47 +1,160 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300,400);
 @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
 
-
 .mainContainer{
-  font-family: "Verdana", "Courier New", Sans-serif;
-width:100%;
+  font-family: "Madera, sans-serif";
+  width:100%;
+    background-image: url('/homepagePics/leaves.jpg');
+   background-size: cover; /* Adjust image sizing to cover the entire container */
+    background-repeat: no-repeat; /* Prevent image repetition */
+   background-position: right-top; /* Center the image */
+    background-attachment: fixed; /* Fixed background to only show at the top */
+    position: relative;
+   
+   
+    
+  }
+
+  .mainContainer::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(to bottom, #745e4f, #46342a);
+    opacity: 0.3; /* Adjust the opacity as needed */
+    height: 100%; /* Extend the gradient to cover the entire container height */
+    z-index: 0; /* Place the gradient behind content */
+    pointer-events: none; /* Allows interactions with content beneath the overlay */
+  }
+  
+  .centeredImage {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    
+  
+  }
+  .shopNavBarContainer{
+    height:100px;
+    padding:0px;
+    background-color:none;
+    width:100%;
+}
+.shopNavBar{
+    font-size:18px;
+    padding:px 10px;
+    margin:px 30px;
+    cursor:pointer;
+    text-decoration: none;
+    color:#000000;
+}
+.shopNavBarLine{
+  color:#e7dfd8;
+  font-weight:600;
+  margin:0px 20px;
+}
+.shopNavBar:hover{
+    color:#fb7a7a;
+}
+.titleH1{
+  padding-top:20px;
+  font-size:25px;
+  font-weight:300;
+  text-align: center;
 }
 
-.introContainer{
-  background-color: none;
-  height:150px;
-  margin-top:10px;
+.descpp{
+  font-size:15px;
+      padding:5px 30px;
+      line-height: 1.5;
+      color:#000000;
+      text-align: center;
+}
+.titleH3
+{
+  font-size:20px;
+  padding:20px;
+  text-decoration: none;
+  color:#000000;
+
+  margin-left:20px;
+}
+.titleH3:hover{
+  color:#fb7a7a;
+}
+
+
+  .active
+{
+    color:#fb7a7a;
+    font-size:20px;
+    padding:5px 10px;
+    cursor:pointer;
+    border-bottom: 1px solid #fb7a7a;
+    text-decoration: none;
+}
+
+
+.introTitle{
+  text-align: center;
+  color: #000000;
+  font-size: 25px; /* Increase the font size */
+  font-weight: 1000; /* Increase the font weight to make it even chunkier */
+  letter-spacing: 1px; /* Adjust the value to control the spacing between letters */
+  padding-top:70px;
   
 }
 
-.introTitle{
-  font-size:25px;
-  text-align: center;
-  padding:50px 20px 20px 20px;
+.introDesc{
+  font-size:20px;
+  text-align:center;
+  padding:px; 
+  font-weight: 50; /* Increase the font weight to make it even chunkier */
+  color: #4d3b3b;
 }
 
-.introDesc{
-  font-size:15px;
+.servicesIntro{
+  font-size:20px;
   text-align:center;
-  padding:10px;
+  padding:0px; 
+  font-weight: 30; /* Increase the font weight to make it even chunkier */
+  padding:5px;
+  color: #613456;
+
 }
+
+.centerHome {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  width: 100%;
+  overflow: "hidden";
+  height: 500px;
+}
+
 
 .center {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  overflow: "hidden"
+  margin-top:20px;
+  margin-bottom:20px;
+
 }
 
 .imageContainer{
   height: 300px;
 	width: 350px;	
-  padding:20px;
+  padding:10px;
 }
 
 .container {
-  padding: 24px;
+  padding: 4px;
   width:66%;
   
 }
@@ -49,20 +162,21 @@ width:100%;
 .row:after {
   content: "";
   display: table;
-  clear: both
+  clear: both;
 }
 
 .column66 {
-  float: left;
+  float: right;
   width: 60%;
   padding: 20px;
-  text-align: justify;
+  text-align: left;
 }
 
 .column33 {
   float: left;
   width: 30%;
   padding: 20px;
+  text-align: justify;
 
 }
 
@@ -73,13 +187,13 @@ width:100%;
 
 .button {
   border: none;
-  border-radius:15px;
-  color: #000000;
-  padding: 10px 14px;
-  margin:2px;
-  font-size: 14px;
+  border-radius:5px;
+  color: #13100d;
+  padding: 5px 5px;
+  margin:1px;
+  font-size: 18px;
   cursor: pointer;
-  background-color: #e7dfd8;
+  background-color: #c4c0bc;;
   text-decoration: none;
   
 }
@@ -90,13 +204,14 @@ width:100%;
 .imgStyle {
   display: block;
   height: auto;
-  margin-top:40px;
+  margin-top:-10px;
   max-width: 100%;
-  border: 1.5px solid #fb7a7a;
-  border-radius:25px;
+  border: 1.5px solid #ffffff;
+  border-radius:10px;
+  margin-left:120px;
 }
 .imgStyle:hover{
-  box-shadow: 0 4px 8px 0 #fb7a7a;
+  box-shadow: 0 4px 8px 0 #f5e8e8;
 }
 
 @media screen and (max-width: 1300px) {
@@ -114,7 +229,7 @@ width:100%;
   
   }
   .imgStyle {
-    margin: auto;
+    margin-right: 30px;;
   }
 
   .sectionTitle {
@@ -138,7 +253,32 @@ width:100%;
   
   }
   .imgStyle {
-    margin: auto;
+    margin-left: 100px;;
   }
 
+}
+
+
+.socialsContainer
+{
+  background-color: #e7dfd8;
+  height:20px;
+  font-family: "Madera, sans-serif";
+}
+
+
+.column {
+  float: left;
+  width: 23%;
+  padding: 10px 10px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
 }
