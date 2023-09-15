@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styles from "@/styles/admin-page.module.css";
 import { useSession } from "next-auth/react";
+import UploadButton from '../components/upload-button';
+
 const AdminPage = () => {
 	const { data: session } = useSession();
 
@@ -12,6 +14,11 @@ const AdminPage = () => {
 
 	const openAdminPage = (adminTabSelect) => {
 		setActiveTab(adminTabSelect);
+	};
+
+	const handleUploadSuccess = (message) => {
+		console.log(message);
+		// Perform any additional actions after a successful upload
 	};
 
 	//If logged in user is not admin the cultureforyou email, show this and hide the rest
@@ -58,6 +65,11 @@ const AdminPage = () => {
 					id="addImageTab"
 					className={`${styles.tabcontent} ${activeTab === "addImageTab" ? styles.active : styles.hidden}`}>
 					<div className={styles.adminPageSectionTitle}>Implement Add Image here</div>
+					<div>
+						<h1>Upload an Image</h1>
+						<UploadButton onUpload={handleUploadSuccess} />
+					</div>
+
 				</div>
 
 				<div
