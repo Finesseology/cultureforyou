@@ -2,7 +2,7 @@
   float: left;
   border: 1px solid #ccc;
   background-color: #f1f1f1;
-  width: 30%;
+  width: 20%;
   height: 300px;
 }
 
@@ -72,3 +72,10 @@
   text-align: center;
   padding:90px;
 }
+
+.adminCalenderContainer{
+  padding:5px;
+  width:100%;
+  display:block;
+  } 
+  
