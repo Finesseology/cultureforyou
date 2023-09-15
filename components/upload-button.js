@@ -14,6 +14,7 @@ const UploadButton = ({ onUpload }) => {
             } else {
                 alert('File must be a valid image file.');
                 setSelectedFile(null);
+                e.target.value = '';
             }
         }
     };
@@ -30,15 +31,22 @@ const UploadButton = ({ onUpload }) => {
                 });
 
                 if (response.ok) {
+                    setSelectedFile(null);
                     const responseData = await response.json();
+                    const fileInput = document.querySelector('input[type="file"]');
+                    fileInput.value = '';
                     onUpload(responseData); // Call the callback function with the response data
+                    alert('File uploaded successfully!');
                 } else {
                     alert('Failed to upload image.');
+                    setSelectedFile(null);
+
                 }
             } catch (error) {
                 console.error(error);
                 alert('An error occurred while uploading the image.');
-            }
+                setSelectedFile(null);
+            } 
         }
     };
 

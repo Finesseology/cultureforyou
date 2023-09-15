@@ -30,54 +30,59 @@ const AdminPage = () => {
 	//If the logged in is the admin with the cultureforyou email, then show the page
 	return (
 		<>
-			<div className={styles.adminPageContainer}>
-				<div className={styles.adminPageTitle}>Admin Page</div>
+            <div className={styles.adminPageContainer}>
+                <div className={styles.adminPageTitle}>Admin Page</div>
 
-				{/*These are the three tab selection on the side */}
-				<div className={styles.selectTab}>
-					<button
-						className={`${styles.tablinks} ${activeTab === "addCalenderTab" ? styles.active : ""}`}
-						onClick={() => openAdminPage("addCalenderTab")}>
-						Add Calendar
-					</button>
-					<button
-						className={`${styles.tablinks} ${activeTab === "addImageTab" ? styles.active : ""}`}
-						onClick={() => openAdminPage("addImageTab")}>
-						Add Image
-					</button>
-					<button
-						className={`${styles.tablinks} ${activeTab === "analyticsTab" ? styles.active : ""}`}
-						onClick={() => openAdminPage("analyticsTab")}>
-						Analytics
-					</button>
-				</div>
+                {/* These are the three tab selection on the side */}
+                <div className={styles.selectTab}>
+                    <button
+                        className={`${styles.tablinks} ${activeTab === "addCalendarTab" ? styles.active : ""}`}
+                        onClick={() => openAdminPage("addCalendarTab")}
+                    >
+                        Add Calendar
+                    </button>
+                    <button
+                        className={`${styles.tablinks} ${activeTab === "addImageTab" ? styles.active : ""}`}
+                        onClick={() => openAdminPage("addImageTab")}
+                    >
+                        Add Image
+                    </button>
+                    <button
+                        className={`${styles.tablinks} ${activeTab === "analyticsTab" ? styles.active : ""}`}
+                        onClick={() => openAdminPage("analyticsTab")}
+                    >
+                        Analytics
+                    </button>
+                </div>
 
-				{/*These are the three tab Contents.*/}
-				<div
-					id="addCalenderTab"
-					className={`${styles.tabcontent} ${
-						activeTab === "addCalenderTab" ? styles.active : styles.hidden
-					}`}>
-					<div className={styles.adminPageSectionTitle}>Implement Add Calendar here</div>
-				</div>
+                {/* These are the three tab Contents. */}
+                <div
+                    id="addCalendarTab"
+                    className={`${styles.tabcontent} ${activeTab === "addCalendarTab" ? styles.active : styles.hidden}`}
+                >
+                    <div className={styles.adminPageSectionTitle}>Implement Add Calendar here</div>
+                </div>
 
-				<div
-					id="addImageTab"
-					className={`${styles.tabcontent} ${activeTab === "addImageTab" ? styles.active : styles.hidden}`}>
-					<div className={styles.adminPageSectionTitle}>Implement Add Image here</div>
-					<div>
-						<h1>Upload an Image</h1>
-						<UploadButton onUpload={handleUploadSuccess} />
-					</div>
+                <div
+                    id="addImageTab"
+                    className={`${styles.tabcontent} ${activeTab === "addImageTab" ? styles.active : styles.hidden}`}
+                >
+                    <div className={styles.uploadContainer}>
+                        <div style={{ textAlign: "center" }}>
+                            <h1>Upload an Image</h1>
+                            <UploadButton onUpload={handleUploadSuccess} style={{ display: "inline-block" }} />
+                        </div>
+                    </div>
+                </div>
 
-				</div>
+                <div
+                    id="analyticsTab"
+                    className={`${styles.tabcontent} ${activeTab === "analyticsTab" ? styles.active : styles.hidden}`}
+                >
+                    <div className={styles.adminPageSectionTitle}>Implement Analytics here</div>
+                </div>
+            </div>
 
-				<div
-					id="analyticsTab"
-					className={`${styles.tabcontent} ${activeTab === "analyticsTab" ? styles.active : styles.hidden}`}>
-					<div className={styles.adminPageSectionTitle}>Implement Analytics here</div>
-				</div>
-			</div>
 		</>
 	);
 };
