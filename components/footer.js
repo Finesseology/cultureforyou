@@ -24,23 +24,31 @@ const Footer = () => {
 					</div>
 
 					<div className={styles.column}>
-						<div className={styles.columnTitle}>Follow Us</div>
-						<div className={styles.columnDesc}>
-							<a href="https://www.instagram.com/cultureforyou_/">Instagram</a>
-						</div>
+ 					 <div className={styles.columnTitle}>Follow Us</div>
+  						<div className={styles.columnDesc}>
+    						<a href="https://www.instagram.com/cultureforyou_/">
+    					 <img
+        					src="/homepagePics/instagramIcon.png"
+       						alt="Instagram Icon"
+        					className={styles.icon}
+						/>
+						</a>
+					</div>
 					</div>
 
 					<div className={styles.column}>
 						<div className={styles.columnTitle}>Contact Us</div>
 						<div className={styles.columnDesc}>
-							Email: <a href="mailto:cultureforu1@gmail.com"> cultureforu1@gmail.com</a>
+							<a href="mailto:cultureforu1@gmail.com">
+							<img
+								src="/homepagePics/email.png"
+								alt="Email Icon"
+								className={styles.icon}/>
+							</a>
 						</div>
-						<div className={styles.columnDesc}>
-							Address: <a href="https://goo.gl/maps/HogMHYPdBbwk5MpP7"> Lodi, CA 95242</a>
 						</div>
-					</div>
 
-					<div className={styles.column}>
+						<div className={styles.column}>
 						<div className={styles.columnTitle}>About Us</div>
 						<div className={styles.columnDesc}>
 							We are a local company that specializes in henna, engraving, toppers, and wedding signs! We
@@ -49,7 +57,13 @@ const Footer = () => {
 							products!
 						</div>
 					</div>
+					
+					</div>
+
+				
 				</div>
+
+			
 
 				<div className={styles.lowerFooterContainer}>
 					<hr className={styles.lowerFooterContainerHR} />
@@ -64,7 +78,7 @@ const Footer = () => {
 					</div>
 				</div>
 			</div>
-		</div>
+		
 	);
 };
 

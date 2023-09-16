@@ -1,8 +1,7 @@
 .Footer_Main {
   width: 100%;
   margin-top:10px;
-  font-family: "Verdana", "Courier New", Sans-serif;
- 
+  font-family: "Madera, sans-serif";
 }
 
 .mainContainer
@@ -29,13 +28,6 @@
   overflow: "hidden"
 }
 
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-  
-}
 
 .columnTitle{
   margin-top:30px;
