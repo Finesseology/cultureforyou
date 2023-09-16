@@ -15,7 +15,7 @@ const Footer = () => {
 						<Link className={styles.columnDesc} href="../shop-layout">
 							<li>Shop</li>
 						</Link>
-						<Link className={styles.columnDesc} href="../app-booking">
+						<Link className={styles.columnDesc} href="../appointments">
 							<li>Appointments</li>
 						</Link>
 						<Link className={styles.columnDesc} href="../contact-us">

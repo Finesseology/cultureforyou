@@ -2,7 +2,7 @@ import { query } from "../../lib/db";
 
 export default async function handler(req, res) {
 	try {
-		const querySql = "SELECT DATE_FORMAT(timeSlot, '%h:%i %p') as time FROM Appointments Where available = true";
+		const querySql = "SELECT DATE_FORMAT(timeSlot, '%h:%i %p') as time FROM Appointments";
 		const valueParams = [];
 		const data = await query({ query: querySql, values: [valueParams] });
 

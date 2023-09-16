@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "@/styles/admin-page.module.css";
 import { useSession } from "next-auth/react";
 import UploadButton from '../components/upload-button';
-
+import MyCalendar from './big-calendar';
 const AdminPage = () => {
 	const { data: session } = useSession();
 
@@ -55,9 +55,10 @@ const AdminPage = () => {
 				{/*These are the three tab Contents.*/}
 				<div
 					id="addCalenderTab"
-					className={`${styles.tabcontent} ${activeTab === "addCalenderTab" ? styles.active : styles.hidden
-						}`}>
-					<div className={styles.adminPageSectionTitle}>Implement Add Calendar here</div>
+					className={`${styles.tabcontent} ${
+						activeTab === "addCalenderTab" ? styles.active : styles.hidden
+					}`}>
+					<div className={styles.adminCalendarContainer}><MyCalendar/></div>
 				</div>
 
 				<div
