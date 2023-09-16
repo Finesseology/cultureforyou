@@ -57,7 +57,7 @@ export default async function handler(req, res) {
             //console.log("ID received: " + req.body.id)
 
             if (delData.affectedRows > 0) {
-                res.status(204).json({ message: 'Event Deleted successfully' });
+                res.status(201).json({ message: 'Event Deleted successfully' });
             } else {
                 res.status(404).json({ error: 'Failed to delete event' });
             }

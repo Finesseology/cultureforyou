@@ -1,9 +1,10 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect} from 'react';
 import { Calendar, TimeGrid, momentLocalizer } from 'react-big-calendar';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import 'font-awesome/css/font-awesome.min.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import styles from "@/styles/admin-page.module.css";
 import moment from 'moment';
 
 const localizer = momentLocalizer(moment);
@@ -15,13 +16,11 @@ const MyCalendar = () => {
     end: Date,
   });
   const [newEventTitle, setNewEventTitle] = useState('');
-  const [isPopupVisible, setPopupVisible] = useState(false);
   const [deletedEvents, setDeletedEvents] = useState(false);
   const eventIDToDeleteRef = useRef();
 
   const handleSlotSelect = (slotInfo) => {
     setSelectedSlot(slotInfo);
-    setPopupVisible(true);
     setDeletedEvents(null);
   };
 
@@ -75,9 +74,6 @@ const MyCalendar = () => {
 
     setEvents([...events, newEvent]);
     setNewEventTitle('');
-    setPopupVisible(false);
-
-
     // send requests to the API endpoint to insert and add events into the db
     fetch('./api/big-booking', {
       method: 'POST',
@@ -105,7 +101,7 @@ const MyCalendar = () => {
   async function deleteEvent(eventID) {
 
     const shouldDelete = window.confirm('Are you sure you want to delete this event?');
-    
+
     if (shouldDelete) {
 
       fetch(`./api/big-booking?eventID=${eventID}`, { // this is not going to the API endpoint
@@ -146,8 +142,8 @@ const MyCalendar = () => {
 
   return (
     <div>
-      {isPopupVisible && (
-        <div className="popup">
+      <div className={styles.adminCalendarContainer}>
+        <div className={styles.eventTitleInput}>
           <strong>Enter Event Title: </strong>
           <input
             type="text"
@@ -155,20 +151,31 @@ const MyCalendar = () => {
             onChange={(e) => setNewEventTitle(e.target.value)}
           />
           <button onClick={handleAddEvent}>Add Event</button>
+          <div className={styles.description}>
+            <p>- <strong> To add </strong> a new event to the Calendar, click on the number of the day to open all the available times in that day. </p>
+            <p>- <strong> Select </strong> the time slot by dragging cursor from time spot to another and then give it a title.</p>
+            <p>- <strong> To delete</strong> an event click on the trash icon and confirm.</p>
+          </div>
         </div>
-      )}
 
-      <Calendar
-        localizer={localizer}
-        events={events}
-        selectable
-        components={{ event: CustomEvent }} // Use the custom event component
-        startAccessor="start"
-        endAccessor="end"
-        onSelectSlot={handleSlotSelect}
-        //timeSlotAccessor = "timeSlot"
-        style={{ height: 290, width: 960 }}
-      />
+        <Calendar
+          localizer={localizer}
+          events={events}
+          selectable
+          components={{ event: CustomEvent }} // Use the custom event component
+          startAccessor="start"
+          endAccessor="end"
+          onSelectSlot={handleSlotSelect}
+          slotPropGetter={(date) => {
+            if (date >= selectedSlot.start && date < selectedSlot.end) {
+              return {
+                className: styles.selectedSlot,
+              };
+            }
+            return {};
+          }}
+        />
+      </div>
     </div>
 
   );
