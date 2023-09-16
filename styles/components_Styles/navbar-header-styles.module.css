@@ -1,25 +1,32 @@
 .mainContainer
 {
-  background-color:#e7dfd8 ;
+  background-color:#4b3d318f ;
   width:100%;
-  font-family: "Verdana", "Courier New", Sans-serif;
-  height:60px;
-  border-radius:10px;
+  font-family: "Madera, sans-serif";
+  height:50px;
+  border-radius:10px; 
+  margin-top: -20px;
 }
+
+
 .webTitle_li{
   color:#000000;
   text-decoration: none;
+  margin-top: 100px;
+  
 }
 .webTitle{
   float:left;
-  padding:5px;
+  padding-top:24px;
   text-decoration: none;
    /*font CSS*/
    color: #000000;
-   font-size:35px;
+   font-size:24px;
    font-weight:400;
    cursor:pointer;
-   margin-left:50px;
+   margin-top: px;
+   margin-right: 50px;
+   
   
 }
 
@@ -33,6 +40,7 @@
    list-style-type: none;
    text-align:right;
    margin-right:10px;  
+   
      
  }
 
@@ -41,12 +49,12 @@
     text-decoration: none;
     background-color: none;
     /*font CSS*/
-    color: #000000;
-    font-size:16px;
+    font-size:20px;
     font-weight:300;
+    color: #000000;
     display:inline-block;
     text-align: right;
-    margin-top:10px;
+    margin-top:15px;
     margin-left:10px;
     margin-right:10px;
     padding:10px;
@@ -55,7 +63,8 @@
 
 
   .SignInSignOut_li:hover{
-    color:#fb7a7a;
+    
+    color:#f1cbcb;
   }
 
 
@@ -74,7 +83,7 @@
   {
     background-color:#e7dfd8 ;
     width:100%;
-    font-family: "Verdana", "Courier New", Sans-serif;
+    font-family: "Madera, sans-serif";
     height:100px;
   }
 
@@ -115,7 +124,7 @@
   {
     background-color:#e7dfd8 ;
     width:100%;
-    font-family: "Verdana", "Courier New", Sans-serif;
+    font-family: "Madera, sans-serif";
     height:auto;
   }
  

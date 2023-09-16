@@ -1,9 +1,16 @@
 import React, { useState } from "react";
 import styles from "@/styles/admin-page.module.css";
 import { useSession } from "next-auth/react";
+import UploadButton from '../components/upload-button';
+
 import MyCalendar from './big-calendar';
 const AdminPage = () => {
 	const { data: session } = useSession();
+
+	const handleUploadSuccess = (message) => {
+		console.log(message);
+		// Perform any additional actions after a successful upload
+	};
 
 	//Setting admin to the cultureforyou email by checking the logged in session
 	const isAdmin = session && session.user && session.user.email === "cultureforyou1@gmail.com";
@@ -52,13 +59,21 @@ const AdminPage = () => {
 					className={`${styles.tabcontent} ${
 						activeTab === "addCalenderTab" ? styles.active : styles.hidden
 					}`}>
-					<div className={styles.adminCalenderContainer}> < MyCalendar/> </div>
+					<div className={styles.adminPageSectionTitle}>Implement Add Calendar here</div>
 				</div>
 
 				<div
 					id="addImageTab"
 					className={`${styles.tabcontent} ${activeTab === "addImageTab" ? styles.active : styles.hidden}`}>
-					<div className={styles.adminPageSectionTitle}>Implement Add Image here</div>
+					<div className={styles.uploadContainer}>
+						<div style={{ textAlign: "center" }}>
+							<h1>Upload an Image</h1>
+							<p>Click the Browse button below to select an Image to upload to the server.</p> 
+							<p>After selecting an image file (PNG,JPG,JPEG,GIF), you may use the Upload button to upload it.</p> 
+							<p>You should recieve a Confirmation message that it has been uploaded.</p> 
+							<UploadButton onUpload={handleUploadSuccess} style={{ display: "inline-block" }} />
+						</div>
+					</div>
 				</div>
 
 				<div

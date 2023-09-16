@@ -49,7 +49,7 @@ export default function SignInSignOutBar() {
 					<li>Home</li>
 				</Link>
 
-				<Link className={styles.SignInSignOut_li} href="../app-booking">
+				<Link className={styles.SignInSignOut_li} href="../appointments">
 					<li>Appointments</li>
 				</Link>
 
