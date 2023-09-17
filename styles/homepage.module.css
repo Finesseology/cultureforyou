@@ -175,7 +175,7 @@
 .column33 {
   float: left;
   width: 30%;
-  padding: 20px;
+  
   text-align: justify;
 
 }
@@ -281,4 +281,17 @@
   content: "";
   display: table;
   clear: both;
+}
+
+.imgStyle:hover {
+  box-shadow: 0 2px 4px 0 #fb7a7a;
+}
+
+.sectionTitle:hover {
+  color:#fb7a7a;
+}
+
+.textdec {
+  text-decoration:none;
+  color: #13100d;
 }
