@@ -18,9 +18,6 @@ const Footer = () => {
 						<Link className={styles.columnDesc} href="../appointments">
 							<li>Appointments</li>
 						</Link>
-						<Link className={styles.columnDesc} href="../contact-us">
-							<li>Contact Us</li>
-						</Link>
 					</div>
 
 					<div className={styles.column}>
