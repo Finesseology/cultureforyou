@@ -59,7 +59,9 @@ export default function Home() {
 					<div className={styles.container}>
 						<div className={styles.row}>
 							<div className={styles.column66}>
+							<a className={styles.textdec} href="./henna-showcase" >
 								<h1 className={styles.sectionTitle}>Henna Service</h1>
+								</a>
 								<p>
 									We offer henna services by appointment. We offer personalized henna designs for all occasions.
 									Our henna services are of the highest quality and we only use 100% organic henna.
@@ -70,7 +72,7 @@ export default function Home() {
 									Henna Showcase
 								</a>
 							</div>
-							<div className={styles.colum33}>
+							<div className={styles.column33}>
 								<a href="./henna-showcase" > 
 								<Image
 									className={styles.imgStyle}
@@ -100,7 +102,9 @@ export default function Home() {
 									</a>
 							</div>
 							<div className={styles.column66}>
+							<a className={styles.textdec} href="./topper" >
 								<h1 className={styles.sectionTitle}>Toppers</h1>
+								</a>
 								<p>
 									We do toppers for all sorts of special occasions. Our wedding toppers are sure to make
 									any celebration extra special. We offer a wide range of toppers, including wedding toppers,
@@ -118,7 +122,9 @@ export default function Home() {
 					<div className={styles.container}>
 						<div className={styles.row}>
 							<div className={styles.column66}>
+							<a className={styles.textdec} href="./engraving-showcase" >
 								<h1 className={styles.sectionTitle}>Engraving</h1>
+								</a>
 								<p>
 									We do engraving for all types of products! Get your lovers name engraved on a starbucks
 									cup, or get your name engraved on a your wine glass! We offer a wide range of engraving
@@ -161,7 +167,9 @@ export default function Home() {
 									</a>
 							</div>
 							<div className={styles.column66}>
+							<a className={styles.textdec} href="./wedding-sign" >
 								<h1 className={styles.sectionTitle}>Wedding Sign</h1>
+								</a>
 								<p>
 									We do Wedding Signs for the most important celebration of your life. Our wedding signs
 									are sure to make your wedding extra special. We offer a wide range of wedding signs,
