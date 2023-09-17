@@ -71,6 +71,7 @@ export default function Home() {
 								</a>
 							</div>
 							<div className={styles.colum33}>
+								<a href="./henna-showcase" > 
 								<Image
 									className={styles.imgStyle}
 									src={"/hennaPics/henna8.png"}
@@ -78,6 +79,7 @@ export default function Home() {
 									width={250}
 									height={300}
 									priority />
+									</a>
 							</div>
 						</div>
 					</div>
@@ -87,6 +89,7 @@ export default function Home() {
 					<div className={styles.container}>
 						<div className={styles.row}>
 							<div className={styles.column33}>
+							<a href="./topper" >
 								<Image
 									className={styles.imgStyle}
 									src={"/topperPics/topper2.png"}
@@ -94,6 +97,7 @@ export default function Home() {
 									width={250}
 									height={300}
 									priority />
+									</a>
 							</div>
 							<div className={styles.column66}>
 								<h1 className={styles.sectionTitle}>Toppers</h1>
@@ -127,6 +131,7 @@ export default function Home() {
 								</a>
 							</div>
 							<div className={styles.column33}>
+							<a href="./engraving-showcase" >
 								<Image
 									className={styles.imgStyle}
 									src={"/index/YellowFloralWreath.png"}
@@ -134,7 +139,9 @@ export default function Home() {
 									width={250}
 									height={300}
 									priority />
+									</a>
 							</div>
+							
 						</div>
 					</div>
 				</div>
@@ -143,6 +150,7 @@ export default function Home() {
 					<div className={styles.container}>
 						<div className={styles.row}>
 							<div className={styles.column33}>
+							<a href="./wedding-sign" >
 								<Image
 									className={styles.imgStyle}
 									src={"/index/weddingSign.png"}
@@ -150,6 +158,7 @@ export default function Home() {
 									width={250}
 									height={200}
 									priority />
+									</a>
 							</div>
 							<div className={styles.column66}>
 								<h1 className={styles.sectionTitle}>Wedding Sign</h1>
