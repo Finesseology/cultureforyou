@@ -17,14 +17,14 @@
 }
 .webTitle{
   float:left;
-  padding-top:24px;
+  padding-top:20px;
   text-decoration: none;
    /*font CSS*/
    color: #000000;
    font-size:24px;
    font-weight:400;
    cursor:pointer;
-   margin-top: px;
+   margin-top: -20px;
    margin-right: 50px;
    
   
@@ -54,7 +54,7 @@
     color: #000000;
     display:inline-block;
     text-align: right;
-    margin-top:15px;
+    margin-top:5px;
     margin-left:10px;
     margin-right:10px;
     padding:10px;
@@ -131,3 +131,7 @@
 
 }
   
+.image {
+  padding-left: 20px;
+  padding-top: -20px;
+}

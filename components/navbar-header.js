@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../styles/components_Styles/navbar-header-styles.module.css";
-
+import Image from "next/image";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { signOut } from "next-auth/react";
@@ -20,7 +20,13 @@ export default function SignInSignOutBar() {
 				<div className={styles.mainContainer}>
 					<div className={styles.webTitle}>
 						<Link className={styles.webTitle_li} href="/">
-							Culture For You
+						<Image
+									className={styles.image}
+									src={"/homepagePics/logohand.png"}
+									alt="logohand"
+									width={50}
+									height={50}
+									priority />
 						</Link>
 					</div>
 
@@ -43,6 +49,17 @@ export default function SignInSignOutBar() {
 
 	return (
 		<nav className={styles.mainContainer}>
+			<div className={styles.webTitle}>
+						<Link className={styles.webTitle_li} href="/">
+						<Image
+									className={styles.image}
+									src={"/homepagePics/logohand.png"}
+									alt="logohand"
+									width={50}
+									height={50}
+									priority />
+						</Link>
+					</div>
 			<ul className={styles.SignInSignOut_ul}>
 				{/*Only isAdmin logged in will show this admin tab*/}
 				<Link className={styles.SignInSignOut_li} href="/">
