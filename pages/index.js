@@ -33,8 +33,7 @@ export default function Home() {
 						
 					<div className={styles.shopNavBarContainer}>
 							
-							<a href='./shop-layout' className={styles.active}>All</a>
-							<a  className={styles.shopNavBarLine}>|</a>
+							
 							<a href='./henna-showcase'  className={styles.shopNavBar}>Henna</a>
 							<a className={styles.shopNavBarLine}>|</a>
 							<a href='./topper' className={styles.shopNavBar}>Topper</a>
@@ -49,11 +48,6 @@ export default function Home() {
 					
 
 				</div>
-
-
-
-				
-
 
 				<div className={styles.centerHome}>
 					<div className={styles.container}>
