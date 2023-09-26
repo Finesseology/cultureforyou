@@ -173,7 +173,7 @@ export default function Home() {
 								<a href="./wedding-sign" className={styles.button}>
 									Wedding Sign Showcase
 								</a>
-								<div class="overlay">
+								<div className="overlay">
 							</div>
 						</div>
 					</div>
