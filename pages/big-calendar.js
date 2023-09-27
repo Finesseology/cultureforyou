@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Calendar, TimeGrid, momentLocalizer } from 'react-big-calendar';
+import { Calendar, Views, momentLocalizer } from 'react-big-calendar';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import 'font-awesome/css/font-awesome.min.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -25,7 +25,7 @@ const MyCalendar = () => {
   const [popupPosition, setPopupPosition] = useState({ top: 0, left: 0 });
   const [InfoPopUP, setInfoPopUP] = useState(null); // Instructions Block
   const [showPopup1, setShowPopup1] = useState(false); // to handle showing the instructions popUp
-
+  const [currentView, setCurrentView] = useState('month'); // Default to Month view
 
   const handleSlotSelect = (slotInfo) => {
     setSelectedSlot(slotInfo);
@@ -113,9 +113,6 @@ const MyCalendar = () => {
       .catch((error) => {
         console.error('Network error:', error);
       });
-
-    //fetchEvents();
-    //console.log(events);
   };
 
   async function deleteEvent(eventID) {
@@ -203,6 +200,10 @@ const MyCalendar = () => {
     );
   };
 
+  const handleViewChange = (newView) => {
+    setCurrentView(newView);
+  };
+
   return (
     <div>
       <div className={styles.adminCalendarContainer}>
@@ -224,7 +225,7 @@ const MyCalendar = () => {
             </div>
           )};
 
-          {showPopup1 && (
+          {(showPopup1 && currentView == 'month') && (
             <div className={styles.InfoWindow}>
               <button onClick={() => setShowPopup1(false)}>Close</button>
               {InfoPopUP}
@@ -238,12 +239,15 @@ const MyCalendar = () => {
           events={events}
           popup={EventList}
           messages={customToolBar}
+          defaultView='month'
+          views={['month', 'day', 'week', 'agenda']}
           selectable
           components={{ event: CustomEvent }} // Use the custom event component
           startAccessor="start"
           endAccessor="end"
           onSelectSlot={handleSlotSelect}
           onSelectEvent={handleDayClick}
+          onView={handleViewChange}
           slotPropGetter={(date) => {
             if (date >= selectedSlot.start && date < selectedSlot.end) {
               return {
