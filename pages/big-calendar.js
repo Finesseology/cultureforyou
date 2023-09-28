@@ -1,11 +1,14 @@
-import React, { useState, useRef, useEffect} from 'react';
-import { Calendar, TimeGrid, momentLocalizer } from 'react-big-calendar';
+import React, { useState, useEffect } from 'react';
+import { Calendar, Views, momentLocalizer } from 'react-big-calendar';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import 'font-awesome/css/font-awesome.min.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import styles from "@/styles/admin-page.module.css";
 import moment from 'moment';
+import { config } from '@fortawesome/fontawesome-svg-core'
+import '@fortawesome/fontawesome-svg-core/styles.css'
+config.autoAddCss = false
 
 const localizer = momentLocalizer(moment);
 
@@ -17,11 +20,28 @@ const MyCalendar = () => {
   });
   const [newEventTitle, setNewEventTitle] = useState('');
   const [deletedEvents, setDeletedEvents] = useState(false);
-  const eventIDToDeleteRef = useRef();
+  const [showPopup, setShowPopup] = useState(false);
+  const [popupContnet, setPopupContent] = useState(null); // Events info popup
+  const [popupPosition, setPopupPosition] = useState({ top: 0, left: 0 });
+  const [InfoPopUP, setInfoPopUP] = useState(null); // Instructions Block
+  const [showPopup1, setShowPopup1] = useState(false); // to handle showing the instructions popUp
+  const [currentView, setCurrentView] = useState('month'); // Default to Month view
 
   const handleSlotSelect = (slotInfo) => {
     setSelectedSlot(slotInfo);
     setDeletedEvents(null);
+
+    const InfoPopUP = (
+      <div>
+        <h3> Calendar Instructions </h3>
+        <p>Clicking on the day box allows you to add an event but without time slot. Click on the number of the day for the day view. </p>
+        <p>In the day view, select the time range by dragging the cursor from a slot to another and then enter the Event title in the box on the right.</p>
+        <p>Click on Add Event button.</p>
+      </div>
+    );
+
+    setInfoPopUP(InfoPopUP);
+    setShowPopup1(true);
   };
 
   // fetch and retrieve events from db and show them on the calendar
@@ -93,9 +113,6 @@ const MyCalendar = () => {
       .catch((error) => {
         console.error('Network error:', error);
       });
-
-    //fetchEvents();
-    //console.log(events);
   };
 
   async function deleteEvent(eventID) {
@@ -127,10 +144,9 @@ const MyCalendar = () => {
   // Custom event component with a delete button
   const CustomEvent = ({ event }) => (
 
-    <div style={{ display: 'flex', alignItems: 'center', marginLeft: '1px' }}>
-
+    <div className={styles.faTrash}>
       <div style={{ marginLeft: '1px' }}> <strong>{event.title}</strong></div>
-      <div style={{ marginLeft: '50px' }}></div>
+      <div style={{ marginLeft: '10px' }}></div>
       <FontAwesomeIcon icon={faTrash} onClick={() => deleteEvent(event.id)} style={{ color: 'red' }} />
     </div>
   );
@@ -139,6 +155,54 @@ const MyCalendar = () => {
 
     fetchEvents();
   }, []);
+
+  const handleDayClick = (event) => {
+
+    const { title, start, end } = event;
+    // Capture the click event and set the position and text for the popup.
+    const position = {
+      top: 100,
+      left: 100,
+    };
+
+    const popupContnet = (
+      <div>
+        <h3> {title} </h3>
+        <p>From: {start.toLocaleString()}</p>
+        <p>To: {end.toLocaleString()}</p>
+      </div>
+    );
+
+    setPopupPosition(position);
+    setPopupContent(popupContnet);
+    setShowPopup(true);
+  };
+
+  const closePopup = () => {
+    setShowPopup(false);
+  };
+
+  const customToolBar = {
+    next: '▶️',
+    previous: '◀️',
+  };
+
+  const EventList = ({ events }) => {
+    return (
+      <div className={styles.moreEvents}>
+        <h3>Events on this day:</h3>
+        <ul>
+          {events.map((event) => (
+            <li key={event.id}>{event.title}</li>
+          ))}
+        </ul>
+      </div>
+    );
+  };
+
+  const handleViewChange = (newView) => {
+    setCurrentView(newView);
+  };
 
   return (
     <div>
@@ -151,25 +215,43 @@ const MyCalendar = () => {
             onChange={(e) => setNewEventTitle(e.target.value)}
           />
           <button onClick={handleAddEvent}>Add Event</button>
-          <div className={styles.description}>
-            <p>- <strong> To add </strong> a new event to the Calendar, click on the number of the day to open all the available times in that day. </p>
-            <p>- <strong> Select </strong> the time slot by dragging cursor from time spot to another and then give it a title.</p>
-            <p>- <strong> To delete</strong> an event click on the trash icon and confirm.</p>
-          </div>
+          {showPopup && (
+            <div
+              className={styles.popUpWindow}
+            >
+              <button onClick={closePopup}>Close</button>
+              <p> <strong> Event Info</strong>: </p>
+              {popupContnet}
+            </div>
+          )};
+
+          {(showPopup1 && currentView == 'month') && (
+            <div className={styles.InfoWindow}>
+              <button onClick={() => setShowPopup1(false)}>Close</button>
+              {InfoPopUP}
+            </div>
+          )}
+
         </div>
 
         <Calendar
           localizer={localizer}
           events={events}
+          popup={EventList}
+          messages={customToolBar}
+          defaultView='month'
+          views={['month', 'day', 'week', 'agenda']}
           selectable
           components={{ event: CustomEvent }} // Use the custom event component
           startAccessor="start"
           endAccessor="end"
           onSelectSlot={handleSlotSelect}
+          onSelectEvent={handleDayClick}
+          onView={handleViewChange}
           slotPropGetter={(date) => {
             if (date >= selectedSlot.start && date < selectedSlot.end) {
               return {
-                className: styles.selectedSlot,
+                className: styles.selectedSlotMark,
               };
             }
             return {};
