@@ -7,6 +7,7 @@
 import Layout from "../components/layout";
 import GoogleAnalytics from "@bradgarropy/next-google-analytics";
 import { SessionProvider } from "next-auth/react";
+import styles from '../styles/globals.css'
 
 export default function App({ Component, pageProps: { session, ...pageProps } }) {
 	const measurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;

@@ -38,9 +38,9 @@ export default function SignInSignOutBar() {
 							<li>Appointments</li>
 						</Link>
 						<div className={styles.SignInSignOut_li}>|</div>
-						<Link className={styles.SignInSignOut_li} href="../sign-in-page">
-							<li>Sign In</li>
-						</Link>
+
+						<a href="../sign-in-page" className={styles.signInOutButtonA}>Sign in</a>
+		
 					</ul>
 				</div>
 			</nav>
@@ -78,7 +78,7 @@ export default function SignInSignOutBar() {
 
 				<div className={styles.SignInSignOut_li}>|</div>
 
-				<button onClick={() => signOut()}>Sign out</button>
+				<button className={styles.signInOutButton} onClick={() => signOut()}>Sign out</button>
 			</ul>
 		</nav>
 	);

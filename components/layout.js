@@ -9,11 +9,12 @@
 import SignInSignOutBar from "./navbar-header";
 
 import Footer from "./footer";
-//import styles from '../styles/LayoutStyles.module.css'
+
+import styles from '../styles/components_Styles/layout-styles.module.css'
 
 const Layout = ({ children }) => {
 	return (
-		<div className="content">
+		<div className={styles.layoutMainContainer}>
 			<SignInSignOutBar />
 			{children}
 			<Footer />

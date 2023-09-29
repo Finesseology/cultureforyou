@@ -4,6 +4,7 @@
     align-items: center;
     margin-top: 50px;
     font-family: "Verdana", "Courier New", Sans-serif;
+
   }
   .calendarContainer {
     margin: 20px 0;
@@ -12,9 +13,37 @@
   }
   .textContainer {
     margin: 20px 0;
+    
   }
+
 
   .react-calendar__tile--active {
     background: #fb7a7a;
     color: white;
+}
+
+.formContainer{
+  background-color: none;
+  padding:20px;
+}
+
+.formContainer button{
+  background-color: #a0948c;
+  padding:5px 10px;
+  border:1px solid #f1cbcb;
+  border-radius:5px;
+  font-size:16px;
+  cursor:pointer;
+}
+
+.formContainer button:hover{
+  color:#f1cbcb;
+}
+
+.calenderContainer{
+  background-color: #ffffff;
+  border:1px solid #a0948c;
+  padding:20px;
+  height:620px;
+  border-radius:5px;
 }

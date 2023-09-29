@@ -36,7 +36,7 @@ export default function shopLayout() {
 					<a href='./wedding-sign' className={styles.shopNavBar}>Wedding Sign</a>
 				</div>
 
-
+				<div className={styles.centerContainer}>
 				<div className={styles.row}>
 					<div className={styles.column}>
 						
@@ -74,6 +74,7 @@ export default function shopLayout() {
 						<p className={styles.descP}>We do Wedding Sign incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
 					
 						</div>
+					</div>
 					</div>
 					</div>
 					</div>

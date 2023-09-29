@@ -1,5 +1,7 @@
 .myDiv {
-    border: 1px outset palevioletred;
+    background-color: #e7dfd8;
+    border:1px solid #a0948c;
+    border-radius:10px; 
     margin: 20px;
     padding:60px;
     width:50%;

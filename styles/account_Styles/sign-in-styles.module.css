@@ -3,22 +3,44 @@
     display: flex;
 	align-items: center;
 	justify-content: center;
-	min-height: 55vh;
-    margin-top: 50px;
-    font-family: "Verdana", "Courier New", Sans-serif;
+	min-height: 95vh;
+    margin-left:auto;
+    margin-right:auto;
+    width:100%;
+    
+    font-family: "Madera, sans-serif";
+    background-image: url('/homepagePics/leaves.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-attachment: fixed;
+    position: relative;
   
+    
 }
+
+.mainContainer::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    /*background: linear-gradient(to bottom, #745e4f, #46342a);*/
+    background:#745e4f;
+    opacity: 0.3;
+  
+    pointer-events: none;
+    
+  }
 
 .signInLabelContainer{
-
-	position: relative;	
-	height: 390px;
+	height: 160px;
 	width: 300px;	
-	box-shadow: 0px 0px 3px #fb7a7a;
+	box-shadow: 0px 0px 50px #b0a49c;
     border-radius:10px;
-    
-  
 }
+
 .signIn_Title{
     font-size:20px;
     font-weight:600;
@@ -29,16 +51,17 @@
 .signInLabelContainer input{
     border: none;
     margin-left:20px;
-	border-bottom: 2px solid #fb7a7a;
+	border-bottom: 2px solid #b0a49c;
 	background: none;
 	padding: 10px;
 	padding-left: 5px;
 	font-weight: 700;
-	
 	transition: .2s;
     text-align: left;
-    
+  
 }
+
+
 .userInputStyles{
     width:75%;
 }
@@ -52,8 +75,8 @@
     font-weight:300;
     margin-bottom:30px;
     cursor:pointer;
-
 }
+
 .remembeMeContainer Label{
     cursor:pointer;
 }
@@ -72,12 +95,12 @@
 
 
 .signInBtn_Container button{
-    background: #fff;
-	font-size: 12px;
+    background: #b0a49c;
+	font-size: 16px;
 	margin-top: 10px;
 	padding: 10px 80px;
     width:100%;
-	border: 1px solid #fb7a7a;
+	border: 1px solid #b0a49c;
 	font-weight: 300;
 	display: flex;
 	align-items: center;
@@ -88,6 +111,10 @@
     border-radius:10px;
     
 }
+.signInBtn_Container button:hover{
+ color:#f1cbcb;
+
+}
 
 .signInBtn_Container:focus,.signInBtn_Container:active,.signInBtn_Container:hover{
     border-color: #fb7a7a;
@@ -97,6 +124,12 @@
 .ForgotCreateContainer
 {
     margin-top:20px;
+    margin-left:auto;
+    margin-right:auto;
+    display: flex;
+  justify-content: center;
+    width:100%;
+    
 }
 
 .ForgotCreateContainer a{
@@ -106,8 +139,12 @@
     cursor:pointer;
     text-decoration: none;
     color:#000000;
+    text-align: center;
+
+    
 }
 
 .ForgotCreateContainer a:hover{
-    color:#fb7a7a;
+    color:#f1cbcb;
 }
+

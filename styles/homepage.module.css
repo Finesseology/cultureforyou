@@ -1,7 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300,400);
 @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
 
-/* Common styles for all screen sizes */
+
+
+/* Common styles for all screen sizes    rgba(231, 223, 216),*/
 .mainContainer {
   font-family: "Madera, sans-serif";
   background-image: url('/homepagePics/leaves.jpg');
@@ -10,6 +12,8 @@
   background-position: right top;
   background-attachment: fixed;
   position: relative;
+
+
 }
 
 .mainContainer::after {
@@ -19,11 +23,12 @@
   right: 0;
   bottom: 0;
   left: 0;
-  background: linear-gradient(to bottom, #745e4f, #46342a);
+  /*background: linear-gradient(to bottom, #745e4f, #46342a);*/
+  background:#745e4f;
   opacity: 0.3;
-  height: 100%;
-  z-index: 0;
+
   pointer-events: none;
+  
 }
 
 .centeredImage {
@@ -41,6 +46,7 @@
   background-color: transparent;
   margin-top: -5%; /* Adjust the margin-top to move the navbar closer to the top image */
   width: 100%;
+  
 }
 
 .shopNavBar {
@@ -53,7 +59,7 @@
 }
 
 .shopNavBarLine {
-  color: #e7dfd8;
+  color:#46342a;
   font-weight: 600;
   margin: 0 1%; /* Adjust margin for spacing */
 }
@@ -176,6 +182,12 @@
 .sectionTitle {
   font-size: 38px;
   font-weight: 400;
+  color: #613456;
+  text-decoration: none;
+}
+
+.sectionTitle:hover{
+  color: #fb7a7a;
 }
 
 /* Button styles */

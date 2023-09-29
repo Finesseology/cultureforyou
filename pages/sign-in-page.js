@@ -39,13 +39,13 @@ import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 			<div className={styles.signIn_Title}>Sign In</div>
 
 		
-				<input className={styles.userInputStyles} type="email" id="email" name="email" placeholder="Enter Email"/>
+				{/*<input className={styles.userInputStyles} type="email" id="email" name="email" placeholder="Enter Email"/>
 
 				<input className={styles.userInputStyles} type="password" id="pwd" name="pwd" placeholder="Enter Password"/>
 
 				<div className={styles.remembeMeContainer}>
 					<input className={styles.checkBoxStyles}  type="checkbox" value="lsRememberMe" id="rememberMe"/> <label for="rememberMe">Remember me</label>
-				</div>
+				</div>*/}
 
 
 
@@ -55,11 +55,13 @@ import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 				<button onClick={handleClick}>Sign in with Google</button>
 			</div>
 			</div>
-
-			<div className={styles.ForgotCreateContainer}>
-				<a href="./forgot-password-page">Forgot Password</a>
-				<a href="./create-account-page">Create Account</a>
-			</div>
+			
+			{/*
+				<div className={styles.ForgotCreateContainer}>
+					<a href="./forgot-password-page">Forgot Password</a>
+					<a href="./create-account-page">Create Account</a>
+				</div>
+			*/}
 		</div>
 		
 		</div>

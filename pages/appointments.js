@@ -5,6 +5,7 @@ import moment from 'moment';
 import AppointmentForm from "./appointments-form";
 import styles from "../styles/appointments.module.css";
 
+
 const localizer = momentLocalizer(moment);
 
 const Appointments = () => {
@@ -61,11 +62,11 @@ const Appointments = () => {
     </div>
       <div style={{ textAlign: 'center' }}>
         <h2>Available Appointments</h2>
-		<div style={{ margin: '0 auto', width: '80%' }}>
+		<div  style={{ margin: '0 auto', width: '80%' }}>
           <Calendar
             localizer={localizer}
             events={events}
-            style={{ height: 400, width: 1200 }}
+            className={styles.calenderContainer}
           />
 		</div>
       </div>
