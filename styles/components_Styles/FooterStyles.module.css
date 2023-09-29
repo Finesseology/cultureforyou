@@ -1,10 +1,12 @@
 .Footer_Main {
   width: 100%;
-  margin-top:10px;
   font-family: "Madera, sans-serif";
   overflow: hidden;
 }
 
+.fa-instagram{
+  font-size:30px;
+}
 .mainContainer
 {
   height:100px;
@@ -71,7 +73,7 @@
 }
 
 
-.columnDesc:hover a, .columnDesc:hover, .columnDesc:hover li, .columnTitle:hover ,.lowerFooterPTOS:hover{
+.columnDesc:hover a, .columnDesc:hover, .columnDesc:hover li, .lowerFooterPTOS:hover{
   color:#fb7a7a;
 }
 
@@ -95,6 +97,9 @@
 }
 .lowerFooterContainerHR{
   width:50%;
+  margin-left:auto;
+  margin-right:auto;
+  color:#745e4f;
 }
 
   /* Mobile */

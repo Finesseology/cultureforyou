@@ -1,11 +1,9 @@
 .mainContainer
 {
-  background-color:#4b3d318f ;
+  background-color:#a0948c;
   width:100%;
   font-family: "Madera, sans-serif";
   height:50px;
-  border-radius:10px; 
-  margin-top: -20px;
 }
 
 
@@ -67,6 +65,22 @@
     color:#f1cbcb;
   }
 
+  .signInOutButton{
+    background-color: #a0948c;
+    border:none;
+    cursor:pointer;
+    font-size:15px;
+  }
+
+  .signInOutButtonA{
+    background-color: #a0948c;
+    color:#000000;
+    font-size:15px;
+  }
+
+  .signInOutButton:hover , .signInOutButtonA:hover{
+    color:#f1cbcb;
+  }
 
     /* Mobile */
   /* so when detect max width 700px which is for cellphone, the grid will change */

@@ -63,7 +63,7 @@
 }
 
 .imgStyles {
-	border: 1px solid #fb7a7a;
+	border: 1px solid #e7dfd8;
 	border-radius: 5px;
 }
 
@@ -71,7 +71,7 @@
 	text-decoration: none;
 }
 .weddingSignPic {
-	background-color: #e7dfd8;
+
 	padding: 10px;
 	text-align: center;
 	display: center;
@@ -81,22 +81,22 @@
 	margin: 5px;
 }
 
-.weddingSignPic:hover,
 .imgStyles:hover {
 	box-shadow: 0 2px 4px 0 #fb7a7a;
 }
 
 .grid {
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	grid-gap: 10px;
-	width: var(--max-width);
-	max-width: 100%;
-	flex-wrap: wrap;
-
-	padding: 10px 50px;
-	border-radius: 10px;
-}
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 180px;
+    width: var(--max-width);
+    max-width: 100%;
+    flex-wrap: wrap;
+    margin-left:auto;
+    margin-right:auto;
+    padding:10px 50px;
+    border-radius:10px;
+  }
 
 @media screen and (max-width: 1200px) {
 	.grid {

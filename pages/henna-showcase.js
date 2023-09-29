@@ -5,6 +5,7 @@ import styles from '../styles/henna-show.module.css';
 
 function HennaGallery({designs}){
       return (
+
     <div className={styles.grid}>
       {designs.map((design) => (
         <div key={design.id} className={styles.hennaPic}>
@@ -14,11 +15,13 @@ function HennaGallery({designs}){
           <div className={styles.p}>
           <h2 className={styles.titleH2}>{design.name}</h2>
           <p className={styles.descP}>{design.description}</p>
+
           </div>
           </a>
         </div>
       ))}
     </div>
+
   );
 }
 
@@ -100,6 +103,8 @@ const designs = [
 
 export default function Henna() {
   return (
+
+
     <div className={styles.myDiv}>
 <center>
   <h1 className={styles.titleH1}>  Henna Shop </h1>
@@ -118,8 +123,10 @@ export default function Henna() {
 				</div>
         </center>
 
-    
+    <div className={styles.centerContainer}>
       <HennaGallery designs={designs} />
+      </div>
+
     </div>
   );
 }

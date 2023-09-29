@@ -6,6 +6,15 @@
     
 }
 
+.centerContainer{
+  margin-left:auto;
+  margin-right:auto;
+  display:flex;
+  justify-content: center;
+  text-align: center;
+             
+}
+
 .shopNavBarContainer{
     height:20px;
     padding:30px;
@@ -21,7 +30,7 @@
     color:#000000;
 }
 .shopNavBarLine{
-  color:#e7dfd8;
+  color:#46342a;
   font-weight:600;
   margin:0px 20px;
 }
@@ -67,18 +76,20 @@
 }
 .imgStyle {
   display: block;
-  width:100%;
-  height:300px;
+ 
+  height:200px;
+  width:auto;
   margin-top:40px;
   max-width: 100%;
-  border: 1.5px solid #fb7a7a;
+  border: 1px solid #e7dfd8;
   margin-bottom:20px;
-  margin-left:20px;
+  margin-left:auto;
+  margin-right:auto;
   border-radius:25px;
 }
 
 .imgStyle:hover{
-  box-shadow: 0 4px 8px 0 #fb7a7a;
+  box-shadow: 0 1px 2px 0 #fb7a7a;
 }
 
 .center {
@@ -105,12 +116,14 @@
   /* Float four columns side by side */
 .column {
     float: left;
-    width: 23%;
+    width: 25%;
     padding: 10px 10px;
   }
   
-  /* Remove extra left and right margins, due to padding */
-  .row {margin: 0 -5px;}
+  .row{
+    padding-left:60px;
+    padding-right:60px;
+  }
   
   /* Clear floats after the columns */
   .row:after {
