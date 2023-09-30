@@ -23,13 +23,6 @@ const AdminPage = () => {
 	//Setting the first tab when this page is access the add calender tab
 	const [activeTab, setActiveTab] = useState("CalendarTab");
 
-	// Use useEffect to redirect if the user is not an admin
-	useEffect(() => {
-		if (!isAdmin) {
-			router.push("/404");
-		}
-	}, [isAdmin, router]);
-
 	//If logged in user is not admin the cultureforyou email, show this and hide the rest
 	//This denies the access just incase if anyone from outside somehow discover this page
 	if (!isAdmin) {
