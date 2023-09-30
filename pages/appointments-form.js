@@ -14,30 +14,30 @@ function AppointmentForm() {
 
 
     const handleSubmit = async (e) => {
-		e.preventDefault();
-		try {
-			const response = await fetch("/api/email", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify({
-					to: "cultureforyou1@gmail.com",
-					subject: `Special Order Request. From: ${clientName}. Ordering: ${productType}`,
-					text: `From: ${clientName} \nEmail: ${returnEmail} \n\nOrdering: ${productType} \n\n${text}`,
-				}),
-			});
-			if (response.ok) {
-				setMessage("Order sent successfully!");
-			} else {
-				setMessage("Failed to send Order.");
-			}
-		} catch (error) {
-			console.error(error);
-			setErrorMessage("Failed to send email");
-            setErrorDialogOpen(true);
-		}
-	};
+        e.preventDefault();
+        try {
+            const response = await fetch('/api/email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    to: 'cultureforyou1@gmail.com',
+                    subject: `Henna Appointment Request From: ${clientName}`,
+                    text: `From: ${clientName} \nEmail: ${returnEmail} \n\nHenna Design Description:\n${text}`,
+                }),
+            });
+            if (response.ok) {
+                setMessage('Order sent successfully!');
+            } else {
+                setMessage('Failed to send Order.');
+            }
+        } catch (error) {
+            console.error(error);
+            setMessage('Failed to send email');
+        }
+    };
+    
 
     const openForm = () => {
         setIsFormOpen(true);
