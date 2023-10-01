@@ -1,7 +1,6 @@
-// Henna Showcase page
-// Clickable images lead to special-orders page
 import Image from 'next/image';
 import styles from '../styles/topper.module.css';
+import React, { useState, useEffect } from 'react';
 
 function TopperGallery({designs}) {
   return (
@@ -9,10 +8,10 @@ function TopperGallery({designs}) {
 {designs.map((design) => (
   <div key={design.id} className={styles.topperPic}>
    <a className={styles.textA}  href="/special-orders"> 
-    <Image className={styles.imgStyles} src={design.image} width={225} height={250} alt={design.name} />
+   <Image className={styles.imgStyles} src= {`/topperPics/${design.imageName}`} width={225} height={250} alt={design.imageName} />
     <div className={styles.p}>
-    <h2 className={styles.titleH2}>{design.name}</h2>
-    <p className={styles.descP}>{design.description}</p>
+    <h2 className={styles.titleH2}>{design.imageTitle}</h2>
+    <p className={styles.descP}>{design.imageDesc}</p>
     </div>
     </a>
   </div>
@@ -21,30 +20,57 @@ function TopperGallery({designs}) {
   );
 }
 
-// an array of henna images with their attributes
-const designs = [
-  {
-    id: 1,
-    name: 'Wedding',
-    description: 'Beautiful and elegant wedding cake toppers.',
-    image: '/topperPics/topper0.png'
-  },
-  {
-    id: 2,
-    name: 'Graduation',
-    description: ' Stylish cake toppers for graduation.',
-    image: '/topperPics/topper2.png'
-  },
-  {
-    id: 3,
-    name: 'Other Special Occasions',
-    description: 'Unique and customizable cake toppers for any special occasion.',
-    image: '/topperPics/topper1.png'
-  },
-  
-];
+
 
 export default function Toppers() {
+  
+    const [designs, setDesigns] = useState([]);
+    const [loading, setLoading] = useState(true);
+  
+    useEffect(() => {
+      const fetchData = async (imageType) => {
+        try {
+          const url = `./api/shop-images?imageType=${imageType}`;
+  
+          const response = await fetch(url, {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          });
+  
+          if (response.ok) {
+            const res = await response.json();
+  
+            let idCounter = 1; // Initialize an ID counter
+  
+            const newDesigns = res.shopimages.map((design) => ({
+              id: idCounter++, // Assign and increment the ID
+              imageName: design.imageName,
+              imageType: design.imageType,
+              imageTitle: design.imageTitle,
+              imageDesc: design.imageDesc,
+              image: design.image, 
+            }));
+  
+            setDesigns(newDesigns);
+            setLoading(false);
+            console.log('Designs fetched successfully');
+          } else {
+            console.error('Error fetching designs');
+            setLoading(false);
+          }
+        } catch (error) {
+          console.error('Network error:', error);
+          setLoading(false);
+        }
+      };
+  
+      const imageType = 'topper';
+      fetchData(imageType);
+    }, []);
+  
+
   return (
     <div className={styles.myDiv}>
 
@@ -67,7 +93,14 @@ export default function Toppers() {
   </center>
 
 
-      <TopperGallery designs={designs} />
+  <div className={styles.centerContainer}>
+        {loading ? (
+          <p>Loading...</p>
+        ) : (
+          <TopperGallery designs={designs} />
+        )}
+      </div>
     </div>
   );
 }
+
