@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import styles from '../styles/wedding-signs.module.css';
 import Link from 'next/link'
+import React, { useState, useEffect } from 'react';
 
 function SignsGallery({ designs }) {
   return (
@@ -8,11 +9,11 @@ function SignsGallery({ designs }) {
     {designs.map((design) => (
       <div key={design.id} className={styles.weddingSignPic}>
        <a className={styles.textA}  href="/special-orders"> 
-        <Image className={styles.imgStyles} src={design.image} width={225} height={250} alt={design.name} />
+        <Image className={styles.imgStyles} src= {`/weddingsPics/${design.imageName}`} width={225} height={250} alt={design.imageName} />
         
         <div className={styles.p}>
-        <h2 className={styles.titleH2}>{design.name}</h2>
-        <p className={styles.descP}>{design.description}</p>
+        <h2 className={styles.titleH2}>{design.imageTitle}</h2>
+        <p className={styles.descP}>{design.imageDesc}</p>
         </div>
         </a>
       </div>
@@ -22,58 +23,55 @@ function SignsGallery({ designs }) {
 
 }
 
-// an array of Sign images with their attributes
-const designs = [
-  {
-    id: 1,
-    name: 'Acrylic Wedding Sign',
-    image: '/weddingsPics/wedd1.png',
-    price: '$20.99'
-  },
-  {
-    id: 2,
-    name: 'Sage Green with Gold Acrylic Wedding Sign',
-    image: '/weddingsPics/wedd2.png',
-    price: '$15.99'
-  },
-  {
-    id: 3,
-    name: 'Strong Red with Gold Acrylic Wedding Sign',
-    image: '/weddingsPics/wedd3.png',
-    price: '$25.99'
-  },
-  {
-    id: 4,
-    name: 'Mehndi Special Wedding Sign',
-    image: '/weddingsPics/wedd4.png',
-    price: '$17.99'
-  },
-  {
-    id: 5,
-    name: 'White Wedding Sign for Engagement day',
-    image: '/weddingsPics/wedd5.png',
-    price: '$26.99'
-  },
-  {
-    id: 6,
-    name: 'Beautifl Verse of the Quran - Quran Ameen Sign',
-    image: '/weddingsPics/wedd6.png',
-    price: '$30.99'
-  },
-  {
-    id: 7,
-    name: '18x24 Acrylic Sign',
-    image: '/weddingsPics/wedd7.png',
-    price: '$22.99'
-  },
-  {
-    id: 8,
-    name: 'Khatam of Quran acknowledgment Sign',
-    image: '/weddingsPics/wedd8.png',
-    price: '$22.99'
-  }
-]
+
 export default function WeddingSigns(){
+
+  const [designs, setDesigns] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async (imageType) => {
+      try {
+        const url = `./api/shop-images?imageType=${imageType}`;
+
+        const response = await fetch(url, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+
+        if (response.ok) {
+          const res = await response.json();
+
+          let idCounter = 1; // Initialize an ID counter
+
+          const newDesigns = res.shopimages.map((design) => ({
+            id: idCounter++, // Assign and increment the ID
+            imageName: design.imageName,
+            imageType: design.imageType,
+            imageTitle: design.imageTitle,
+            imageDesc: design.imageDesc,
+            image: design.image, // You should include this property if it's required
+          }));
+
+          setDesigns(newDesigns);
+          setLoading(false);
+          console.log('Designs fetched successfully');
+        } else {
+          console.error('Error fetching designs');
+          setLoading(false);
+        }
+      } catch (error) {
+        console.error('Network error:', error);
+        setLoading(false);
+      }
+    };
+
+    const imageType = 'weddingSign';
+    fetchData(imageType);
+  }, []); // Empty dependency array means this effect runs once when the component mounts
+
     return (
       <div className={styles.myDiv}>
 
@@ -92,7 +90,13 @@ export default function WeddingSigns(){
             <a href='./wedding-sign' className={styles.active}>Wedding Sign</a>
           </div>
           </center>
+          <div className={styles.centerContainer}>
+        {loading ? (
+          <p>Loading...</p>
+        ) : (
           <SignsGallery designs={designs} />
+        )}
+      </div>
         </div>
       );
 }
