@@ -1,68 +1,57 @@
+
 .container {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	padding: 20px;
-	font-family: "Verdana", "Courier New", Sans-serif;
+	align-items: flex-start;
+	padding: 2%;
+	max-width: 100%;
 	
 }
 
-.formContainer{
-	background-color: #e7dfd8;
-	padding:50px;
-	border:1px solid #fb7a7a;
-	border-radius:10px;
-}
-.titleH1{
-	padding-top:20px;
-    font-size:30px;
-    font-weight:300;
+
+.titleH2 {
+	margin-bottom: 1.5%;
+	font-size: 3.3rem;
+	font-family: var(--font-roboto);
 }
 
-.descP{
-	font-size:15px;
-    padding:5px 30px;
-    line-height: 1.5;
-    color:#000000;
-}
-.formContainer input{
-	border-radius:10px;
-	border:1px solid #fb7a7a;
+.titleH3 {
+	margin-bottom: .2%;
+	font-size: 1.5rem;
+	font-family: var(--font-roboto);
 }
 
-.formContainer select{
-	border-radius:10px;
-	border:1px solid #fb7a7a;
-}
-.formContainer textarea{
-	border-radius:10px;
-	border:1px solid #fb7a7a;
+
+.formContainer {
+	width: 100%;
+	max-width: 60%;
 }
 
-.form {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	line-height: 1.5em;
-	
+.formControl {
+	width: 100%;
+	margin-bottom: 2%;
 }
 
 .button {
-	background-color: #ffffff;
-	color: black;
-	font-size: 16px;
+	margin-top: 2%;
+	background-color: #007bff;
+	color: #fff;
 	padding: 10px 20px;
-	border: 1px solid #fb7a7a;
-	border-radius: 5px;
+	border: none;
 	cursor: pointer;
-}
-.button:hover{
-	color: #fb7a7a;
-	border:1px border #fb7a7a;
+	transition: background-color 0.3s ease;
+	font-size: 1.2rem;
+	border-radius: 5px;
+	text-transform: uppercase;
 }
 
-p.smessage {
-	font-size: 1.5em;
+
+.button:hover {
+	background-color: #0056b3;
+}
+
+.smessage {
+	margin-top: 2%;
+	color: #4caf50;
+	font-weight: bold;
 }

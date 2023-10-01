@@ -16,7 +16,8 @@
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@mui/icons-material": "^5.14.9",
-    "@mui/material": "^5.14.9",
+    "@mui/material": "^5.14.10",
+    "@mui/styled-engine-sc": "^5.14.10",
     "@sendgrid/mail": "^7.7.0",
     "cross-env": "^7.0.3",
     "dotenv": "^16.0.3",
@@ -38,6 +39,7 @@
     "react-google-recaptcha-v3": "^1.10.1",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.10.0",
+    "styled-components": "^5.3.11",
     "tls": "^0.0.1"
   },
   "description": "First, run the development server:",
