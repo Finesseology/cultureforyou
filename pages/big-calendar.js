@@ -27,21 +27,33 @@ const MyCalendar = () => {
   const [showPopup1, setShowPopup1] = useState(false); // to handle showing the instructions popUp
   const [currentView, setCurrentView] = useState('month'); // Default to Month view
 
+  //add this const
+  const [showAddEventForm, setShowAddEventForm] = useState(false);
+
+
   const handleSlotSelect = (slotInfo) => {
     setSelectedSlot(slotInfo);
     setDeletedEvents(null);
 
     const InfoPopUP = (
       <div>
-        <h3> Calendar Instructions </h3>
-        <p>Clicking on the day box allows you to add an event but without time slot. Click on the number of the day for the day view. </p>
-        <p>In the day view, select the time range by dragging the cursor from a slot to another and then enter the Event title in the box on the right.</p>
-        <p>Click on Add Event button.</p>
+        <h3> How to use the admin calendar: </h3>
+        <p>In the month view click on any event (colored blue) to see a description of the appointment on the right-hand side of the screen.</p>
+        <p>To add an event, click on the day tab on the upper right-hand side of the calendar to open up the day view.</p>
+        <p>Once in the day view go ahead select the time range for the appointment by dragging the cursor from one time slot to another based on appointment duration.</p>
+        <p>Finally enter the event title on the right side of the screen and click on the "Add Event" button to add the appointment.</p>
       </div>
     );
 
     setInfoPopUP(InfoPopUP);
     setShowPopup1(true);
+
+    //add thisline
+    if (currentView === 'day' || currentView === 'week') {
+      setShowAddEventForm(true);
+    } else {
+      setShowAddEventForm(false);
+    }
   };
 
   // fetch and retrieve events from db and show them on the calendar
@@ -152,9 +164,12 @@ const MyCalendar = () => {
   );
 
   useEffect(() => {
-
-    fetchEvents();
-  }, []);
+    // Hide the "Add Event" form when switching from day view
+    if (currentView !== 'day') {
+      setShowAddEventForm(false);
+    }
+    fetchEvents()
+  }, [currentView]); // Only update when currentView changes
 
   const handleDayClick = (event) => {
 
@@ -200,21 +215,33 @@ const MyCalendar = () => {
     );
   };
 
+
   const handleViewChange = (newView) => {
     setCurrentView(newView);
+
+    // Move the logic here to set showAddEventForm
+  if (newView === 'day' || newView === 'week') {
+    setShowAddEventForm(true);
+  } else {
+    setShowAddEventForm(false);
+  }
   };
 
   return (
     <div>
       <div className={styles.adminCalendarContainer}>
         <div className={styles.eventTitleInput}>
-          <strong>Enter Event Title: </strong>
-          <input
-            type="text"
-            value={newEventTitle}
-            onChange={(e) => setNewEventTitle(e.target.value)}
-          />
-          <button onClick={handleAddEvent}>Add Event</button>
+          {showAddEventForm && ( // Show the form when showAddEventForm is true
+            <>
+              <strong>Enter Event Title: </strong>
+              <input
+                type="text"
+                value={newEventTitle}
+                onChange={(e) => setNewEventTitle(e.target.value)}
+              />
+              <button onClick={handleAddEvent}>Add Event</button>
+            </>
+          )}
           {showPopup && (
             <div
               className={styles.popUpWindow}
@@ -223,15 +250,13 @@ const MyCalendar = () => {
               <p> <strong> Event Info</strong>: </p>
               {popupContnet}
             </div>
-          )};
-
-          {(showPopup1 && currentView == 'month') && (
+          )}
+           {(showPopup1 && currentView == 'month') && (
             <div className={styles.InfoWindow}>
               <button onClick={() => setShowPopup1(false)}>Close</button>
               {InfoPopUP}
             </div>
           )}
-
         </div>
 
         <Calendar
@@ -239,10 +264,10 @@ const MyCalendar = () => {
           events={events}
           popup={EventList}
           messages={customToolBar}
-          defaultView='month'
+          defaultView="month"
           views={['month', 'day', 'week', 'agenda']}
           selectable
-          components={{ event: CustomEvent }} // Use the custom event component
+          components={{ event: CustomEvent }}
           startAccessor="start"
           endAccessor="end"
           onSelectSlot={handleSlotSelect}
@@ -259,7 +284,6 @@ const MyCalendar = () => {
         />
       </div>
     </div>
-
   );
 };
 
