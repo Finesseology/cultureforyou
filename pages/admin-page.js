@@ -41,14 +41,14 @@ const AdminPage = () => {
 
 	// Use useEffect to redirect if the user is not an admin
 	useEffect(() => {
-		if (isAdmin) {
+		if (!isAdmin) {
 			router.push("/404");
 		}
 	}, [isAdmin, router]);
 
 	//If logged in user is not admin the cultureforyou email, show this and hide the rest
 	//This denies the access just incase if anyone from outside somehow discover this page
-	if (isAdmin) {
+	if (!isAdmin) {
 		return <div className={styles.notAdminMessage}>Error.</div>;
 	}
 
