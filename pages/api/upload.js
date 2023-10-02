@@ -21,7 +21,7 @@ export default async function handler(req, res) {
             // Check if the user is an admin
             const isAdmin = session && session.user && session.user.email === process.env.ADMIN_EMAIL;
 
-            if (isAdmin) {
+            if (!isAdmin) {
                 return res.status(403).json({ message: 'Access Denied. Requires admin credentials.' });
             }
 
