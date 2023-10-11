@@ -1,18 +1,11 @@
 import React, { useState } from 'react';
 import styles from "../styles/special-orders.module.css";
 import { Dialog, DialogTitle, DialogContent, DialogActions, Button, TextField, Select, MenuItem, InputLabel, TextareaAutosize } from '@mui/material';
-//import LocalizationProvider from '@mui/lab/LocalizationProvider';
-//import AdapterDateFns from '@mui/lab/AdapterDateFns';
-//import DatePicker from '@mui/lab/DatePicker';
 import DatePicker from "react-datepicker"; // Import the DatePicker component
 import "react-datepicker/dist/react-datepicker.css"; // Import the styles
 
 
 function AppointmentForm() {
-    //const [clientName, setClientName] = useState("");
-	//const [returnEmail, setReturnEmail] = useState("");
-	//const [subject, setSubject] = useState("");
-	//const [text, setText] = useState("");
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
@@ -41,7 +34,7 @@ function AppointmentForm() {
             setErrorDialogOpen(true);
             return; // Exit the function if email format is invalid
         }
-        
+
         // Prepare the appointment data
         const appointmentData = {
             firstName,
@@ -72,27 +65,6 @@ function AppointmentForm() {
             console.error(error);
             setMessage('Failed to send email');
           }
-        /*try {
-            const response = await fetch('/api/email', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    to: 'cultureforyou1@gmail.com',
-                    subject: `Henna Appointment Request From: ${clientName}`,
-                    text: `From: ${clientName} \nEmail: ${returnEmail} \n\nHenna Design Description:\n${text}`,
-                }),
-            });
-            if (response.ok) {
-                setMessage('Order sent successfully!');
-            } else {
-                setMessage('Failed to send Order.');
-            }
-        } catch (error) {
-            console.error(error);
-            setMessage('Failed to send email');
-        }*/
     };
     
 

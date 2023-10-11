@@ -4,21 +4,14 @@ import moment from 'moment';
 export default async function handler(req, res) {
     try{
 
+        //Print out accepted appointments
         if (req.method === "GET") {
-            //const querySql = "SELECT title, DATE_FORMAT(start_time, '%a %b %d %Y %h:%i:%s %p') as start_time, DATE_FORMAT(end_time, '%a %b %d %Y %h:%i:%s %p') as end_time FROM appointments";
             const querySql = "Select * from appointmentRequest WHERE status = 'accepted'"
             const valueParams = [];
             const data = await query({ query: querySql, values: valueParams });
-
-           res.status(200).json({ appointments: data });
-
-            //console.log(data);
+            res.status(200).json({ appointments: data });
         }
 
-
-
-
-        // Handle POST request to add new event
         // Handle POST request to add a new appointment request
         else if (req.method === "POST") {
             // Extract data from the request body
