@@ -4,6 +4,7 @@ import styles from "@/styles/admin-page.module.css";
 import { useSession } from "next-auth/react";
 import UploadButton from "../components/upload-button";
 import MyCalendar from "./big-calendar";
+import PendingAppointments from "./pending-appointments";
 
 import AdminMenu from "../components/admin-page-menu";
 
@@ -80,6 +81,13 @@ const AdminPage = () => {
 					id="analyticsTab"
 					className={`${styles.tabcontent} ${activeTab === "analyticsTab" ? styles.active : styles.hidden}`}>
 					<div className={styles.adminPageSectionTitle}>Implement Analytics here</div>
+				</div>
+
+				<div
+					id="requestsTab"
+					className={`${styles.tabcontent} ${activeTab === "requestsTab" ? styles.active : styles.hidden}`}>
+					<div className={styles.adminPageSectionTitle2}>Manage Pending Appointments Below</div>
+					<div><PendingAppointments/></div>
 				</div>
 			</div>
 		</>
