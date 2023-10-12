@@ -73,10 +73,10 @@ useEffect(() => {
 
 
 
-const handleAction = async (status, userId) => {
+const handleAction = async (status, id) => {
     setLoading(true);
     try {
-      const url = `./api/confirm-appointments?status=${status}&userId=${userId}`;
+      const url = `./api/confirm-appointments?status=${status}&id=${id}`;
       const response = await fetch(url, {
         method: 'PUT',
         headers: {
@@ -86,7 +86,7 @@ const handleAction = async (status, userId) => {
   
       if (response.ok) {
         console.log('Event confirmed successfully');
-        const updatedEvents = events.filter((event) => event.userId !== userId);
+        const updatedEvents = events.filter((event) => event.id !== id);
         setEvents(updatedEvents);
         //fetchData('pending');
         setLoading(false);
@@ -137,9 +137,9 @@ const handleAction = async (status, userId) => {
         <TableCell align="left">{event.title}</TableCell>
         <TableCell align="left">{event.start.toLocaleString()}</TableCell>
         <TableCell align="left">{event.end.toLocaleString()}</TableCell>
-        <TableCell align="left">{event.status}...</TableCell>
-        <TableCell align="center"><Button onClick={() => handleAction('accepted', event.userId)}><CheckIcon></CheckIcon></Button> </TableCell>
-        <TableCell align="center"><Button onClick={() => handleAction('denied', event.userId)}><CloseIcon></CloseIcon></Button></TableCell>
+        <TableCell align="left">{event.status}</TableCell>
+        <TableCell align="center"><Button onClick={() => handleAction('accepted', event.id)}><CheckIcon></CheckIcon></Button> </TableCell>
+        <TableCell align="center"><Button onClick={() => handleAction('denied', event.id)}><CloseIcon></CloseIcon></Button></TableCell>
       </TableRow>
     ))
   )}

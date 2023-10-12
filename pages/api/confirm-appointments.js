@@ -20,12 +20,12 @@ export default async function handler(req, res) {
         else if (req.method === "PUT") {
             
 
-            const { userId } = req.query;
+            const { id } = req.query;
             const { status } = req.query;
            // console.log(userId, status);
-            const querySql = "UPDATE appointmentrequest SET status = ? WHERE userId = ?"
+            const querySql = "UPDATE appointmentrequest SET status = ? WHERE id = ?"
            // const insertParams = [status, userId];
-            const result = await query({ query: querySql, values: [status, userId]});
+            const result = await query({ query: querySql, values: [status, id]});
             res.status(200).json({appointments: result});
         }
         
