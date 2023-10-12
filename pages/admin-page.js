@@ -1,28 +1,23 @@
-import React, { useState, useEffect } from "react";
+﻿import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import styles from "@/styles/admin-page.module.css";
 import { useSession } from "next-auth/react";
-import UploadButton from "../components/upload-button";
 import MyCalendar from "./big-calendar";
 import PendingAppointments from "./pending-appointments";
 
 import AdminMenu from "../components/admin-page-menu";
+import EditPage from "../components/edit-page";
 
 const AdminPage = () => {
 	const { data: session } = useSession();
 	const router = useRouter();
 
-	const handleUploadSuccess = (message) => {
-		console.log(message);
-		// Perform any additional actions after a successful upload
-	};
+	// Setting admin to the cultureforyou email by checking the logged-in session
+	const isAdmin = session && session.user && session.user.email === process.env.ADMIN_EMAIL;
 
-	//Setting admin to the cultureforyou email by checking the logged in session
-	const isAdmin = session && session.user && session.user.email === "cultureforyou1@gmail.com";
-
-	//Setting the first tab when this page is access the add calender tab
+	// Setting the first tab when this page is accessed, the add calendar tab
 	const [activeTab, setActiveTab] = useState("CalendarTab");
-
+	
 	// Use useEffect to redirect if the user is not an admin
 	useEffect(() => {
 		if (!isAdmin) {
@@ -39,8 +34,6 @@ const AdminPage = () => {
 	const openAdminPage = (adminTabSelect) => {
 		setActiveTab(adminTabSelect);
 	};
-
-	//If the logged in is the admin with the cultureforyou email, then show the page
 	return (
 		<>
 			<div className={styles.adminPageContainer}>
@@ -53,29 +46,19 @@ const AdminPage = () => {
 
 				{/*These are the three tab Contents.*/}
 				<div
-					id="CalendarTab"
-					className={`${styles.tabcontent} ${activeTab === "CalendarTab" ? styles.active : styles.hidden}`}>
-					<div className={styles.adminCalendarContainer}>
-						<MyCalendar />
-					</div>
-				</div>
-
-				<div
-					id="addImageTab"
-					className={`${styles.tabcontent} ${activeTab === "addImageTab" ? styles.active : styles.hidden}`}>
-					<div className={styles.uploadContainer}>
-						<div style={{ textAlign: "center" }}>
-							<h1>Upload an Image</h1>
-							<p>Click the Browse button below to select an Image to upload to the server.</p>
-							<p>
-								After selecting an image file (PNG,JPG,JPEG,GIF), you may use the Upload button to
-								upload it.
-							</p>
-							<p>You should recieve a Confirmation message that it has been uploaded.</p>
-							<UploadButton onUpload={handleUploadSuccess} style={{ display: "inline-block" }} />
-						</div>
-					</div>
-				</div>
+				id="CalendarTab"
+				className={`${styles.tabcontent} ${activeTab === "CalendarTab" ? styles.active : styles.hidden
+						}`}>
+					<div className={styles.adminCalendarContainer}><MyCalendar /></div>
+			</div>
+			<div
+				id="addImageTab"
+				style={{ backgroundColor: "#e0dedc" }}
+				className={`${styles.tabcontent} ${activeTab === "addImageTab" ? styles.active : styles.hidden}`}
+			>
+				<EditPage activeTab={activeTab}
+				/>
+			</div>
 
 				<div
 					id="analyticsTab"
