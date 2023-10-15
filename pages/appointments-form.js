@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
 import styles from "../styles/special-orders.module.css";
-import { Dialog, DialogTitle, DialogContent, DialogActions, Button, TextField, TextareaAutosize } from '@mui/material';
+import { Dialog, DialogTitle, DialogContent, DialogActions, Button, TextField, Select, MenuItem, InputLabel, TextareaAutosize } from '@mui/material';
+import DatePicker from "react-datepicker"; // Import the DatePicker component
+import "react-datepicker/dist/react-datepicker.css"; // Import the styles
+
 
 function AppointmentForm() {
-    const [clientName, setClientName] = useState("");
-	const [returnEmail, setReturnEmail] = useState("");
-	const [subject, setSubject] = useState("");
-	const [text, setText] = useState("");
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [email, setEmail] = useState("");
+    const [title, setTitle] = useState("");
+    const [start, setStart] = useState(""); // State for start time
+    const [end, setEnd] = useState(""); // State for end time
+    const [selectedDate, setSelectedDate] = useState(null); // Added state for selected date
 	const [message, setMessage] = useState("");
     const [isFormOpen, setIsFormOpen] = useState(false); 
     const [errorDialogOpen, setErrorDialogOpen] = useState(false); 
@@ -15,29 +21,53 @@ function AppointmentForm() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        // Validation checks
+        if (!firstName || !lastName || !email || !title || !selectedDate || !start || !end) {
+            setErrorMessage('All fields are required.');
+            setErrorDialogOpen(true);
+            return; // Exit the function if any field is blank
+        }
+
+        if (!/^\S+@\S+\.\S+$/.test(email)) {
+            setErrorMessage('Invalid email format.');
+            setErrorDialogOpen(true);
+            return; // Exit the function if email format is invalid
+        }
+
+        // Prepare the appointment data
+        const appointmentData = {
+            firstName,
+            lastName,
+            email,
+            title,
+            start,
+            end,
+            selectedDate,
+        };
         try {
-            const response = await fetch('/api/email', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    to: 'cultureforyou1@gmail.com',
-                    subject: `Henna Appointment Request From: ${clientName}`,
-                    text: `From: ${clientName} \nEmail: ${returnEmail} \n\nHenna Design Description:\n${text}`,
-                }),
+            const response = await fetch('/api/appointmentRequest', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(appointmentData),
             });
+        
             if (response.ok) {
-                setMessage('Order sent successfully!');
+              setMessage('Order sent successfully!');
+              closeForm();
             } else {
-                setMessage('Failed to send Order.');
+              setMessage('Failed to send Order.');
+              closeForm();
             }
-        } catch (error) {
+          } catch (error) {
             console.error(error);
             setMessage('Failed to send email');
         } finally {
             closeForm(); // Close the form whether the submission was successful or not.
         }
+          }
     };
     
 
@@ -48,12 +78,47 @@ function AppointmentForm() {
     const closeForm = () => {
         setIsFormOpen(false);
       };
-      const closeErrorDialog = () => {
+    const closeErrorDialog = () => {
         setErrorDialogOpen(false);
     };
 
+    const handleStartTimeChange = (e) => {
+        setStart(e.target.value);
+    };
+
+    const handleEndTimeChange = (e) => {
+        setEnd(e.target.value);
+    };
+
+    const handleDateChange = (date) => {
+        setSelectedDate(date);
+    };
+
+    // Generate options for start and end times (9:00 AM to 5:00 PM, with 30-minute intervals)
+    const startTimeOptions = [];
+    const endTimeOptions = [];
+    for (let hour = 9; hour <= 17; hour++) {
+        for (let minute = 0; minute < 60; minute += 30) {
+            const formattedHour = hour % 12 === 0 ? 12 : hour % 12; // Convert to 12-hour format
+            const amPm = hour < 12 ? 'AM' : 'PM';
+            const formattedMinute = minute.toString().padStart(2, '0');
+            const time = `${formattedHour}:${formattedMinute} ${amPm}`;
+            startTimeOptions.push(
+                <MenuItem key={time} value={time}>
+                    {time}
+                </MenuItem>
+            );
+            endTimeOptions.push(
+                <MenuItem key={time} value={time}>
+                    {time}
+                </MenuItem>
+            );
+        }
+    }
+
+
     return (
- <div>
+        <div>
             <button onClick={openForm}>Open Form</button>
 
             <Dialog open={isFormOpen} onClose={closeForm}>
@@ -61,11 +126,20 @@ function AppointmentForm() {
                 <DialogContent>
                     <form onSubmit={handleSubmit}>
                         <TextField
-                            label="Name"
+                            label="First Name"
                             variant="outlined"
                             fullWidth
-                            value={clientName}
-                            onChange={(e) => setClientName(e.target.value)}
+                            value={firstName}
+                            onChange={(e) => setFirstName(e.target.value)}
+                            required
+                        />
+                        <br />
+                        <TextField
+                            label="Last Name"
+                            variant="outlined"
+                            fullWidth
+                            value={lastName}
+                            onChange={(e) => setLastName(e.target.value)}
                             required
                         />
                         <br />
@@ -74,21 +148,48 @@ function AppointmentForm() {
                             variant="outlined"
                             fullWidth
                             type="email"
-                            value={returnEmail}
-                            onChange={(e) => setReturnEmail(e.target.value)}
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                             required
                         />
                         <br />
                         <TextField
-                            label="Please describe your Henna design"
+                            label="Title"
                             variant="outlined"
                             fullWidth
-                            multiline
-                            rows={4}
-                            value={text}
-                            onChange={(e) => setText(e.target.value)}
+                            value={title}
+                            onChange={(e) => setTitle(e.target.value)}
                             required
                         />
+                        <br />
+                        <div style={{ marginBottom: '20px' }}>
+                            <InputLabel>Day</InputLabel>
+                            <DatePicker
+                                selected={selectedDate}
+                                onChange={handleDateChange}
+                                dateFormat="MM/dd/yyyy"
+                                placeholderText="Select a date"
+                            />
+                        </div>
+                        <br />
+                        <InputLabel>Start Time</InputLabel>
+                        <Select
+                            value={start}
+                            onChange={handleStartTimeChange}
+                            required
+                        >
+                            {startTimeOptions}
+                        </Select>
+                        <br />
+                        <InputLabel>End Time</InputLabel>
+                        <Select
+                            value={end}
+                            onChange={handleEndTimeChange}
+                            required
+                        >
+                            {endTimeOptions}
+                        </Select>
+                        <br />
                     </form>
                 </DialogContent>
                 <DialogActions>
