@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "cypress:open": "cypress open",
+    "cypress": "cypress open"
   },
   "dependencies": {
     "@bradgarropy/next-google-analytics": "^1.0.2",
@@ -29,7 +31,7 @@
     "mysql2": "^3.2.0",
     "net": "^1.0.2",
     "next": "^13.3.0",
-    "next-auth": "^4.22.0",
+    "next-auth": "^4.23.2",
     "react": "^18.2.0",
     "react-big-calendar": "^1.8.2",
     "react-bootstrap": "^2.7.4",
@@ -57,5 +59,10 @@
   "bugs": {
     "url": "https://github.com/Finesseology/cultureforyou/issues"
   },
-  "homepage": "https://github.com/Finesseology/cultureforyou#readme"
+  "homepage": "https://github.com/Finesseology/cultureforyou#readme",
+  "devDependencies": {
+    "@testing-library/cypress": "^10.0.1",
+    "cypress": "^13.3.1",
+    "cypress-social-logins": "^1.14.1"
+  }
 }
