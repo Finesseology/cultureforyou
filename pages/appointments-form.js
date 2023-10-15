@@ -35,6 +35,8 @@ function AppointmentForm() {
         } catch (error) {
             console.error(error);
             setMessage('Failed to send email');
+        } finally {
+            closeForm(); // Close the form whether the submission was successful or not.
         }
     };
     

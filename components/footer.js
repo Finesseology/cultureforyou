@@ -9,13 +9,13 @@ const Footer = () => {
 				<div className={styles.row}>
 					<div className={styles.column}>
 						<div className={styles.columnTitle}>Navigations</div>
-						<Link className={styles.columnDesc} href="/">
-							<li>Home</li>
+						<Link className={styles.columnDesc} href="/" id="footer-home-link">
+  						<li>Home</li>
 						</Link>
-						<Link className={styles.columnDesc} href="../shop-layout">
+						<Link className={styles.columnDesc} href="../shop-layout" id="footer-shop-link">
 							<li>Shop</li>
 						</Link>
-						<Link className={styles.columnDesc} href="../appointments">
+						<Link className={styles.columnDesc} href="../appointments" id="footer-appointments-link">
 							<li>Appointments</li>
 						</Link>
 					</div>
@@ -28,19 +28,23 @@ const Footer = () => {
         					src="/homepagePics/instagramIcon.png"
        						alt="Instagram Icon"
         					className={styles.icon}
+							id="footer-instagram-link"
 						/>
 						</a>
 					</div>
 					</div>
 
 					<div className={styles.column}>
-						<div className={styles.columnTitle}>Contact Us</div>
+						<div  className={styles.columnTitle}>Contact Us</div>
 						<div className={styles.columnDesc}>
 							<a href="mailto:cultureforu1@gmail.com">
 							<img
 								src="/homepagePics/email.png"
 								alt="Email Icon"
-								className={styles.icon}/>
+								className={styles.icon}
+								id="contactUs"
+								/>
+								
 							</a>
 						</div>
 						</div>
@@ -66,10 +70,10 @@ const Footer = () => {
 					<hr className={styles.lowerFooterContainerHR} />
 					<div className={styles.lowerFooterCopyRight}>
 						Copyright &#169; 2023 All right reserved.
-						<Link className={styles.lowerFooterPTOS} href="../privacy-policy">
+						<Link className={styles.lowerFooterPTOS} href="../privacy-policy" id="footer-privacy-link">
 							<li>Privacy Policy</li>
 						</Link>
-						<Link className={styles.lowerFooterPTOS} href="../terms">
+						<Link className={styles.lowerFooterPTOS} href="../terms" id="footer-terms-link">
 							<li>Term of Service</li>
 						</Link>{" "}
 					</div>
