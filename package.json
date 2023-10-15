@@ -1,64 +1,63 @@
 {
-	"name": "cultureforyou",
-	"version": "0.1.0",
-	"private": true,
-	"scripts": {
-		"dev": "next dev",
-		"build": "next build",
-		"start": "next start",
-		"lint": "next lint",
-		"cypress": "cypress open"
-	},
-	"dependencies": {
-		"@bradgarropy/next-google-analytics": "^1.0.2",
-		"@emotion/react": "^11.11.1",
-		"@emotion/styled": "^11.11.0",
-		"@fortawesome/fontawesome-svg-core": "^6.4.2",
-		"@fortawesome/free-solid-svg-icons": "^6.4.2",
-		"@fortawesome/react-fontawesome": "^0.2.0",
-		"@mui/icons-material": "^5.14.9",
-		"@mui/lab": "^5.0.0-alpha.148",
-		"@mui/material": "^5.14.10",
-		"@mui/styled-engine-sc": "^5.14.10",
-		"@sendgrid/mail": "^7.7.0",
-		"cross-env": "^7.0.3",
-		"cypress": "^13.3.1",
-		"dotenv": "^16.0.3",
-		"eslint": "8.36.0",
-		"eslint-config-next": "13.2.4",
-		"font-awesome": "^4.7.0",
-		"moment": "^2.29.4",
-		"multiparty": "^4.2.3",
-		"mysql2": "^3.2.0",
-		"net": "^1.0.2",
-		"next": "^13.3.0",
-		"next-auth": "^4.22.0",
-		"react": "^18.2.0",
-		"react-big-calendar": "^1.8.2",
-		"react-bootstrap": "^2.7.4",
-		"react-calendar": "^4.2.1",
-		"react-datepicker": "^4.11.0",
-		"react-dom": "^18.2.0",
-		"react-google-recaptcha-v3": "^1.10.1",
-		"react-responsive-carousel": "^3.2.23",
-		"react-router-dom": "^6.10.0",
-		"styled-components": "^5.3.11",
-		"tls": "^0.0.1"
-	},
-	"description": "First, run the development server:",
-	"main": "next.config.js",
-	"directories": {
-		"lib": "lib"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/Finesseology/cultureforyou.git"
-	},
-	"keywords": [],
-	"author": "",
-	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/Finesseology/cultureforyou/issues"
-	},
-	"homepage": "https://github.com/Finesseology/cultureforyou#readme"
+  "name": "cultureforyou",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+	"cypress": "cypress open"
+  },
+  "dependencies": {
+    "@bradgarropy/next-google-analytics": "^1.0.2",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@fortawesome/fontawesome-svg-core": "^6.4.2",
+    "@fortawesome/free-solid-svg-icons": "^6.4.2",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@mui/icons-material": "^5.14.9",
+    "@mui/material": "^5.14.10",
+    "@mui/styled-engine-sc": "^5.14.10",
+    "@sendgrid/mail": "^7.7.0",
+    "cross-env": "^7.0.3",
+	"cypress": "^13.3.1",
+    "dotenv": "^16.0.3",
+    "eslint": "8.36.0",
+    "eslint-config-next": "13.2.4",
+    "font-awesome": "^4.7.0",
+    "moment": "^2.29.4",
+    "multiparty": "^4.2.3",
+    "mysql2": "^3.2.0",
+    "net": "^1.0.2",
+    "next": "^13.3.0",
+    "next-auth": "^4.22.0",
+    "react": "^18.2.0",
+    "react-big-calendar": "^1.8.2",
+    "react-bootstrap": "^2.7.4",
+    "react-calendar": "^4.2.1",
+    "react-datepicker": "^4.11.0",
+    "react-dom": "^18.2.0",
+    "react-google-recaptcha-v3": "^1.10.1",
+    "react-responsive-carousel": "^3.2.23",
+    "react-router-dom": "^6.10.0",
+    "styled-components": "^5.3.11",
+    "tls": "^0.0.1"
+  },
+  "description": "First, run the development server:",
+  "main": "next.config.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Finesseology/cultureforyou.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Finesseology/cultureforyou/issues"
+  },
+  "homepage": "https://github.com/Finesseology/cultureforyou#readme"
 }
