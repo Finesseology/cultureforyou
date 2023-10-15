@@ -8,7 +8,7 @@ function TopperGallery({designs}) {
 {designs.map((design) => (
   <div key={design.id} className={styles.topperPic}>
    <a className={styles.textA}  href="/special-orders"> 
-   <Image className={styles.imgStyles} src= {`/topperPics/${design.imageName}`} width={225} height={250} alt={design.imageName} />
+   <Image className={styles.imgStyles} src= {`/topperPics/${design.imageName}`} width={225} height={250} alt={design.imageName} loading="lazy" />
     <div className={styles.p}>
     <h2 className={styles.titleH2}>{design.imageTitle}</h2>
     <p className={styles.descP}>{design.imageDesc}</p>

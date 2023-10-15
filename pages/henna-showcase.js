@@ -11,7 +11,7 @@ function HennaGallery({designs}){
       {designs.map((design) => (
         <div key={design.id} className={styles.hennaPic}>
          <a className={styles.textA} href="/appointments"> 
-          <Image className={styles.imgStyles} src= {`/hennaPics/${design.imageName}`} width={225} height={250} alt={design.imageName} />
+          <Image className={styles.imgStyles} src= {`/hennaPics/${design.imageName}`} width={225} height={250} alt={design.imageName} loading="lazy"/>
           
           <div className={styles.p}>
           <h2 className={styles.titleH2}>{design.imageTitle}</h2>
