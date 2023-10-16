@@ -17,17 +17,23 @@ const AdminPage = () => {
 		// Perform any additional actions after a successful upload
 	};
 
-	//Setting admin to the cultureforyou email by checking the logged in session
-	const isAdmin = session && session.user && session.user.email === "cultureforyou1@gmail.com";
 
 	//Setting the first tab when this page is access the add calender tab
 	const [activeTab, setActiveTab] = useState("CalendarTab");
 
 	//If logged in user is not admin the cultureforyou email, show this and hide the rest
 	//This denies the access just incase if anyone from outside somehow discover this page
-	if (!isAdmin) {
-		return <div className={styles.notAdminMessage}>Error.</div>;
-	}
+	useEffect(() => {
+		if (!session || !session.isAdmin) {
+		  // Redirect to a 404 page or display a message
+		  router.push("/404");
+		}
+	  }, [session]);
+	
+	  if (!session || !session.isAdmin) {
+		// Return null or display a message
+		return null;
+	  }
 
 	const openAdminPage = (adminTabSelect) => {
 		setActiveTab(adminTabSelect);
