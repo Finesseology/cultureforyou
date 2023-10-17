@@ -7,7 +7,7 @@ export default async function handler(req, res) {
 
         if (req.method === "GET") {
 
-            const querySql = "Select * from appointment order by id ASC"
+            const querySql = "Select * from appointments order by id ASC"
             const valueParams = [];
             const data = await query({ query: querySql, values: valueParams });
 
