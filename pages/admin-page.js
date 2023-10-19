@@ -2,7 +2,8 @@
 import { useRouter } from "next/router";
 import styles from "@/styles/admin-page.module.css";
 import { useSession } from "next-auth/react";
-import MyCalendar from "./big-calendar";
+import MyCalendar from "../components/big-calendar";
+
 import PendingAppointments from "./pending-appointments";
 
 import AdminMenu from "../components/admin-page-menu";
@@ -12,24 +13,22 @@ const AdminPage = () => {
 	const { data: session } = useSession();
 	const router = useRouter();
 
-	// Setting admin to the cultureforyou email by checking the logged-in session
-	const isAdmin = session && session.user && session.user.email === process.env.ADMIN_EMAIL;
-
-	// Setting the first tab when this page is accessed, the add calendar tab
+	//Setting the first tab when this page is access the add calender tab
 	const [activeTab, setActiveTab] = useState("CalendarTab");
-	
-	// Use useEffect to redirect if the user is not an admin
-	useEffect(() => {
-		if (!isAdmin) {
-			router.push("/404");
-		}
-	}, [isAdmin, router]);
 
 	//If logged in user is not admin the cultureforyou email, show this and hide the rest
 	//This denies the access just incase if anyone from outside somehow discover this page
-	if (!isAdmin) {
-		return <div className={styles.notAdminMessage}>Error.</div>;
-	}
+	useEffect(() => {
+		if (!session || !session.isAdmin) {
+		  // Redirect to a 404 page or display a message
+		  router.push("/404");
+		}
+	  }, [session]);
+	
+	  if (!session || !session.isAdmin) {
+		// Return null or display a message
+		return null;
+	  }
 
 	const openAdminPage = (adminTabSelect) => {
 		setActiveTab(adminTabSelect);
