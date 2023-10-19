@@ -37,7 +37,7 @@ export default async function handler(req, res) {
 
             //console.log('Result:', data.results); 
 
-            res.status(200).json(data.results);
+            res.status(200).json(data);
         });
     } catch (error) {
         console.error('Error fetching images:', error);

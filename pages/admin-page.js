@@ -3,8 +3,8 @@ import { useRouter } from "next/router";
 import styles from "@/styles/admin-page.module.css";
 import { useSession } from "next-auth/react";
 import MyCalendar from "../components/big-calendar";
-
 import PendingAppointments from "./pending-appointments";
+
 
 import AdminMenu from "../components/admin-page-menu";
 import EditPage from "../components/edit-page";
@@ -20,19 +20,21 @@ const AdminPage = () => {
 	//This denies the access just incase if anyone from outside somehow discover this page
 	useEffect(() => {
 		if (!session || !session.isAdmin) {
-		  // Redirect to a 404 page or display a message
-		  router.push("/404");
+			// Redirect to a 404 page or display a message
+			router.push("/404");
 		}
-	  }, [session]);
-	
-	  if (!session || !session.isAdmin) {
+	}, [session]);
+
+	if (!session || !session.isAdmin) {
 		// Return null or display a message
 		return null;
-	  }
+	}
 
 	const openAdminPage = (adminTabSelect) => {
 		setActiveTab(adminTabSelect);
 	};
+
+	//If the logged in is the admin with the cultureforyou email, then show the page
 	return (
 		<>
 			<div className={styles.adminPageContainer}>
@@ -45,19 +47,21 @@ const AdminPage = () => {
 
 				{/*These are the three tab Contents.*/}
 				<div
-				id="CalendarTab"
-				className={`${styles.tabcontent} ${activeTab === "CalendarTab" ? styles.active : styles.hidden
-						}`}>
-					<div className={styles.adminCalendarContainer}><MyCalendar /></div>
-			</div>
-			<div
-				id="addImageTab"
-				style={{ backgroundColor: "#e0dedc" }}
-				className={`${styles.tabcontent} ${activeTab === "addImageTab" ? styles.active : styles.hidden}`}
-			>
-				<EditPage activeTab={activeTab}
-				/>
-			</div>
+					id="CalendarTab"
+					className={`${styles.tabcontent} ${activeTab === "CalendarTab" ? styles.active : styles.hidden}`}>
+					<div className={styles.adminCalendarContainer}>
+						<MyCalendar />
+					</div>
+				</div>
+
+				<div
+					id="addImageTab"
+					style={{ backgroundColor: "#e0dedc" }}
+					className={`${styles.tabcontent} ${activeTab === "addImageTab" ? styles.active : styles.hidden}`}
+				>
+					<EditPage activeTab={activeTab}
+					/>
+				</div>
 
 				<div
 					id="analyticsTab"
@@ -69,9 +73,9 @@ const AdminPage = () => {
 					id="requestsTab"
 					className={`${styles.tabcontent} ${activeTab === "requestsTab" ? styles.active : styles.hidden}`}>
 					<div className={styles.adminPageSectionTitle2}>Manage Pending Appointments Below</div>
-					<div><PendingAppointments/></div>
+					<div><PendingAppointments /></div>
 				</div>
-			</div>
+			</div >
 		</>
 	);
 };

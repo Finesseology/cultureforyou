@@ -44,10 +44,8 @@ export default async function handler(req, res) {
                // console.log('Values: ' + valueParams);
                 const result = await query({ query: querySql, values: valueParams });
 
-
-                console.log('Results: ' + result.results);
-                if (result.status === 'success') {
-                    const rowCount = result.results.length;
+ 
+                    const rowCount = result.length;
                     //console.log('Count: ' + rowCount);
 
                     if (rowCount === 1) {
@@ -74,21 +72,17 @@ export default async function handler(req, res) {
                             }
                         });
                     }
-                }
 
                 const result2 = await query({ query: querySql2, values: valueParams2 });
 
-                if (result2.status === 'success') {
-                    const affectedRows = result2.results.affectedRows;
+                    const affectedRows = result2.affectedRows;
 
                     if (affectedRows === 1) {
                         res.status(200).json({ message: 'Successful Deletion' });
                     } else {
                         res.status(404).json({ message: 'Row not found or not deleted.' });
                     }
-                } else {
-                    res.status(500).json({ message: 'Deletion Fails' });
-                }
+               
             });
         } catch (error) {
             res.status(500).json({ message: 'Server error' });

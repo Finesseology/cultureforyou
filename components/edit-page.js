@@ -1,17 +1,10 @@
 ﻿import React, { useState, useEffect } from "react";
 import styles from "@/styles/admin-page.module.css";
-import { useRouter } from "next/router";
-import { useSession } from "next-auth/react";
 
 const EditPage = (props) => {
     const {
         activeTab,
     } = props;
-    const { data: session } = useSession();
-    const router = useRouter();
-
-    // Setting admin to the cultureforyou email by checking the logged-in session
-    const isAdmin = session && session.user && session.user.email === process.env.ADMIN_EMAIL;
 
     const [isEditOpen, setIsEditOpen] = useState(false); 
     const [uploadSuccess, setUploadSuccess] = useState(false);
@@ -27,16 +20,7 @@ const EditPage = (props) => {
     const [description, setDescription] = useState('');
     const [file, setFile] = useState(null);
 
-    useEffect(() => {
-        if (!isAdmin) {
-            router.push("/404");
-        }
-    }, [isAdmin, router]);
-
-    if (!isAdmin) {
-        return <div className={styles.notAdminMessage}>Error.</div>;
-    }
-
+ 
     const handleUploadSuccess = (message) => {
         console.log(message);
         setUploadFlipper(!uploadFlip);
@@ -101,6 +85,8 @@ const EditPage = (props) => {
                 setUploadFailure(true);
                 setDeleteSuccess(false);
                 setDeleteFailure(false);
+                setSelectedImageType(null);
+
             }
         } catch (error) {
             console.error('Error uploading image:', error);
@@ -144,6 +130,8 @@ const EditPage = (props) => {
                 setDeleteFailure(true);
                 setUploadSuccess(false);
                 setUploadFailure(false);
+                setSelectedImageType(null);
+
             }
         } else {
             // The user chose not to delete, so you can handle this case as needed
