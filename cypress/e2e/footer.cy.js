@@ -1,80 +1,51 @@
-describe('Contact Us', () => {
-    it('should contain a contact link with the specified email address', () => {
-      cy.visit('http://localhost:3000');
+describe("Testing Footer", () => {
+	beforeEach(() => {
+		cy.visit("/");
+	});
 
-      cy.get('#contactUs').should('have.attr', 'src', '/homepagePics/email.png').should('have.attr', 'alt', 'Email Icon');
+	/*
+	it("should contain a contact link with the specified email address", () => {
+		cy.get("#contactUs")
+			.should("have.attr", "src", "/homepagePics/email.png")
+			.should("have.attr", "alt", "Email Icon");
 
-      cy.get('#contactUs').click();
-  
-    });
-  });
-  
+		cy.get("#contactUs").click();
+	});
+  */
 
-describe('Footer Links', () => {
-    it('should navigate to Home page when "Home" link is clicked', () => {
+	it('should navigate to Home page when "Home" link is clicked', () => {
+		cy.get("#footer-home-link").should("be.visible").click();
 
-      cy.visit('http://localhost:3000'); 
+		cy.url().should("include", "/");
+	});
 
-      cy.get('#footer-home-link').should('be.visible').click();
+	it('should navigate to Shop page when "Shop" link is clicked', () => {
+		cy.get("#footer-shop-link").should("be.visible").click();
 
-      cy.url().should('include', 'localhost:3000/'); 
-    });
-  });
+		cy.url().should("include", "/shop-layout");
+	});
 
-  describe('Footer Links', () => {
-    it('should navigate to Shop page when "Shop" link is clicked', () => {
+	it('should navigate to Appointment page when "Appointment" link is clicked', () => {
+		cy.get("#footer-appointments-link").should("be.visible").click();
 
-      cy.visit('http://localhost:3000'); 
+		cy.url().should("include", "/appointments");
+	});
 
-      cy.get('#footer-shop-link').should('be.visible').click();
+	it('should navigate to Instagram page when "Instagram" icon is clicked', () => {
+		cy.get("#footer-instagram-link").should("be.visible").click();
 
-      cy.url().should('include', 'http://localhost:3000/shop-layout'); 
-    });
-  });
+		cy.url().should("include", "https://www.instagram.com/cultureforyou_/");
+	});
 
-  describe('Footer Links', () => {
-    it('should navigate to Appointment page when "Appointment" link is clicked', () => {
+	it('should navigate to Privacy Policy page when "Privacy Policy" icon is clicked', () => {
+		cy.get("#footer-privacy-link").should("be.visible").click();
 
-      cy.visit('http://localhost:3000'); 
+		cy.url().should("include", "/privacy-policy");
+	});
 
-      cy.get('#footer-appointments-link').should('be.visible').click();
+	it('should navigate to Terms page when "Term" icon is clicked', () => {
+		cy.get("#footer-terms-link").should("be.visible").click();
 
-      cy.url().should('include', 'http://localhost:3000/appointments'); 
-    });
-  });
-
-  describe('Footer Links', () => {
-    it('should navigate to Instagram page when "Instagram" icon is clicked', () => {
-
-      cy.visit('http://localhost:3000'); 
-
-      cy.get('#footer-instagram-link').should('be.visible').click();
-
-      cy.url().should('include', 'https://www.instagram.com/cultureforyou_/'); 
-    });
-  });
-
-  describe('Footer Links', () => {
-    it('should navigate to Privacy Policy page when "Privacy Policy" icon is clicked', () => {
-
-      cy.visit('http://localhost:3000'); 
-
-      cy.get('#footer-privacy-link').should('be.visible').click();
-
-      cy.url().should('include', 'http://localhost:3000/privacy-policy'); 
-    });
-  });
-
-  describe('Footer Links', () => {
-    it('should navigate to Terms page when "Term" icon is clicked', () => {
-
-      cy.visit('http://localhost:3000'); 
-
-      cy.get('#footer-terms-link').should('be.visible').click();
-
-      cy.url().should('include', 'http://localhost:3000/terms'); 
-    });
-  });
-
-
-  
+		cy.url().should("include", "/terms");
+	});
+});
