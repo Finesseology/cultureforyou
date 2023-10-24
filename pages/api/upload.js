@@ -2,10 +2,11 @@ import multiparty from 'multiparty';
 import fs from 'fs';
 import path from 'path';
 import { getSession } from "next-auth/react";
+import { query } from "../../lib/db";
 
 export const config = {
     api: {
-        bodyParser: false,  
+        bodyParser: false,
     },
 };
 
@@ -18,7 +19,7 @@ export default async function handler(req, res) {
             const session = await getSession({ req });
 
             // Check if the user is an admin
-            const isAdmin = session && session.user && session.user.email === "cultureforyou1@gmail.com";
+            const isAdmin = session && session.user && session.user.email === process.env.ADMIN_EMAIL;
 
             if (!isAdmin) {
                 return res.status(403).json({ message: 'Access Denied. Requires admin credentials.' });
@@ -41,15 +42,57 @@ export default async function handler(req, res) {
                     return res.status(400).json({ message: 'Invalid file or file size exceeded.' });
                 }
 
-                const uploadPath = path.join(process.cwd(), 'public', 'uploads', file.originalFilename);
+                const { imageType, title, description } = fields;
 
-                fs.rename(file.path, uploadPath, (renameErr) => {
-                    if (renameErr) {
-                        return res.status(500).json({ message: 'Error moving uploaded file.' });
+                if (imageType[0] === 'other')
+                {
+                    // Handle the "other" case by moving the file to the 'uploads' folder
+                    const uploadPath = path.join(process.cwd(), 'public', 'uploads', file.originalFilename);
+
+                    fs.rename(file.path, uploadPath, (renameErr) => {
+                        if (renameErr) {
+                            return res.status(500).json({ message: 'Error moving uploaded file.' });
+                        }
+
+                        res.status(200).json({ message: 'File uploaded successfully to "uploads" folder' });
+                    });
+                }
+                else
+                {
+                    if (title[0] === "" || title[0] === null) {
+                        res.status(500).json({ message: 'Error Title Required' });
                     }
 
-                    res.status(200).json({ message: 'File uploaded successfully' });
-                });
+                    const values = [file.originalFilename, imageType[0], title[0], description[0]];
+
+                    const result = await query({ query: 'INSERT INTO shop (imageName, imageType, imageTitle, imageDesc) VALUES (?, ?, ?, ?)', values });
+
+                        const affectedRows = result.affectedRows;
+                        if (affectedRows > 0) {
+                            if (imageType[0] === 'weddingSign') {
+                                const uploadPath = path.join(process.cwd(), 'public', 'weddingsPics', file.originalFilename);
+
+                                fs.rename(file.path, uploadPath, (renameErr) => { });
+                            }
+                            else if (imageType[0] === 'engraving') {
+                                const uploadPath = path.join(process.cwd(), 'public', 'engravingPics', file.originalFilename);
+
+                                fs.rename(file.path, uploadPath, (renameErr) => { });
+                            }
+                            else if (imageType[0] === 'topper') {
+                                const uploadPath = path.join(process.cwd(), 'public', 'topperPics', file.originalFilename);
+
+                                fs.rename(file.path, uploadPath, (renameErr) => { });
+                            }
+                            else if (imageType[0] === 'henna') {
+                                const uploadPath = path.join(process.cwd(), 'public', 'hennaPics', file.originalFilename);
+
+                                fs.rename(file.path, uploadPath, (renameErr) => { });
+                            }
+                            res.status(200).json({ message: 'File uploaded successfully' });
+
+                    }
+                }
             });
         } catch (error) {
             res.status(500).json({ message: 'Server error' });
@@ -58,4 +101,3 @@ export default async function handler(req, res) {
         res.status(405).json({ message: 'Method not allowed' });
     }
 }
-

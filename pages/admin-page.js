@@ -1,22 +1,17 @@
-import React, { useState, useEffect } from "react";
+﻿import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import styles from "@/styles/admin-page.module.css";
 import { useSession } from "next-auth/react";
-import UploadButton from "../components/upload-button";
 import MyCalendar from "../components/big-calendar";
 import PendingAppointments from "./pending-appointments";
 
+
 import AdminMenu from "../components/admin-page-menu";
+import EditPage from "../components/edit-page";
 
 const AdminPage = () => {
 	const { data: session } = useSession();
 	const router = useRouter();
-
-	const handleUploadSuccess = (message) => {
-		console.log(message);
-		// Perform any additional actions after a successful upload
-	};
-
 
 	//Setting the first tab when this page is access the add calender tab
 	const [activeTab, setActiveTab] = useState("CalendarTab");
@@ -25,15 +20,15 @@ const AdminPage = () => {
 	//This denies the access just incase if anyone from outside somehow discover this page
 	useEffect(() => {
 		if (!session || !session.isAdmin) {
-		  // Redirect to a 404 page or display a message
-		  router.push("/404");
+			// Redirect to a 404 page or display a message
+			router.push("/404");
 		}
-	  }, [session]);
-	
-	  if (!session || !session.isAdmin) {
+	}, [session]);
+
+	if (!session || !session.isAdmin) {
 		// Return null or display a message
 		return null;
-	  }
+	}
 
 	const openAdminPage = (adminTabSelect) => {
 		setActiveTab(adminTabSelect);
@@ -61,19 +56,11 @@ const AdminPage = () => {
 
 				<div
 					id="addImageTab"
-					className={`${styles.tabcontent} ${activeTab === "addImageTab" ? styles.active : styles.hidden}`}>
-					<div className={styles.uploadContainer}>
-						<div style={{ textAlign: "center" }}>
-							<h1>Upload an Image</h1>
-							<p>Click the Browse button below to select an Image to upload to the server.</p>
-							<p>
-								After selecting an image file (PNG,JPG,JPEG,GIF), you may use the Upload button to
-								upload it.
-							</p>
-							<p>You should recieve a Confirmation message that it has been uploaded.</p>
-							<UploadButton onUpload={handleUploadSuccess} style={{ display: "inline-block" }} />
-						</div>
-					</div>
+					style={{ backgroundColor: "#e0dedc" }}
+					className={`${styles.tabcontent} ${activeTab === "addImageTab" ? styles.active : styles.hidden}`}
+				>
+					<EditPage activeTab={activeTab}
+					/>
 				</div>
 
 				<div
@@ -86,9 +73,9 @@ const AdminPage = () => {
 					id="requestsTab"
 					className={`${styles.tabcontent} ${activeTab === "requestsTab" ? styles.active : styles.hidden}`}>
 					<div className={styles.adminPageSectionTitle2}>Manage Pending Appointments Below</div>
-					<div><PendingAppointments/></div>
+					<div><PendingAppointments /></div>
 				</div>
-			</div>
+			</div >
 		</>
 	);
 };
