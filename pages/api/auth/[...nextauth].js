@@ -20,17 +20,18 @@ export const authOptions =
     // ...add more providers here
   ],
   callbacks: {
-    async jwt({ token, account }) {
-      // Persist the OAuth access_token to the token right after signin
+    async jwt({ token, account, user }) {
       if (account) {
-        token.accessToken = account.access_token
+        token.accessToken = account.access_token;
+        // Set a custom property, e.g., 'isAdmin', based on the user's email
+        token.isAdmin = user && user.email === "cultureforyou1@gmail.com";
       }
-      return token
+      return token;
     },
-    async session({ session, token, user }) {
-      // Send properties to the client, like an access_token from a provider.
-      session.accessToken = token.accessToken
-      return session
+    async session({ session, token }) {
+      session.accessToken = token.accessToken;
+      session.isAdmin = token.isAdmin || false; // Default to false if not an admin
+      return session;
     },
     
     

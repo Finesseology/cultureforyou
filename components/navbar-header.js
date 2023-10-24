@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styles from "../styles/components_Styles/navbar-header-styles.module.css";
 import Image from "next/image";
 import Link from "next/link";
@@ -13,7 +13,12 @@ export default function SignInSignOutBar() {
 
 	const { data: session } = useSession();
 	//Setting admin to the cultureforyou email by checking the logged in session
-	const isAdmin = session && session.user && session.user.email === "cultureforyou1@gmail.com";
+
+
+	
+
+
+	
 	if (status === "loading") {
 		return (
 			<nav>
@@ -70,7 +75,7 @@ export default function SignInSignOutBar() {
 					<li>Appointments</li>
 				</Link>
 
-				{isAdmin && (
+				{session.isAdmin && (
 					<Link className={styles.SignInSignOut_li} href="../admin-page">
 						<li>Admin Dashboard</li>
 					</Link>

@@ -1,5 +1,6 @@
-import { signIn } from "next-auth/react"
-
+import React, { useState, useEffect } from 'react';
+import { signIn, useSession } from 'next-auth/react';
+import { useRouter } from 'next/router';
 import styles from "@/styles/account_Styles/sign-in-styles.module.css";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
@@ -7,24 +8,42 @@ import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
  function SigningIn() {
 
 	const { executeRecaptcha } = useGoogleReCaptcha();
+	const { data: session } = useSession();
+	const router = useRouter();
+	const [isLoading, setIsLoading] = useState(false);
+
+	useEffect(() => {
+		// Check if the user is already signed in, and if so, redirect to another page.
+		if (session) {
+		  router.replace('/');
+		}
+	  }, [session, router]);
 
 	const handleClick = async (e) => {
-		
-			e.preventDefault();
-			if (!executeRecaptcha) {
-				console.log("Execute recaptcha not yet available");
-				return;
-			  }
-			
-			  try {
-				const gReCaptchaToken = await executeRecaptcha();
-      			console.log(gReCaptchaToken, "response Google reCaptcha server");
-      			await signIn("google", { csrfToken: gReCaptchaToken, reCaptchaResponse: gReCaptchaToken });
-				} catch (error) {
-				console.log(error);
-			  }
-		
-	};
+		e.preventDefault();
+	  
+		if (!executeRecaptcha) {
+		  console.log("Execute recaptcha not yet available");
+		  return;
+		}
+	  
+		try {
+		  setIsLoading(true); // Set loading state to true
+	  
+		  const gReCaptchaToken = await executeRecaptcha();
+		  console.log(gReCaptchaToken, "response Google reCaptcha server");
+		  await signIn("google", { csrfToken: gReCaptchaToken, reCaptchaResponse: gReCaptchaToken });
+	  
+		  window.alert("Successful Sign in!!");
+		  router.replace('/');
+	  
+		} catch (error) {
+		  console.log(error);
+		} finally {
+		  setIsLoading(false); // Reset loading state to false
+		}
+	  };
+	  
 
 	
 
@@ -52,7 +71,10 @@ import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 
 		<div className={styles.signInBtn_Center}>
 			<div className={styles.signInBtn_Container}>
-				<button onClick={handleClick}>Sign in with Google</button>
+			<button onClick={handleClick} disabled={isLoading}>
+				{isLoading ? 'Signing In...' : 'Sign in with Google'}
+			</button>
+
 			</div>
 			</div>
 			
@@ -74,17 +96,17 @@ import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 export default function SignInPage(pageProps) {
 	return (
 		<GoogleReCaptchaProvider
-      reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY}
-	  reCaptchaSecret={process.env.RECAPTCHA_SECRETKEY}
-      scriptProps={{
-        async: true,
-        defer: false,
-        appendTo: 'head',
-        nonce: undefined,
-      }}
-    >
-      <SigningIn {...pageProps} />
-    </GoogleReCaptchaProvider>
-	);
+		  reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY}
+		  reCaptchaSecret={process.env.RECAPTCHA_SECRETKEY}
+		  scriptProps={{
+			async: true,
+			defer: false,
+			appendTo: 'head',
+			nonce: undefined,
+		  }}
+		>
+		  <SigningIn {...pageProps} />
+		</GoogleReCaptchaProvider>
+	  );
 }
 
