@@ -84,14 +84,14 @@ export default function Henna() {
         <p className={styles.descP}>Looking to do some pretty Hennas? Check out our Henna services below!</p>
   
         <div className={styles.shopNavBarContainer}>
-        <a href='./shop-layout' className={styles.shopNavBar}>All</a>
-            <a  className={styles.shopNavBarLine}>|</a>
+                  <a href='./shop-layout' id="all-link" className={styles.shopNavBar}>All</a>
+                  <span className={styles.shopNavBarLine}>|</span>
                   <a href='./henna-showcase' id="henna-showcase-link" className={styles.active}>Henna</a>
-            <a className={styles.shopNavBarLine}>|</a>
+                  <aspan className={styles.shopNavBarLine}>|</aspan>
                   <a href='./topper' id="topper-showcase-link" className={styles.shopNavBar}>Topper</a>
-            <a className={styles.shopNavBarLine}>|</a>
+                  <span className={styles.shopNavBarLine}>|</span>
                   <a href='./engraving-showcase' id="engraving-showcase-link" className={styles.shopNavBar}>Engraving</a>
-            <a  className={styles.shopNavBarLine}>|</a>
+                  <span className={styles.shopNavBarLine}>|</span>
                   <a href='./wedding-sign' id="wedding-sign-showcase-link" className={styles.shopNavBar}>Wedding Sign</a>
         </div>
       </center>
