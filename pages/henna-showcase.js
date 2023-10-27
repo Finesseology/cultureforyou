@@ -10,7 +10,7 @@ function HennaGallery({designs}){
     <div className={styles.grid}>
       {designs.map((design) => (
         <div key={design.id} className={styles.hennaPic}>
-         <a className={styles.textA} href="/appointments"> 
+              <a className={styles.textA} href="/appointments" id="appointments-link"> 
           <Image className={styles.imgStyles} src= {`/hennaPics/${design.imageName}`} width={225} height={250} alt={design.imageName} loading="lazy"/>
           
           <div className={styles.p}>
@@ -86,13 +86,13 @@ export default function Henna() {
         <div className={styles.shopNavBarContainer}>
         <a href='./shop-layout' className={styles.shopNavBar}>All</a>
             <a  className={styles.shopNavBarLine}>|</a>
-            <a href='./henna-showcase'  className={styles.active}>Henna</a>
+                  <a href='./henna-showcase' id="henna-showcase-link" className={styles.active}>Henna</a>
             <a className={styles.shopNavBarLine}>|</a>
-            <a href='./topper' className={styles.shopNavBar}>Topper</a>
+                  <a href='./topper' id="topper-showcase-link" className={styles.shopNavBar}>Topper</a>
             <a className={styles.shopNavBarLine}>|</a>
-            <a href='./engraving-showcase' className={styles.shopNavBar}>Engraving</a>
+                  <a href='./engraving-showcase' id="engraving-showcase-link" className={styles.shopNavBar}>Engraving</a>
             <a  className={styles.shopNavBarLine}>|</a>
-            <a href='./wedding-sign' className={styles.shopNavBar}>Wedding Sign</a>
+                  <a href='./wedding-sign' id="wedding-sign-showcase-link" className={styles.shopNavBar}>Wedding Sign</a>
         </div>
       </center>
   
