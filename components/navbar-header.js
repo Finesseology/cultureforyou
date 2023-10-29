@@ -16,7 +16,7 @@ export default function SignInSignOutBar() {
 
 
 	
-
+	const isUser = status === "authenticated";
 
 	
 	if (status === "loading") {
@@ -78,6 +78,12 @@ export default function SignInSignOutBar() {
 				{session.isAdmin && (
 					<Link className={styles.SignInSignOut_li} href="../admin-page">
 						<li>Admin Dashboard</li>
+					</Link>
+				)}
+
+				{isUser  &&  (
+					<Link className={styles.SignInSignOut_li} href="../user-page">
+						<li>User Dashboard</li>
 					</Link>
 				)}
 
