@@ -6,7 +6,7 @@ export default async function handler(req, res) {
 
         //Print out accepted appointments
         if (req.method === "GET") {
-            const querySql = "Select * from appointmentRequest WHERE status = 'accepted'"
+            const querySql = "Select * from appointmentRequest WHERE status = 'accepted' OR status = 'completed'"
             const valueParams = [];
             const data = await query({ query: querySql, values: valueParams });
             res.status(200).json({ appointments: data });

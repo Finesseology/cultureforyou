@@ -18,23 +18,21 @@ import TableRow from '@mui/material/TableRow';
 import CheckIcon from '@mui/icons-material/Check';
 import Button from '@mui/material/Button';
 import CloseIcon from '@mui/icons-material/Close';
-import moment from 'moment';
+import styles from "@/styles/admin-todo-list.module.css";
 import { useContext } from 'react';
 import { EventsContext } from '../components/events-context';
-import styles from "@/styles/admin-todo-list.module.css";
 
 
 
-const PendingAppointments = () => {
+
+
+const AdminToDoList = () => {
 
 
       const [events, setEvents] = useState([]);
       const [loading, setLoading] = useState(true);
-      const { setEventsLength } = useContext(EventsContext);
-      const { eventsLength } = useContext(EventsContext);
       const { setToDoList } = useContext(EventsContext);
       const { todolist } = useContext(EventsContext);
-
 
 useEffect(() => {
   const fetchData = async (status) => {
@@ -60,7 +58,7 @@ useEffect(() => {
 
         setEvents(formattedEvents);
         setLoading(false);
-        setEventsLength(formattedEvents.length);
+        setToDoList(formattedEvents.length);
         console.log('Appointments fetched successfully');
       } else {
         console.error('Error fetching appointments');
@@ -74,10 +72,10 @@ useEffect(() => {
 
   
   
-  const status = 'pending';
+  const status = 'accepted';
   fetchData(status);
 
-}, [eventsLength]);
+}, [todolist]);
 
 
 
@@ -96,11 +94,10 @@ const handleAction = async (status, id) => {
         console.log('Event confirmed successfully');
         const updatedEvents = events.filter((event) => event.id !== id);
         setEvents(updatedEvents);
-        setEventsLength(updatedEvents.length);
+        setToDoList(updatedEvents.length);
+        //fetchData('pending');
         setLoading(false);
-       if(status==="accepted") {
-        setToDoList(todolist+1);
-       }
+       
       } else {
         console.error('Error confirming event');
         setLoading(false);
@@ -129,8 +126,8 @@ const handleAction = async (status, id) => {
       <TableCell align="left">Start Time</TableCell>
       <TableCell align="left">End Time</TableCell>
       <TableCell align="left">Status</TableCell>
-      <TableCell align="center">Accept</TableCell>
-      <TableCell align="center">Decline</TableCell>
+      <TableCell align="center">Complete</TableCell>
+      <TableCell align="center">Cancel</TableCell>
     </TableRow>
   </TableHead>
   <TableBody>
@@ -148,8 +145,8 @@ const handleAction = async (status, id) => {
         <TableCell align="left">{event.start.toLocaleString()}</TableCell>
         <TableCell align="left">{event.end.toLocaleString()}</TableCell>
         <TableCell align="left">{event.status}</TableCell>
-        <TableCell align="center"><Button onClick={() => handleAction('accepted', event.id)}><CheckIcon></CheckIcon></Button> </TableCell>
-        <TableCell align="center"><Button onClick={() => handleAction('denied', event.id)}><CloseIcon></CloseIcon></Button></TableCell>
+        <TableCell align="center"><Button onClick={() => handleAction('completed', event.id)}><CheckIcon></CheckIcon></Button> </TableCell>
+        <TableCell align="center"><Button onClick={() => handleAction('canceled', event.id)}><CloseIcon></CloseIcon></Button> </TableCell>
       </TableRow>
     ))
   )}
@@ -165,5 +162,6 @@ const handleAction = async (status, id) => {
 }
 
 
-export default PendingAppointments;
+export default AdminToDoList;
+
 
