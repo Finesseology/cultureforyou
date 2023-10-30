@@ -40,4 +40,5 @@ describe("Wedding Sign Page", () => {
 
 		cy.go("back");
 	});
+    
 });

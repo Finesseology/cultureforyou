@@ -23,7 +23,6 @@ function SignsGallery({ designs }) {
 
 }
 
-
 export default function WeddingSigns(){
 
   const [designs, setDesigns] = useState([]);
