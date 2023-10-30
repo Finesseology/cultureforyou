@@ -4,7 +4,6 @@ describe("Wedding Sign Page", () => {
 
 		cy.get("h1").should("contain.text", "Wedding Sign Shop");
 	});
-
 	it("should navigate to the special orders form when a wedding sign image is clicked", () => {
 		cy.visit("/wedding-sign");
 

@@ -20,7 +20,6 @@ function SignsGallery({ designs }) {
     ))}
   </div>
   );
-
 }
 
 
