@@ -98,10 +98,12 @@ const MyCalendar = () => {
 
     // new event properties
     const newEvent = {
-      id: events.length + 1,
       title: newEventTitle,
       start: new Date(selectedSlot.start),
       end: new Date(selectedSlot.end),
+      userId: "cultureforyou1@gmail.com",
+      userName: "Sadiqa Jabeen",
+      status: "accepted",
     };
 
     setEvents([...events, newEvent]);
@@ -117,6 +119,7 @@ const MyCalendar = () => {
       .then((response) => {
         if (response.ok) {
           console.log('Event added successfully');
+          fetchEvents();
         } else {
           // Handle errors here
           console.error('Error adding event');
@@ -133,7 +136,7 @@ const MyCalendar = () => {
 
     if (shouldDelete) {
 
-      fetch(`./api/big-booking?eventID=${eventID}`, { // this is not going to the API endpoint
+      await fetch(`./api/big-booking?eventID=${eventID}`, {
         method: 'DELETE',
       })
         .then((response) => {
@@ -171,7 +174,7 @@ const MyCalendar = () => {
     fetchEvents()
   }, [currentView]); // Only update when currentView changes
 
-  const handleDayClick = (event) => {
+  const handleEventClick = (event) => {
 
     const { title, start, end } = event;
     // Capture the click event and set the position and text for the popup.
@@ -220,11 +223,11 @@ const MyCalendar = () => {
     setCurrentView(newView);
 
     // Move the logic here to set showAddEventForm
-  if (newView === 'day' || newView === 'week') {
-    setShowAddEventForm(true);
-  } else {
-    setShowAddEventForm(false);
-  }
+    if (newView === 'day' || newView === 'week') {
+      setShowAddEventForm(true);
+    } else {
+      setShowAddEventForm(false);
+    }
   };
 
   return (
@@ -251,7 +254,7 @@ const MyCalendar = () => {
               {popupContnet}
             </div>
           )}
-           {(showPopup1 && currentView == 'month') && (
+          {(showPopup1 && currentView == 'month') && (
             <div className={styles.InfoWindow}>
               <button onClick={() => setShowPopup1(false)}>Close</button>
               {InfoPopUP}
@@ -271,7 +274,7 @@ const MyCalendar = () => {
           startAccessor="start"
           endAccessor="end"
           onSelectSlot={handleSlotSelect}
-          onSelectEvent={handleDayClick}
+          onSelectEvent={handleEventClick}
           onView={handleViewChange}
           slotPropGetter={(date) => {
             if (date >= selectedSlot.start && date < selectedSlot.end) {
