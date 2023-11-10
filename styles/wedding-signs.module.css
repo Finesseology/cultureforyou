@@ -87,8 +87,8 @@
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 180px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
     width: var(--max-width);
     max-width: 100%;
     flex-wrap: wrap;
