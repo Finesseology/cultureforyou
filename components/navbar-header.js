@@ -75,6 +75,9 @@ export default function SignInSignOutBar() {
 				<Link className={styles.SignInSignOut_li} href="../appointments">
 					<li>Appointments</li>
 				</Link>
+				<Link className={styles.SignInSignOut_li} href="/shop-layout">
+					<li>Shop</li>
+				</Link>
 
 				{session.isAdmin && (
 					<Link className={styles.SignInSignOut_li} href="../admin-page">
