@@ -6,10 +6,32 @@ import styles from "@/styles/admin-page.module.css";
 
 import EditCalendarIcon from "@mui/icons-material/EditCalendar";
 import EditIcon from "@mui/icons-material/Edit";
-import AnalyticsIcon from "@mui/icons-material/Analytics";
 import RequestIcon from "@mui/icons-material/PendingActions";
+import HistoryIcon from '@mui/icons-material/History';
+import ChecklistIcon from '@mui/icons-material/Checklist';
+import Badge from '@mui/material/Badge';
+import { styled } from '@mui/material/styles';
+import { useState, useEffect } from 'react';
+import { useContext } from 'react';
+import { EventsContext } from './events-context';
+
+
+const StyledBadge = styled(Badge)(({ theme }) => ({
+	'& .MuiBadge-badge': {
+	  right: 8,
+	  top: 25,
+	  border: `2px solid ${theme.palette.background.paper}`,
+	  padding: '0 4px',
+	},
+  }));
+
+
 
 const AdminMenu = ({ activeTab, setActiveTab, openAdminPage }) => {
+
+	const { eventsLength } = useContext(EventsContext);
+	const { todolist } = useContext(EventsContext);
+
 	return (
 		<div className={styles.selectTab}>
 			<div className={styles.menuTitle}>
@@ -33,14 +55,29 @@ const AdminMenu = ({ activeTab, setActiveTab, openAdminPage }) => {
 				<EditIcon fontSize="large" /> Edit Shop Items
 			</IconButton>
 			<IconButton
-				className={`${activeTab === "analyticsTab" ? styles.active : ""}`}
-				onClick={() => openAdminPage("analyticsTab")}>
-				<AnalyticsIcon fontSize="large" /> Analytics
+				className={`${activeTab === "todoTab" ? styles.active : ""}`}
+				onClick={() => openAdminPage("todoTab")}>
+				<StyledBadge badgeContent={todolist} color="info">
+					<ChecklistIcon fontSize="large" /> 
+				</StyledBadge>
+				To Do List
 			</IconButton>
 			<IconButton
 				className={`${activeTab === "requestsTab" ? styles.active : ""}`}
 				onClick={() => openAdminPage("requestsTab")}>
-				<RequestIcon fontSize="large" /> Pending Requests
+					
+					
+					<StyledBadge badgeContent={eventsLength} color="info">
+						<RequestIcon fontSize="large" />
+					</StyledBadge>
+				
+				
+				Pending Requests
+				</IconButton>
+			<IconButton
+				className={`${activeTab === "historyTab" ? styles.active : ""}`}
+				onClick={() => openAdminPage("historyTab")}>
+				<HistoryIcon fontSize="large" /> History Tab
 			</IconButton>
 		</div>
 	);

@@ -1,0 +1,4 @@
+.scrollableTable {
+    height: 350px; /* Adjust the height as needed */
+    overflow: auto;
+  }

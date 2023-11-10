@@ -4,6 +4,8 @@ import styles from "@/styles/admin-page.module.css";
 import { useSession } from "next-auth/react";
 import MyCalendar from "../components/big-calendar";
 import PendingAppointments from "./pending-appointments";
+import AdminToDoList from "./admin-todo-list";
+import AppointmentHistory from "./admin-history-tab";
 
 
 import AdminMenu from "../components/admin-page-menu";
@@ -64,16 +66,26 @@ const AdminPage = () => {
 				</div>
 
 				<div
-					id="analyticsTab"
-					className={`${styles.tabcontent} ${activeTab === "analyticsTab" ? styles.active : styles.hidden}`}>
-					<div className={styles.adminPageSectionTitle}>Implement Analytics here</div>
+					id="todoTab"
+					className={`${styles.tabcontent} ${activeTab === "todoTab" ? styles.active : styles.hidden}`}>
+					<div className={styles.adminPageSectionTitle2}>Manage To-Do List Below</div>
+					<div><AdminToDoList/></div>
 				</div>
 
 				<div
 					id="requestsTab"
 					className={`${styles.tabcontent} ${activeTab === "requestsTab" ? styles.active : styles.hidden}`}>
 					<div className={styles.adminPageSectionTitle2}>Manage Pending Appointments Below</div>
-					<div><PendingAppointments /></div>
+					<div><PendingAppointments/></div>
+				</div>
+
+				<div
+					id="historyTab"
+					className={`${styles.tabcontent} ${activeTab === "historyTab" ? styles.active : styles.hidden}`}>
+					<div className={styles.adminPageSectionTitle2}>History</div>
+					<div>
+					<AppointmentHistory/>
+					</div>
 				</div>
 			</div >
 		</>
