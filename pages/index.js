@@ -68,8 +68,8 @@ export default function Home() {
 									className={styles.imgStyle}
 									src={"/hennaPics/henna8.png"}
 									alt="Toppers"
-									width={250}
-									height={300}
+									width={300}
+									height={350}
 									priority
 								/>
 							</a>
@@ -87,8 +87,8 @@ export default function Home() {
 									className={styles.imgStyle}
 									src={"/topperPics/topper2.png"}
 									alt="Toppers"
-									width={250}
-									height={300}
+									width={300}
+									height={350}
 									priority
 								/>
 							</a>
@@ -134,8 +134,8 @@ export default function Home() {
 									className={styles.imgStyle}
 									src={"/index/YellowFloralWreath.png"}
 									alt="Engraving"
-									width={250}
-									height={300}
+									width={300}
+									height={350}
 									priority
 								/>
 							</a>
@@ -153,8 +153,8 @@ export default function Home() {
 									className={styles.imgStyle}
 									src={"/index/weddingSign.png"}
 									alt="WeddingSign"
-									width={250}
-									height={200}
+									width={300}
+									height={350}
 									priority
 								/>
 							</a>
