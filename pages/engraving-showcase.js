@@ -7,7 +7,7 @@ function EngravingGallery({designs}){
   <div className={styles.grid}>
     {designs.map((design) => (
       <div key={design.id} className={styles.engravingPic}>
-       <a className={styles.textA}  href="/special-orders"> 
+       <a className={styles.textA}  href="/special-orders" id="order-form-image"> 
        <Image className={styles.imgStyles} src= {`/engravingPics/${design.imageName}`} width={225} height={250} alt={design.imageName} loading="lazy"/>
         
         <div className={styles.p}>
@@ -76,15 +76,15 @@ function EngravingGallery({designs}){
 <h1 className={styles.titleH1}>  Engraving Shop </h1>
   <p className={styles.descP}> Looking to get some engravings? Check out our engraving services below! </p>
       <div className={styles.shopNavBarContainer}>
-					<a href='./shop-layout' className={styles.shopNavBar}>All</a>
-					<a  className={styles.shopNavBarLine}>|</a>
-					<a href='./henna-showcase'  className={styles.shopNavBar}>Henna</a>
-					<a className={styles.shopNavBarLine}>|</a>
-					<a href='./topper' className={styles.shopNavBar}>Topper</a>
-					<a className={styles.shopNavBarLine}>|</a>
-					<a href='./engraving-showcase' className={styles.active}>Engraving</a>
-					<a  className={styles.shopNavBarLine}>|</a>
-					<a href='./wedding-sign' className={styles.shopNavBar}>Wedding Sign</a>
+					<a href='./shop-layout' className={styles.shopNavBar} id="shop-layout-button">All</a>
+					<span  className={styles.shopNavBarLine}>|</span>
+					<a href='./henna-showcase'  className={styles.shopNavBar} id="henna-showcase-button">Henna</a>
+					<span className={styles.shopNavBarLine}>|</span>
+					<a href='./topper' className={styles.shopNavBar} id="topper-button">Topper</a>
+					<span className={styles.shopNavBarLine}>|</span>
+					<a href='./engraving-showcase' className={styles.active} id="engraving-showcase-button">Engraving</a>
+					<span  className={styles.shopNavBarLine}>|</span>
+					<a href='./wedding-sign' className={styles.shopNavBar} id="wedding-sign-button">Wedding Sign</a>
 				</div>
         </center>
 

@@ -20,6 +20,11 @@ describe("Navigation", () => {
 		cy.url().should("include", "/appointments");
 	});
 
+	it("visits the shop page", () => {
+		cy.get('a[href*="/shop-layout"]').click({ multiple: true });
+		cy.url().should("include", "/shop-layout");
+	});
+
 	it("visits the sign in page", () => {
 		cy.get('a[href*="/sign-in-page"]').click({ multiple: true });
 		cy.url().should("include", "/sign-in-page");

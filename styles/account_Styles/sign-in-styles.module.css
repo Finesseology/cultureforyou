@@ -1,150 +1,137 @@
-.mainContainer{
-  
-    display: flex;
+.mainContainer {
+	display: flex;
 	align-items: center;
 	justify-content: center;
 	min-height: 95vh;
-    margin-left:auto;
-    margin-right:auto;
-    width:100%;
-    
-    font-family: "Madera, sans-serif";
-    background-image: url('/homepagePics/leaves.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: right top;
-    background-attachment: fixed;
-    position: relative;
-  
-    
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+
+	font-family: "Madera, sans-serif";
+	background-image: url("/homepagePics/leaves.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: right top;
+	background-attachment: fixed;
+	position: relative;
 }
 
 .mainContainer::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    /*background: linear-gradient(to bottom, #745e4f, #46342a);*/
-    background:#745e4f;
-    opacity: 0.3;
-  
-    pointer-events: none;
-    
-  }
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	/*background: linear-gradient(to bottom, #745e4f, #46342a);*/
+	background: #745e4f;
+	opacity: 0.3;
 
-.signInLabelContainer{
+	pointer-events: none;
+}
+
+.signInLabelContainer {
 	height: 160px;
-	width: 300px;	
+	width: 300px;
 	box-shadow: 0px 0px 50px #b0a49c;
-    border-radius:10px;
+	border-radius: 10px;
 }
 
-.signIn_Title{
-    font-size:20px;
-    font-weight:600;
-    text-align: center;
-    padding:20px;
-
+.signIn_Title {
+	font-size: 20px;
+	font-weight: 600;
+	text-align: center;
+	padding: 20px;
 }
-.signInLabelContainer input{
-    border: none;
-    margin-left:20px;
+.signInLabelContainer input {
+	border: none;
+	margin-left: 20px;
 	border-bottom: 2px solid #b0a49c;
 	background: none;
 	padding: 10px;
 	padding-left: 5px;
 	font-weight: 700;
-	transition: .2s;
-    text-align: left;
-  
+	transition: 0.2s;
+	text-align: left;
 }
 
-
-.userInputStyles{
-    width:75%;
+.userInputStyles {
+	width: 75%;
 }
 
-
-.remembeMeContainer{
-    display:inline-block;
-    margin-top:10px;
-    width:100%;
-    font-size:13px;
-    font-weight:300;
-    margin-bottom:30px;
-    cursor:pointer;
+.remembeMeContainer {
+	display: inline-block;
+	margin-top: 10px;
+	width: 100%;
+	font-size: 13px;
+	font-weight: 300;
+	margin-bottom: 30px;
+	cursor: pointer;
 }
 
-.remembeMeContainer Label{
-    cursor:pointer;
+.remembeMeContainer Label {
+	cursor: pointer;
 }
 
-
-.signInLabelContainer input:focus,.signInLabelContainer input:active,.signInLabelContainer input:hover{
-    outline: none;
+.signInLabelContainer input:focus,
+.signInLabelContainer input:active,
+.signInLabelContainer input:hover {
+	outline: none;
 	border-bottom-color: #000000;
 }
 
-.signInBtn_Center{
-    display: flex;
+.signInBtn_Center {
+	display: flex;
 	align-items: center;
-	justify-content: center;    
+	justify-content: center;
 }
 
-
-.signInBtn_Container button{
-    background: #b0a49c;
+.signInBtn_Container button {
+	background: #b0a49c;
 	font-size: 16px;
 	margin-top: 10px;
 	padding: 10px 80px;
-    width:100%;
+	width: 100%;
 	border: 1px solid #b0a49c;
 	font-weight: 300;
 	display: flex;
 	align-items: center;
 	color: #000000;
-    text-align: center;
+	text-align: center;
 	cursor: pointer;
-	transition: .2s;
-    border-radius:10px;
-    
+	transition: 0.2s;
+	border-radius: 10px;
 }
-.signInBtn_Container button:hover{
- color:#f1cbcb;
-
+.signInBtn_Container button:hover {
+	color: #f1cbcb;
 }
 
-.signInBtn_Container:focus,.signInBtn_Container:active,.signInBtn_Container:hover{
-    border-color: #fb7a7a;
+.signInBtn_Container:focus,
+.signInBtn_Container:active,
+.signInBtn_Container:hover {
+	border-color: #fb7a7a;
 	outline: none;
 }
 
-.ForgotCreateContainer
-{
-    margin-top:20px;
-    margin-left:auto;
-    margin-right:auto;
-    display: flex;
-  justify-content: center;
-    width:100%;
-    
+.ForgotCreateContainer {
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+	justify-content: center;
+	width: 100%;
 }
 
-.ForgotCreateContainer a{
-    font-size:13px;
-    font-weight:300;
-    margin:10px 20px;
-    cursor:pointer;
-    text-decoration: none;
-    color:#000000;
-    text-align: center;
-
-    
+.ForgotCreateContainer a {
+	font-size: 13px;
+	font-weight: 300;
+	margin: 10px 20px;
+	cursor: pointer;
+	text-decoration: none;
+	color: #000000;
+	text-align: center;
 }
 
-.ForgotCreateContainer a:hover{
-    color:#f1cbcb;
+.ForgotCreateContainer a:hover {
+	color: #f1cbcb;
 }
-

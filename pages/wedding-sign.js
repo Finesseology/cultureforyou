@@ -8,7 +8,7 @@ function SignsGallery({ designs }) {
     <div className={styles.grid}>
     {designs.map((design) => (
       <div key={design.id} className={styles.weddingSignPic}>
-       <a className={styles.textA}  href="/special-orders"> 
+       <a className={styles.textA} href="/special-orders" id="special-orders-link">
         <Image className={styles.imgStyles} src= {`/weddingsPics/${design.imageName}`} width={225} height={250} alt={design.imageName} loading="lazy"/>
         
         <div className={styles.p}>
@@ -22,7 +22,6 @@ function SignsGallery({ designs }) {
   );
 
 }
-
 
 export default function WeddingSigns(){
 
@@ -79,17 +78,27 @@ export default function WeddingSigns(){
 <h1 className={styles.titleH1}>  Wedding Sign Shop </h1>
   <p className={styles.descP}> Are you in needs of wedding signs? Check out our wedding signs services below! </p>
         <div className={styles.shopNavBarContainer}>
-            <a href='./shop-layout' className={styles.shopNavBar}>All</a>
-            <a  className={styles.shopNavBarLine}>|</a>
-            <a href='./henna-showcase'  className={styles.shopNavBar}>Henna</a>
-            <a className={styles.shopNavBarLine}>|</a>
-            <a href='./topper' className={styles.shopNavBar}>Topper</a>
-            <a className={styles.shopNavBarLine}>|</a>
-            <a href='./engraving-showcase' className={styles.shopNavBar}>Engraving</a>
-            <a  className={styles.shopNavBarLine}>|</a>
-            <a href='./wedding-sign' className={styles.active}>Wedding Sign</a>
-          </div>
-          </center>
+        <a href='./shop-layout' id="all-link" className={styles.shopNavBar}>
+          All
+          </a>
+          <span className={styles.shopNavBarLine}>|</span>
+        <a href="./henna-showcase" id="henna-showcase-link" className={styles.shopNavBar}>
+						Henna
+					</a>
+					<a className={styles.shopNavBarLine}>|</a>
+					<a href="./topper" id="topper-showcase-link" className={styles.shopNavBar}>
+						Topper
+					</a>
+					<a className={styles.shopNavBarLine}>|</a>
+					<a href="./engraving-showcase" id="engraving-showcase-link" className={styles.shopNavBar}>
+						Engraving
+					</a>
+					<a className={styles.shopNavBarLine}>|</a>
+					<a href="./wedding-sign" id="wedding-sign-showcase-link" className={styles.active}>
+						Wedding Sign
+					</a>
+				</div>
+			</center>
           <div className={styles.centerContainer}>
         {loading ? (
           <p>Loading...</p>

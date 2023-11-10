@@ -41,9 +41,9 @@
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
+        <li><a href="#updating-website">Updating Website</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
@@ -65,9 +65,10 @@
 ## Synopsis
 
 <div>
-  <p>
-    Our client has a small business creating various designs for Engravings, Henna, Makeup, and Wedding Signs. Our client takes special request orders and currently manages everything through Instagram. As the client’s business grows, they will require a space to have all of the products and services organized, as well as a place to utilize their online presence to promote their works to a wider audience. As the business gains more customers, a larger database will be required to track all appointments, clientele, and orders. This online presence will provide a space for clientele to easily set up appointments or contact the business for special orders/additional information. Additionally, we want customers to have the ability to contact the artist directly with any questions or concerns regarding purchases. Included in the solution to our client's problem, we are adding the ability for clientele to pay for orders and ensuring the website has the security to handle unwanted bots. Finally, to facilitate the growth of our client's business, we are integrating web analytics to better understand user patterns on the web pages and forecast the success of future products by Culture For You.
-  </p>
+  <h2 align="center"> About the Project </h2>
+    <p>
+      Our client has a small business creating various designs for Engravings, Henna, Makeup, and Wedding Signs. Our client takes special request orders and currently manages everything through Instagram. As the client’s business grows, they will require a space to have all of the products and services organized, as well as a place to utilize their online presence to promote their works to a wider audience. As the business gains more customers, a larger database will be required to track all appointments, clientele, and orders. This online presence will provide a space for clientele to easily set up appointments or contact the business for special orders/additional information. Additionally, we want customers to have the ability to contact the artist directly with any questions or concerns regarding purchases. Finally, to facilitate the growth of our client's business, we are integrating web analytics to better understand user patterns on the web pages and forecast the success of future products by Culture For You.
+    </p>
   </br>
 </div>
 
@@ -75,13 +76,9 @@
   <h1 align="center" style="font-size: 20px;">Things to keep in mind</h1>
   This project is developed by Computer Science students at California State University, Sacramento.
 
--   This project is still in progress.
+-   This project is built for an external company through the school as a senior project.
 -   It is a collaborative effort between students for a grade.
--   This project is a live website developed for a business.
--   It is developed using an Agile environment with 2 week sprints.
-
-Of course, this project will see continuous development until the end of 2023, however afterwards, development may stop.
-
+-   It will not see updates to the website past December 2023.
 </div>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -91,6 +88,8 @@ Of course, this project will see continuous development until the end of 2023, h
 This project was built using Next.js.
 
 [![Next][next.js]][next-url]
+[![Next-auth][next-auth.js]][next-auth-url]
+[![mysql][mysql.js]][mysql-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -103,12 +102,29 @@ To get a local copy up and running follow these simple example steps.
 
 ## Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
+<h4> Below are the steps to ensure the system software is up to date and ready for set up. </h4>
+<br>
 
--   npm
-    ```sh
-    npm install npm@latest -g
-    ```
+First we update the server to ensure it is up to date.
+<br>
+
+Debian based linux system:
+
+```
+sudo apt update
+```
+
+```
+sudo apt upgrade
+```
+
+<br>
+
+Then we have to ensure our npm is installed and up to date.
+
+```sh
+npm install npm@latest -g
+```
 
 ## Installation
 
@@ -142,7 +158,7 @@ Below is an example of how you can install and set up your project. This project
     ```sh
     export SENDGRID_API_KEY='API_KEY'
     ```
-5. Create in `.env.local`
+5. Create `.env.local`
 
     ```sh
     touch .env.local
@@ -155,6 +171,9 @@ Below is an example of how you can install and set up your project. This project
     GOOGLE_CLIENT_ID = 'key'
     GOOGLE_CLIENT_SECRET = 'key'
 
+    NEXT_PUBLIC_RECAPTCHA_SITEKEY="key"
+    RECAPTCHA_SECRETKEY="key"
+
     NEXTAUTH_SECRET='secret'
     NEXTAUTH_URL=https://cultureforu.com
 
@@ -165,23 +184,53 @@ Below is an example of how you can install and set up your project. This project
 
     ```
 
+7. Then we must build the project.
+
+    ```
+    npm run build
+    ```
+
+8. After the project is build without errors, we must start the pm2 hosting.
+    ```
+    pm2 start npm --name cultureforu -- start
+    ```
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-# Usage
+## Updating Website
 
-To use this project, simply navigate to the installation destination of the project.
+<h4> If we make changes to the code for the website we have to update the website. Fortunately this is simple with pm2. </h4>
 
-If you wish to check out the project in a developer build:
+1. First step is to move into the cultureforyou directory
 
-```sh
-npm run dev
-```
+    ```
+    cd cultureforyou
+    ```
 
-If you wish to build the project for deployment:
+2. Next we pull from the git repo
 
-```sh
-npm run build
-```
+    ```
+    git pull
+    ```
+
+3. Then we make sure have all the packages installed.
+
+    ```
+    npm ci
+    ```
+
+4. Then we must re-build the project.
+
+    ```
+    npm run build
+    ```
+
+5. After the project is build without errors, we must restart the pm2 hosting.
+    ```
+    pm2 restart cultureforu
+    ```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 Ensure there are no build errors aside from eslint. From there the project is ready to be launched in whatever manner is desired.
 
@@ -195,10 +244,9 @@ Ensure there are no build errors aside from eslint. From there the project is re
 -   [x] Add emailing service
 -   [x] Add website analytics
 -   [x] Add user login system
--   [ ] Add an appointment scheduling feature
--   [ ] Add a payment system
--   [ ] Add an admin dashboard
--   [ ] Add a user dashboard
+-   [x] Add an appointment scheduling feature
+-   [x] Add an admin dashboard
+-   [x] Add a user dashboard
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -274,8 +322,11 @@ These sites and projects were very helpful in the development of this project. W
 
 <!-- Custom files and links -->
 
-[logo-img]: docs/imgs/logo-color.png
-[homepage-img]: docs/imgs/culture-homepage.png
+[d8-logo-img]: docs/imgs/logo-color.png
+[cfu-logo-img]: docs/imgs/favicon.ico
+[culture-homepage-img]: docs/imgs/culture-homepage.png
+[homepage-admin-img]: docs/imgs/homepage-admin.png
+[homepage-img]: docs/imgs/homepage.png
 
 <!-- References to Projects -->
 
@@ -329,16 +380,11 @@ These sites and projects were very helpful in the development of this project. W
 
 [next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [next-url]: https://nextjs.org/
-[react.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
-[react-url]: https://reactjs.org/
-[vue.js]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D
-[vue-url]: https://vuejs.org/
-[angular.io]: https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
-[angular-url]: https://angular.io/
-[svelte.dev]: https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00
-[svelte-url]: https://svelte.dev/
-[laravel.com]: https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
-[laravel-url]: https://laravel.com
-[bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
-[bootstrap-url]: https://getbootstrap.com
-[jquery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
+[next-auth.js]: https://img.shields.io/badge/nextauth.js-000000?style=for-the-badge&logoColor=white
+[next-auth-url]: https://next-auth.js.org/
+[gcc.js]: https://img.shields.io/badge/Google%20Cloud-000000?style=for-the-badge&logo=google&logoColor=white
+[gcc-url]: https://console.cloud.google.com/
+[mysql.js]: https://img.shields.io/badge/MySQL-000000?style=for-the-badge&logo=mysql&logoColor=white
+[mysql-url]: https://www.mysql.com/
+[sendgrid.js]: https://img.shields.io/badge/SendGrid-000000?style=for-the-badge&logo=sendgrid&logoColor=white
+[sendgrid-url]: https://sendgrid.com/

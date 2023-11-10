@@ -28,6 +28,7 @@ yarn-error.log*
 # local env files
 .env*.local
 sendgrid.env
+cypress.env.json
 
 # vercel
 .vercel
