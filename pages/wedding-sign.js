@@ -78,12 +78,15 @@ export default function WeddingSigns(){
 <h1 className={styles.titleH1}>  Wedding Sign Shop </h1>
   <p className={styles.descP}> Are you in needs of wedding signs? Check out our wedding signs services below! </p>
         <div className={styles.shopNavBarContainer}>
-     
+        <a href='./shop-layout' id="all-link" className={styles.shopNavBar}>
+          All
+          </a>
+          <span className={styles.shopNavBarLine}>|</span>
         <a href="./henna-showcase" id="henna-showcase-link" className={styles.shopNavBar}>
 						Henna
 					</a>
 					<a className={styles.shopNavBarLine}>|</a>
-					<a href="./topper" id="topper-showcase-link" className={styles.active}>
+					<a href="./topper" id="topper-showcase-link" className={styles.shopNavBar}>
 						Topper
 					</a>
 					<a className={styles.shopNavBarLine}>|</a>
@@ -91,7 +94,7 @@ export default function WeddingSigns(){
 						Engraving
 					</a>
 					<a className={styles.shopNavBarLine}>|</a>
-					<a href="./wedding-sign" id="wedding-sign-showcase-link" className={styles.shopNavBar}>
+					<a href="./wedding-sign" id="wedding-sign-showcase-link" className={styles.active}>
 						Wedding Sign
 					</a>
 				</div>

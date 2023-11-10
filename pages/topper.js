@@ -83,6 +83,9 @@ export default function Toppers() {
 					Looking to make your cake stand out? Check out our cake topper services below!{" "}
 				</p>
 				<div className={styles.shopNavBarContainer}>
+				<a href='./shop-layout' id="all-link" className={styles.shopNavBar}>
+          			All
+          			</a>
 					<a className={styles.shopNavBarLine}>|</a>
 					<a href="./henna-showcase" id="henna-showcase-link" className={styles.shopNavBar}>
 						Henna
