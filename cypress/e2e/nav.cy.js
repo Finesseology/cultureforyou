@@ -8,13 +8,6 @@ describe("Navigation", () => {
 		cy.url().should("eq", Cypress.config().baseUrl); // Ensure that URL is exactly the base URL ("/")
 	});
 
-	it("navigates to specific pages in the navbar", () => {
-		pagesToVisit.forEach((page) => {
-			cy.get(`a[href*="${page}"]`).click({ multiple: true });
-			cy.url().should("include", page);
-		});
-	});
-
 	it("visits the appointments page", () => {
 		cy.get('a[href*="/appointments"]').click({ multiple: true });
 		cy.url().should("include", "/appointments");
