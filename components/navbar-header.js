@@ -14,6 +14,8 @@ export default function SignInSignOutBar() {
 	const { data: session } = useSession();
 	//Setting admin to the cultureforyou email by checking the logged in session
 
+	const isUser = status === "authenticated";
+
 	if (status === "loading") {
 		return (
 			<nav>
@@ -82,6 +84,12 @@ export default function SignInSignOutBar() {
 				{session.isAdmin && (
 					<Link className={styles.SignInSignOut_li} href="../admin-page">
 						<li>Admin Dashboard</li>
+					</Link>
+				)}
+
+				{isUser && (
+					<Link className={styles.SignInSignOut_li} href="../user-page">
+						<li>User Dashboard</li>
 					</Link>
 				)}
 

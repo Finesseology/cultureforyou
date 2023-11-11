@@ -25,7 +25,9 @@ import styles from "@/styles/admin-todo-list.module.css";
 
 
 
-const PendingAppointments = () => {
+
+
+const HistoryAppointments = () => {
 
 
       const [events, setEvents] = useState([]);
@@ -34,12 +36,19 @@ const PendingAppointments = () => {
       const { eventsLength } = useContext(EventsContext);
       const { setToDoList } = useContext(EventsContext);
       const { todolist } = useContext(EventsContext);
+      
 
+const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+};
+const handleClose = () => {
+        setAnchorEl(null);
+};
 
 useEffect(() => {
-  const fetchData = async (status) => {
+  const fetchData = async () => {
     try {
-      const url = `./api/confirm-appointments?status=${status}`;
+      const url = `./api/appointment-history`;
       //console.log(status);
       const response = await fetch(url, {
         method: 'GET',
@@ -48,6 +57,9 @@ useEffect(() => {
         },
       });
 
+
+
+      
       if (response.ok) {
         const res = await response.json();
 
@@ -60,7 +72,7 @@ useEffect(() => {
 
         setEvents(formattedEvents);
         setLoading(false);
-        setEventsLength(formattedEvents.length);
+     
         console.log('Appointments fetched successfully');
       } else {
         console.error('Error fetching appointments');
@@ -74,10 +86,10 @@ useEffect(() => {
 
   
   
-  const status = 'pending';
-  fetchData(status);
+  
+  fetchData();
 
-}, [eventsLength]);
+}, [events]);
 
 
 
@@ -96,11 +108,19 @@ const handleAction = async (status, id) => {
         console.log('Event confirmed successfully');
         const updatedEvents = events.filter((event) => event.id !== id);
         setEvents(updatedEvents);
-        setEventsLength(updatedEvents.length);
+       
         setLoading(false);
-       if(status==="accepted") {
+
+        // incrementing the global variable for the size of events for the pending tab
+       if(status === "pending") {
+        setEventsLength(eventsLength+1);
+       }
+
+       // incrementing the global variable for the size of todo tasks for the todolist tab
+       if (status === "accepted") {
         setToDoList(todolist+1);
        }
+
       } else {
         console.error('Error confirming event');
         setLoading(false);
@@ -129,8 +149,8 @@ const handleAction = async (status, id) => {
       <TableCell align="left">Start Time</TableCell>
       <TableCell align="left">End Time</TableCell>
       <TableCell align="left">Status</TableCell>
-      <TableCell align="center">Accept</TableCell>
-      <TableCell align="center">Decline</TableCell>
+      <TableCell align="center">Move to To-Do List</TableCell>
+      <TableCell align="center">Move to Pending Requests</TableCell>
     </TableRow>
   </TableHead>
   <TableBody>
@@ -148,8 +168,12 @@ const handleAction = async (status, id) => {
         <TableCell align="left">{event.start.toLocaleString()}</TableCell>
         <TableCell align="left">{event.end.toLocaleString()}</TableCell>
         <TableCell align="left">{event.status}</TableCell>
-        <TableCell align="center"><Button onClick={() => handleAction('accepted', event.id)}><CheckIcon></CheckIcon></Button> </TableCell>
-        <TableCell align="center"><Button onClick={() => handleAction('denied', event.id)}><CloseIcon></CloseIcon></Button></TableCell>
+        <TableCell align="center"> 
+        <Button onClick={() => handleAction('accepted', event.id)}>Accept</Button>
+        </TableCell>
+        <TableCell align="center">
+            <Button onClick={() => handleAction('pending', event.id)}>Pending</Button>
+        </TableCell>
       </TableRow>
     ))
   )}
@@ -165,5 +189,4 @@ const handleAction = async (status, id) => {
 }
 
 
-export default PendingAppointments;
-
+export default HistoryAppointments;
