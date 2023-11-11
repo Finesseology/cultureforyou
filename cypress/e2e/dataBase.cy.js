@@ -2,7 +2,7 @@
 
 describe("Business Database Managment", () => {
 
-    it('should create the appointmentRequest table into DB', async () => {
+    it('should create the appointmentRequest table into DB', () => {
         cy.task('queryDB', `CREATE TABLE appointmentRequest(
                     id int PRIMARY KEY auto_increment,
                     userId varchar(255),
@@ -31,14 +31,6 @@ describe("Business Database Managment", () => {
             })
     });
 
-    it('should delete rows from the appointmentRequest table', () => {
-        cy.task('queryDB', `DELETE FROM appointmentRequest;`)
-            .then((result) => {
-                expect(result.affectedRows).to.equal(8)
-            })
-    });
-
-
     it('should update a row in the appointmentRequest table', () => {
         cy.task('queryDB', `UPDATE appointmentRequest SET start_time = '2023-10-27 18:00:00', end_time = '2023-10-27 19:00:00' WHERE userId = '101';`)
             .then((result) => {
@@ -46,14 +38,22 @@ describe("Business Database Managment", () => {
             })
     });
 
-    it("DROP TABLE from database", () => {
+    // since in this test case we added two rows, the delete query will also expect 2 affected rows
+    it('should delete rows from the appointmentRequest table', () => {
+        cy.task('queryDB', `DELETE FROM appointmentRequest;`)
+            .then((result) => {
+                expect(result.affectedRows).to.equal(2)
+            })
+    });
+
+    it("DROP appointmentRequest TABLE from database", () => {
         cy.task('queryDB', `DROP TABLE appointmentRequest`)
             .then((result) => {
                 expect(result.affectedRows).to.equal(0)
             })
     });
 
-    it('should create the shop table into DB', async () => {
+    it('should create the shop table into DB', () => {
         cy.task('queryDB', `CREATE TABLE shop(
                 imageName text NOT NULL,
                 imageType varchar(60) NOT NULL,
@@ -82,6 +82,13 @@ describe("Business Database Managment", () => {
         cy.task('queryDB', `DELETE FROM shop WHERE imageType = 'engraving';`)
             .then((result) => {
                 expect(result.affectedRows).to.equal(1)
+            })
+    });
+
+    it("DROP shop TABLE from database", () => {
+        cy.task('queryDB', `DROP TABLE shop`)
+            .then((result) => {
+                expect(result.affectedRows).to.equal(0)
             })
     });
 
