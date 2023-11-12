@@ -89,7 +89,7 @@ useEffect(() => {
   
   fetchData();
 
-}, [events]);
+}, [eventsLength, todolist]);
 
 
 

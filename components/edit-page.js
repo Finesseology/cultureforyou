@@ -172,20 +172,21 @@ const EditPage = (props) => {
         <div id="addImageTab" className={`${styles.tabcontent} ${activeTab === "addImageTab" ? styles.active : styles.hidden}`}>
             <div style={{ backgroundColor: "#e0dedc" }} className={styles.tabcontent}>
                 <div style={{ textAlign: "center" }} className={styles.uploadSuccessMessage}>
-                    Uploading Images require you to select the type of image.
-                    <br></br>Selecting "Other" as the Image Type allows you to upload the image directly to the server.
-                    <br></br>Otherwise, you can select where you want the image to go on the shop pages.
-                    <br></br>When an image goes onto the store page, it requires a title that will appear right below the image.
-                    <br></br>You may optionally include a description, which will appear below the title.
-                    <br></br>Finally, select an image to upload. There will be text below here to inform you of a successful upload!
+                <h1>Upload an Image</h1>
+                    <p>Uploading Images require you to select the type of image.
+                    Selecting "Other" as the Image Type allows you to upload the image directly to the server.
+                    Otherwise, you can select where you want the image to go on the shop pages.
+                    When an image goes onto the store page, it requires a title that will appear right below the image.
+                    You may optionally include a description, which will appear below the title.
+                    Finally, select an image to upload. There will be text below here to inform you of a successful upload!</p>
                 </div>
                 <div>
                     <div className={styles.uploadContainer}>
                         <div style={{ textAlign: "center" }}>
-                            <h1>Upload an Image</h1>
-                            Click the Browse button below to select an image to upload to the server.
-                            <br></br>After selecting an image file (PNG, JPG, JPEG, GIF), you may use the Upload button to upload it.
-                            <br></br>You should receive a confirmation message that it has been uploaded.
+                            
+                          <p>  Click the Browse button below to select an image to upload to the server.
+                            After selecting an image file (PNG, JPG, JPEG, GIF), you may use the Upload button to upload it.
+                            You should receive a confirmation message that it has been uploaded.</p>
                             <form onSubmit={handleImageUpload}>
                                 <label htmlFor="imageType">Select Image Type:</label>
                                 <select name="imageType" id="imageType" value={imageType} onChange={handleImageTypeChange}>
