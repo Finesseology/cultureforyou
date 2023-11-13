@@ -87,7 +87,7 @@ export default function SignInSignOutBar() {
 					</Link>
 				)}
 
-				{isUser && (
+				{(isUser && (!session.isAdmin))&& (
 					<Link className={styles.SignInSignOut_li} href="../user-page">
 						<li>User Dashboard</li>
 					</Link>
