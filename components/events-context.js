@@ -4,7 +4,7 @@ import { createContext, useContext, useState } from 'react';
 export const EventsContext = createContext({
   eventsLength: 0,
   setEventsLength: () => {},
-  todolist: '', // Add your additional variable here
+  todolist: 0, // Add your additional variable here
   setToDoList: () => {}, // Add the setter for the additional variable
 });
 
@@ -18,7 +18,7 @@ export const useEventsContext = () => {
 
 export const EventsProvider = ({ children }) => {
   const [eventsLength, setEventsLength] = useState(0);
-  const [todolist, setToDoList] = useState(''); // Set the initial value for the additional variable
+  const [todolist, setToDoList] = useState(0); // Set the initial value for the additional variable
 
   return (
     <EventsContext.Provider
