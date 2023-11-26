@@ -33,6 +33,7 @@ const AdminToDoList = () => {
       const [loading, setLoading] = useState(true);
       const { setToDoList } = useContext(EventsContext);
       const { todolist } = useContext(EventsContext);
+      const [appointment, setAppointment] = useState([]);
 
 useEffect(() => {
   const fetchData = async (status) => {
@@ -92,11 +93,36 @@ const handleAction = async (status, id) => {
   
       if (response.ok) {
         console.log('Event confirmed successfully');
+        const appointmentInfo = events.filter((event) => event.id == id);
+        setAppointment(appointmentInfo);
         const updatedEvents = events.filter((event) => event.id !== id);
         setEvents(updatedEvents);
         setToDoList(updatedEvents.length);
         //fetchData('pending');
         setLoading(false);
+        if(status === "completed") {
+          const text = `Your appointment for ${appointment[0].title} with Culture For You at ${appointment[0].start.toLocaleString()} has been ${status}.
+
+We hope you've enjoyed the services administered and look forward to seeing you again.
+If you have any questions or concerns, please contact us at cultureforyou1@gmail.com and we will get back to you shortly.
+We thank you for choosing Culture For You.
+                  
+Best Regards, 
+Culture For You`;
+          sendEmail(status, text);
+        }
+
+        if(status == "canceled") {
+          const text = `Your appointment for ${appointment[0].title} with Culture For You at ${appointment[0].start.toLocaleString()} has been ${status}.
+
+We sincerely apologize for not being able to fulfill this appointment service. If another time matches your preferences, please fill out the appointment request form with a different specified time and we will respond shortly.
+If you have any questions or concerns, please contact us at cultureforyou1@gmail.com and we will get back to you shortly.
+                  
+Best Regards, 
+Culture For You`;
+
+          sendEmail(status, text);
+        }
        
       } else {
         console.error('Error confirming event');
@@ -106,10 +132,35 @@ const handleAction = async (status, id) => {
       console.error('Network error:', error);
       setLoading(false);
     }
+
+    
   };
   
 
+  const sendEmail = async (status, msgText) => {
 
+    try {
+			const response = await fetch('/api/email', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({
+					to: appointment[0].userId,
+					subject: `Appointment With Culture For You has been ${status}.`,
+					text: msgText,
+				}),
+			});
+			if (response.ok) {
+				//setMessage('Email sent successfully!');
+			} else {
+				//setMessage('Failed to send email.');
+			}
+		} catch (error) {
+			console.error(error);
+			//setMessage('Failed to send email');
+		}
+  };
 
 
       return (
