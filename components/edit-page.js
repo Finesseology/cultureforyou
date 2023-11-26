@@ -188,13 +188,13 @@ const EditPage = (props) => {
                             After selecting an image file (PNG, JPG, JPEG, GIF), you may use the Upload button to upload it.
                             You should receive a confirmation message that it has been uploaded.</p>
                             <form onSubmit={handleImageUpload}>
-                                <label htmlFor="imageType">Select Image Type:</label>
-                                <select name="imageType" id="imageType" value={imageType} onChange={handleImageTypeChange}>
-                                    <option value="other">Other</option>
-                                    <option value="weddingSign">Wedding Sign</option>
-                                    <option value="engraving">Engraving</option>
-                                    <option value="topper">Topper</option>
-                                    <option value="henna">Henna</option>
+                                <label className={styles.selectImageLabel} htmlFor="imageType">Select Image Type:</label>
+                                <select className={styles.selectImageSelect} name="imageType" id="imageType" value={imageType} onChange={handleImageTypeChange}>
+                                    <option className={styles.selectImageOption} value="other">Other</option>
+                                    <option className={styles.selectImageOption} value="weddingSign">Wedding Sign</option>
+                                    <option className={styles.selectImageOption} value="engraving">Engraving</option>
+                                    <option className={styles.selectImageOption} value="topper">Topper</option>
+                                    <option className={styles.selectImageOption} value="henna">Henna</option>
                                 </select>
                                 {/* Conditional rendering of Image Title */}
                                 {imageType !== 'other' && (
@@ -225,15 +225,16 @@ const EditPage = (props) => {
                                 <div>
                                     {!uploadFlip && (
                                         <div>
-                                            <label htmlFor="file">Select Image File:</label>
-                                            <input type="file" name="file" id="file" accept="image/jpeg, image/png, image/gif" onChange={handleFileChange} />
-                                            <button type="submit">Upload</button>
+                                            <label className={styles.uploadImage} htmlFor="file">Select Image File:</label>
+                                            <input className={styles.uploadImageInput} type="file" name="file" id="file" accept="image/jpeg, image/png, image/gif" onChange={handleFileChange} />
+                                            <button className={styles.uploadImageBTN} type="submit">Upload</button>
                                         </div>
                                     )}
                                     {uploadFlip && (
                                         <div>
                                             <label htmlFor="file">Select Image File:</label>
                                             <input type="file" name="file" id="file" accept="image/jpeg, image/png, image/gif" onChange={handleFileChange} />
+                
                                             <button type="submit">Upload</button>
                                         </div>
                                     )}
@@ -263,7 +264,7 @@ const EditPage = (props) => {
                     </div>
                 )}
                 <div className={styles.dropdownContainer}>
-                    <div style={{ fontSize: "25px", backgroundColor: "grey" }} className={styles.editHeader} onClick={() => setIsEditOpen(!isEditOpen)}>
+                    <div className={styles.editHeader} onClick={() => setIsEditOpen(!isEditOpen)}>
                         Edit {isEditOpen ? '⇧' : '⇩'}
                     </div>
                     {isEditOpen && (

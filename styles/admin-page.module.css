@@ -1,3 +1,53 @@
+.selectImageLabel{
+	font-weight:600;
+	margin-right:10px;
+}
+.selectImageSelect{
+	margin-top:20px;
+	margin-bottom:20px;
+	padding:5px 10px;
+	font-size:15px;
+	border-radius:10px;
+}
+.selectImageOption{
+	font-size:15px;
+}
+
+.uploadImage{
+	font-weight:600;
+	margin-right:10px;
+}
+
+.uploadImageInput{
+	margin-bottom:20px;
+	font-size:15px;
+	border-radius:10px;
+	padding:5px;
+
+}
+
+.uploadImageBTN{
+	margin-top:20px;
+	margin-bottom:20px;
+	padding:2px 5px;
+	font-size:15px;
+	border-radius:10px;
+	margin-left:-50px;
+	cursor: pointer;
+	border:1px solid #555;
+}
+
+.uploadImageBTN:hover{
+	background-color: #ddd;
+}
+
+.editHeader{
+	font-size:25px;
+	font-weight:400;
+	padding:2px 20px;
+	background-color: grey;
+}
+
 .selectTab {
 	float: left;
 	border: 1px solid #ccc;
