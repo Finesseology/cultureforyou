@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from "../styles/special-orders.module.css";
+import styles from "../styles/appointment-form.module.css";
 import { Dialog, DialogTitle, DialogContent, DialogActions, Button, TextField, Select, MenuItem, InputLabel, TextareaAutosize } from '@mui/material';
 import DatePicker from "react-datepicker"; // Import the DatePicker component
 import "react-datepicker/dist/react-datepicker.css"; // Import the styles
@@ -142,34 +142,49 @@ for (let hour = 9; hour <= 17; hour++) {
 
 return (
 	<div>
-		<button onClick={openForm}>Open Form</button>
-		<Dialog open={isFormOpen} onClose={closeForm}>
-		<DialogTitle>Appointment Booking Inquiry</DialogTitle>
-		<DialogContent>
-			<form onSubmit={handleSubmit}>
-			<TextField
-				id = 'firstName'
+	  <button onClick={openForm}>Open Form</button>
+	  <Dialog open={isFormOpen} onClose={closeForm}>
+		<DialogTitle className={styles.dialogTitle}>Appointment Booking Inquiry</DialogTitle>
+		<DialogContent className={styles.dialogContent}>
+		  <form onSubmit={handleSubmit}>
+			<div className={styles.formControl}>
+			  <InputLabel>Day</InputLabel>
+			  <div className={styles.datePickerContainer}>
+				<DatePicker
+				  id="date"
+				  selected={selectedDate}
+				  onChange={handleDateChange}
+				  dateFormat="MM/dd/yyyy"
+				  placeholderText="Select a date"
+				  className={styles.datePicker}
+				/>
+			  </div>
+			</div>
+			<div className={styles.formControl}>
+			  <TextField
+				id="firstName"
 				label="First Name"
 				variant="outlined"
 				fullWidth
 				value={firstName}
 				onChange={(e) => setFirstName(e.target.value)}
 				required
-			/>
-			<br />
-			<TextField
-				id = 'lastName'
+			  />
+			</div>
+			<div className={styles.formControl}>
+			  <TextField
+				id="lastName"
 				label="Last Name"
 				variant="outlined"
 				fullWidth
 				value={lastName}
 				onChange={(e) => setLastName(e.target.value)}
 				required
-			/>
-
-			<br />
-			<TextField
-				id = 'email'
+			  />
+			</div>
+			<div className={styles.formControl}>
+			  <TextField
+				id="email"
 				label="Email"
 				variant="outlined"
 				fullWidth
@@ -177,80 +192,72 @@ return (
 				value={email}
 				onChange={(e) => setEmail(e.target.value)}
 				required
-			/>
-
-			<br />
-			<TextField
-				id = 'title'
+			  />
+			</div>
+			<div className={styles.formControl}>
+			  <TextField
+				id="title"
 				label="Title"
 				variant="outlined"
 				fullWidth
 				value={title}
 				onChange={(e) => setTitle(e.target.value)}
-				equired
-			/>
-
-			<br />
-			<div style={{ marginBottom: '20px' }}>
-				<InputLabel>Day</InputLabel>
-				<DatePicker
-					id = 'date'
-					selected={selectedDate}
-					onChange={handleDateChange}
-					dateFormat="MM/dd/yyyy"
-					placeholderText="Select a date"
-				/>
-			</div>
-
-			<br />
-			<InputLabel>Start Time</InputLabel>
-			<Select
-				id = 'start-time'
-				value={start}
-				onChange={handleStartTimeChange}
 				required
+			  />
+			</div>
+			<div className={styles.formControl}>
+			  <InputLabel>Start Time</InputLabel>
+			  <div className={styles.startTimeContainer}>
+				<Select
+				  id="start-time"
+				  value={start}
+				  onChange={handleStartTimeChange}
+				  required
 				>
-				{startTimeOptions}
-			</Select>
-
-			<br />
-			<InputLabel>End Time</InputLabel>
-			<Select
-				id = 'end-time'
+				  {startTimeOptions}
+				</Select>
+			  </div>
+			</div>
+			<div className={styles.formControl}>
+			  <InputLabel>End Time</InputLabel>
+			  <Select
+				id="end-time"
 				value={end}
 				onChange={handleEndTimeChange}
 				required
-				>
+			  >
 				{endTimeOptions}
-			</Select>
-			<br />
-			</form>
+			  </Select>
+			</div>
+			<div className={styles.buttonContainer}>
+			  <Button onClick={closeForm} color="primary">
+				Cancel
+			  </Button>
+			  <Button onClick={handleSubmit} color="primary">
+				Send Order
+			  </Button>
+			</div>
+		  </form>
 		</DialogContent>
 		<DialogActions>
-		<Button onClick={closeForm} color="primary">
-			Cancel
-		</Button>
-		<Button onClick={handleSubmit} color="primary">
-			Send Order
-		</Button>
 		</DialogActions>
-	</Dialog>
-
-
-	<Dialog open={errorDialogOpen} onClose={closeErrorDialog}>
-	<DialogTitle>Error</DialogTitle>
-	<DialogContent>
-		<p>{errorMessage}</p>
-	</DialogContent>
-	<DialogActions>
-	<Button onClick={closeErrorDialog} color="primary">
-		OK
-	</Button>
-	</DialogActions>
-	</Dialog>
-
-	{message && <p>{message}</p>}
+	  </Dialog>
+  
+	  <Dialog open={errorDialogOpen} onClose={closeErrorDialog}>
+		<DialogTitle>Error</DialogTitle>
+		<DialogContent>
+		  <p className={styles.errorMessage}>{errorMessage}</p>
+		</DialogContent>
+		<DialogActions>
+		  <Button onClick={closeErrorDialog} color="primary">
+			OK
+		  </Button>
+		</DialogActions>
+	  </Dialog>
+  
+	  {message && <p className={styles.successMessage}>{message}</p>}
 	</div>
-);
+  );
 }
+
 export default AppointmentForm;
