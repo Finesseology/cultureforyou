@@ -22,6 +22,7 @@ const UserConfirmedTab = () => {
 
     const [events, setEvents] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [appointment, setAppointment] = useState([]);
 
     const { data: session } = useSession();
 	const router = useRouter();
@@ -74,7 +75,7 @@ const UserConfirmedTab = () => {
         const emailAddress = session.user.email;
         fetchData(emailAddress);
       
-      }, [events]);
+      }, []);
 
 
 
@@ -93,6 +94,9 @@ const handleAction = async (status, id) => {
 
     if (response.ok) {
       console.log('Event confirmed successfully');
+      const appointmentInfo = events.filter((event) => event.id == id);
+      setAppointment(appointmentInfo);
+      console.log(appointmentInfo);
       const updatedEvents = events.filter((event) => event.id !== id);
       setEvents(updatedEvents);
       //fetchData('pending');
@@ -106,9 +110,34 @@ const handleAction = async (status, id) => {
     console.error('Network error:', error);
     setLoading(false);
   }
+
+  sendEmail(status);
 };
 
+const sendEmail = async (status) => {
 
+  try {
+    const response = await fetch('/api/email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        to: 'cultureforyou1@gmail.com',
+        subject: `Appointment For ${appointment[0].userName} has been ${status}.`,
+        text: `Appointment for ${appointment[0].userName} with Culture For You at ${appointment[0].start.toLocaleString()} has been ${status}.`,
+      }),
+    });
+    if (response.ok) {
+      //setMessage('Email sent successfully!');
+    } else {
+      //setMessage('Failed to send email.');
+    }
+  } catch (error) {
+    console.error(error);
+    //setMessage('Failed to send email');
+  }
+};
 
 
 

@@ -68,7 +68,7 @@ const UserHistoryTab = () => {
         const emailAddress = session.user.email;
         fetchData(emailAddress);
       
-      }, [events]);
+      }, []);
 
 
 
