@@ -1,0 +1,57 @@
+.dialogTitle {
+	font-size: 1.5rem;
+	font-weight: bold;
+  }
+  
+  .dialogContent {
+	padding: 20px;
+	width: 400px; 
+  }
+  
+  .formControl {
+	margin-bottom: 20px;
+	width: 100%; 
+  }
+  
+  .datePickerContainer {
+	margin-bottom: 20px;
+	position: relative; 
+  }
+  
+  .datePickerContainer {
+	margin-bottom: 20px;
+	position: relative;
+	z-index: 2; 
+  }
+  
+  .datePicker {
+	width: 100%;
+	padding: 10px;
+  }
+  
+  .startTimeContainer {
+	margin-bottom: 10px; 
+  }
+  
+  .buttonContainer {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 20px;
+	width: 100%; 
+  }
+  
+
+  .formControl > * {
+	margin-bottom: 10px;
+  }
+  
+  .errorMessage {
+	color: red;
+	margin-top: 10px;
+  }
+  
+  .successMessage {
+	color: green;
+	margin-top: 10px;
+  }
+  
