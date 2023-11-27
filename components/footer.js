@@ -74,7 +74,7 @@ const Footer = () => {
 							<li>Privacy Policy</li>
 						</Link>
 						<Link className={styles.lowerFooterPTOS} href="../terms" id="footer-terms-link">
-							<li>Term of Service</li>
+							<li>Terms of Service</li>
 						</Link>{" "}
 					</div>
 				</div>
