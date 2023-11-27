@@ -24,7 +24,7 @@ export default async function handler(req, res) {
             const { id } = req.query;
             const { status } = req.query;
            // console.log(userId, status);
-            const querySql = "UPDATE appointmentrequest SET status = ? WHERE id = ?"
+            const querySql = "UPDATE appointmentRequest SET status = ? WHERE id = ?"
            // const insertParams = [status, userId];
             const result = await query({ query: querySql, values: [status, id]});
             res.status(200).json({appointments: result});
