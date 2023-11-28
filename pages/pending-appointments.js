@@ -35,7 +35,7 @@ const PendingAppointments = () => {
       const { setToDoList } = useContext(EventsContext);
       const { todolist } = useContext(EventsContext);
       const { data: session } = useSession();
-      const [appointment, setAppointment] = useState([]);
+      //const [appointment, setAppointment] = useState([]);
 
 
 useEffect(() => {
@@ -96,15 +96,20 @@ const handleAction = async (status, id) => {
   
       if (response.ok) {
         console.log('Event confirmed successfully');
-        const appointmentInfo = events.filter((event) => event.id == id);
-        setAppointment(appointmentInfo);
+        const appointmentInfo = events.filter((event) => event.id == id).map((event) => ({
+          ...event,
+          start: new Date(event.start_time),
+          end: new Date(event.end_time),
+        }));
+        //setAppointment(appointmentInfo);
+        //console.log(appointmentInfo);
         const updatedEvents = events.filter((event) => event.id !== id);
         setEvents(updatedEvents);
         setEventsLength(updatedEvents.length);
         setLoading(false);
        if(status==="accepted") {
         setToDoList(todolist+1);
-        const text = `Your appointment for ${appointment[0].title} with Culture For You at ${appointment[0].start.toLocaleString()} has been ${status}.
+        const text = `Your appointment for ${appointmentInfo[0].title} with Culture For You at ${appointmentInfo[0].start.toLocaleString()} has been ${status}.
 
 Please give us 1-2 business days to contact you about deposit and location for the service to be done. 
 If you have any questions or concerns, please contact us at cultureforyou1@gmail.com and we will get back to you shortly.
@@ -112,21 +117,23 @@ We thank you for choosing Culture For You.
         
 Best Regards, 
 Culture For You`;
-        sendEmail(status, text);
+        sendEmail(status, text, appointmentInfo);
+        
        }
 
        if(status === "denied") {
-        const text = `Your appointment for ${appointment[0].title} with Culture For You at ${appointment[0].start.toLocaleString()} has been ${status}.
+        const text = `Your appointment for ${appointmentInfo[0].title} with Culture For You at ${appointmentInfo[0].start.toLocaleString()} has been ${status}.
 
 We sincerely apologize for not being able to accomodate the time you've chosen. If another time matches your preferences, please fill out the appointment request form with a different specified time and we will respond shortly.
 If you have any questions or concerns, please contact us at cultureforyou1@gmail.com and we will get back to you shortly.
         
 Best Regards, 
 Culture For You`;
-        sendEmail(status, text);
+        sendEmail(status, text, appointmentInfo);
+        
        }
 
-       //sendEmail(status);
+       
 
       } else {
         console.error('Error confirming event');
@@ -138,9 +145,10 @@ Culture For You`;
     }
   };
 
+  
 
 
-  const sendEmail = async (status, msgText) => {
+  const sendEmail = async (status, msgText, appointment) => {
 
     try {
 			const response = await fetch('/api/email', {
@@ -156,8 +164,10 @@ Culture For You`;
 			});
 			if (response.ok) {
 				//setMessage('Email sent successfully!');
+        console.log('Email sent successfully!');
 			} else {
 				//setMessage('Failed to send email.');
+        console.error('Failed to send email.');
 			}
 		} catch (error) {
 			console.error(error);
