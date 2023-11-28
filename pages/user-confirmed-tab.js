@@ -22,7 +22,7 @@ const UserConfirmedTab = () => {
 
     const [events, setEvents] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [appointment, setAppointment] = useState([]);
+    //const [appointment, setAppointment] = useState([]);
 
     const { data: session } = useSession();
 	const router = useRouter();
@@ -94,14 +94,19 @@ const handleAction = async (status, id) => {
 
     if (response.ok) {
       console.log('Event confirmed successfully');
-      const appointmentInfo = events.filter((event) => event.id == id);
-      setAppointment(appointmentInfo);
-      console.log(appointmentInfo);
+      const appointmentInfo = events.filter((event) => event.id == id).map((event) => ({
+        ...event,
+        start: new Date(event.start_time),
+        end: new Date(event.end_time),
+      }));
+      //setAppointment(appointmentInfo);
+      //console.log(appointmentInfo);
       const updatedEvents = events.filter((event) => event.id !== id);
       setEvents(updatedEvents);
       //fetchData('pending');
       setLoading(false);
-     
+      sendEmail(status, appointmentInfo);
+      
     } else {
       console.error('Error confirming event');
       setLoading(false);
@@ -111,10 +116,10 @@ const handleAction = async (status, id) => {
     setLoading(false);
   }
 
-  sendEmail(status);
+  
 };
 
-const sendEmail = async (status) => {
+const sendEmail = async (status, appointment) => {
 
   try {
     const response = await fetch('/api/email', {
@@ -130,8 +135,10 @@ const sendEmail = async (status) => {
     });
     if (response.ok) {
       //setMessage('Email sent successfully!');
+      console.log('Email sent successfully!');
     } else {
       //setMessage('Failed to send email.');
+      console.error('Failed to send email.');
     }
   } catch (error) {
     console.error(error);
