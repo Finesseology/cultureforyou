@@ -17,7 +17,7 @@ const MyCalendar = () => {
   const [selectedSlot, setSelectedSlot] = useState({
     start: Date,
     end: Date,
-  });
+  }); 
   const [newEventTitle, setNewEventTitle] = useState('');
   const [deletedEvents, setDeletedEvents] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
