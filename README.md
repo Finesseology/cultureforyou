@@ -98,7 +98,7 @@ This project was built using Next.js.
 # Getting Started
 
 This is an example of how to set up your project locally.
-To get a local copy up and running follow these simple example steps.
+To get a local copy up and running follow these simple example steps. This example is based off of Ubuntu 20.04.6.
 
 ## Prerequisites
 
@@ -108,7 +108,7 @@ To get a local copy up and running follow these simple example steps.
 First we update the server to ensure it is up to date.
 <br>
 
-Debian based linux system:
+Debian based linux systems:
 
 ```
 sudo apt update
